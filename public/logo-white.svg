@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" fill="none">
+  <rect x="2" y="4" width="14" height="42" rx="2" stroke="white" stroke-width="1.5" fill="none"/>
+  <rect x="5" y="16" width="8" height="10" rx="1" fill="white" opacity="0.8"/>
+  <path d="M9 15 L9 8 M6 11 L9 7 L12 11" stroke="#C9A84C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="22" y="22" font-family="Georgia, serif" font-size="16" font-weight="700" fill="white" letter-spacing="2">GREEN</text>
+  <text x="22" y="40" font-family="Georgia, serif" font-size="16" font-weight="300" fill="#B7E4C7" letter-spacing="4">UP</text>
+</svg>

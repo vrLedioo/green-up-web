@@ -1,0 +1,324 @@
+{
+  "nav": {
+    "home": "Ballina",
+    "about": "Rreth Nesh",
+    "services": "Shërbimet",
+    "projects": "Projektet",
+    "gallery": "Galeri",
+    "faq": "FAQ",
+    "contact": "Kontakt",
+    "partners": "Partnerët",
+    "getQuote": "Kërko Ofertë"
+  },
+  "emergency": {
+    "text": "Shërbim Urgjent 24/7",
+    "phone": "+383 XX XXX XXX",
+    "dismiss": "Mbyll"
+  },
+  "hero": {
+    "headline": "Ngrisim Çdo Kat.",
+    "subheadline": "Green Up ofron instalim, shitje dhe mirëmbajtje të ashensorëve premium në të gjithë Kosovën.",
+    "cta_primary": "Shiko Shërbimet",
+    "cta_secondary": "Kërko Ofertë Falas"
+  },
+  "stats": {
+    "projects": "Projekte të Kryera",
+    "experience": "Vite Eksperiencë",
+    "satisfaction": "Kënaqësi Klientësh",
+    "support": "Shërbim Urgjent"
+  },
+  "services": {
+    "title": "Shërbimet Tona",
+    "subtitle": "Zgjidhje të plota për çdo nevojë ngritëse",
+    "learnMore": "Mëso Më Shumë",
+    "items": {
+      "installation": {
+        "title": "Shitje & Instalim Ashensorësh",
+        "description": "Instalim profesional i ashensorëve të markave më të njohura evropiane, me garanci dhe standarde të larta."
+      },
+      "maintenance": {
+        "title": "Mirëmbajtje & Riparim",
+        "description": "Shërbim i rregullt mirëmbajtjeje dhe riparim të shpejtë 24/7 për të gjitha llojet e ashensorëve."
+      },
+      "homelift": {
+        "title": "Home Lift & Ashensorë Shtëpiak",
+        "description": "Ashensorë elegantë dhe kompaktë për shtëpi dhe vila private, me dizajn modern."
+      },
+      "accessibility": {
+        "title": "Platforma për Persona me Nevoja",
+        "description": "Platforma ngritëse dhe ashensorë të posaçëm për persona me aftësi të kufizuara."
+      },
+      "escalators": {
+        "title": "Shkallë Lëvizëse (Eskalatorë)",
+        "description": "Instalim dhe mirëmbajtje e eskalatorëve për qendra tregtare, hotele dhe ndërtesa publike."
+      },
+      "security": {
+        "title": "Sisteme Sigurie",
+        "description": "Sistemet më moderne të sigurisë për ashensorë: kamera, sensorë dhe sisteme alarmi."
+      }
+    }
+  },
+  "projects": {
+    "title": "Projektet Tona",
+    "subtitle": "Punë cilësore në të gjithë Kosovën",
+    "viewAll": "Shiko Të Gjitha Projektet",
+    "viewDetails": "Shiko Detajet",
+    "filters": {
+      "all": "Të Gjitha",
+      "passenger": "Pasagjerë",
+      "cargo": "Mallra",
+      "home": "Shtëpiak",
+      "escalator": "Eskalator",
+      "security": "Sigurie"
+    }
+  },
+  "whyUs": {
+    "title": "Pse të Na Zgjidhni Ne?",
+    "subtitle": "Eksperiencë, cilësi dhe besueshmëri në çdo projekt",
+    "items": {
+      "coverage": "Mbulim i plotë në të gjithë Kosovën",
+      "certified": "Produkte të certifikuara sipas standardeve BE",
+      "team": "Ekip i trajnuar dhe i licensuar",
+      "warranty": "Garanci dhe shërbim pas shitjes"
+    }
+  },
+  "testimonials": {
+    "title": "Çfarë Thonë Klientët Tanë",
+    "subtitle": "Opinione nga klientë të kënaqur",
+    "items": [
+      {
+        "text": "Green Up bëri një punë të shkëlqyer në instalimin e ashensorit në ndërtesën tonë. Profesionalizëm i lartë dhe cilësi e jashtëzakonshme.",
+        "name": "Arben Krasniqi",
+        "company": "Krasniqi Ndërtim sh.p.k."
+      },
+      {
+        "text": "Shërbimi pas shitjes është i jashtëzakonshëm. Gjithmonë të gatshëm kur kemi nevojë për mirëmbajtje.",
+        "name": "Blerta Hoxha",
+        "company": "Hotel Prishtina"
+      },
+      {
+        "text": "Zgjidhën problemin tonë urgjent në fund të javës. Shërbim 24/7 i vërtetë!",
+        "name": "Driton Berisha",
+        "company": "Qendra Tregtare Albi"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Gati të fillojmë projektin tuaj?",
+    "subtitle": "Na kontaktoni sot për një ofertë falas",
+    "contact": "Na Kontaktoni",
+    "quote": "Kërko Ofertë Falas"
+  },
+  "footer": {
+    "tagline": "Ngrisim çdo kat, çdo ditë.",
+    "rights": "Të gjitha të drejtat e rezervuara.",
+    "about": "Rreth Green Up",
+    "aboutText": "Green Up është kompania lider në Kosovë për shitje, instalim dhe mirëmbajtje të ashensorëve premium.",
+    "pages": "Faqet",
+    "services": "Shërbimet",
+    "contact": "Kontakti",
+    "address": "Prishtinë, Kosovë",
+    "phone": "+383 XX XXX XXX",
+    "email": "info@greenup-ks.com",
+    "builtBy": "Ndërtuar me kujdes"
+  },
+  "about": {
+    "hero": {
+      "title": "Rreth Green Up",
+      "subtitle": "Historia jonë, misioni ynë, vlerat tona"
+    },
+    "mission": {
+      "title": "Misioni & Vizioni",
+      "missionTitle": "Misioni Ynë",
+      "missionText": "T'u ofrojmë klientëve tanë zgjidhje ngritëse të sigurta, cilësore dhe të qëndrueshme, duke kombinuar teknologjinë më moderne me shërbimin më profesional.",
+      "visionTitle": "Vizioni Ynë",
+      "visionText": "Të jemi kompania më e besuar dhe lider në industrinë e ashensorëve në Kosovë dhe rajon, duke kontribuar në ndërtimin e infrastrukturës moderne."
+    },
+    "timeline": {
+      "title": "Historia Jonë",
+      "items": [
+        { "year": "2009", "text": "Themelimi i Green Up në Prishtinë" },
+        { "year": "2012", "text": "Projekti i parë madhor — ndërtesa 15-katëshe" },
+        { "year": "2015", "text": "Zgjerimi i shërbimeve në të gjithë Kosovën" },
+        { "year": "2018", "text": "Partneritetet me markat europiane lider" },
+        { "year": "2020", "text": "Mbi 300 projekte të kryera me sukses" },
+        { "year": "2024", "text": "Mbi 500 projekte dhe ekzpansion në rajon" }
+      ]
+    },
+    "team": {
+      "title": "Ekipi Ynë",
+      "subtitle": "Profesionistë të dedikuar"
+    },
+    "coverage": {
+      "title": "Mbulimi Ynë",
+      "text": "Ne shërbejmë në të gjithë Kosovën dhe jashtë vendit",
+      "subtitle": "Nga Prizreni në Mitrovicë, nga Peja në Gjilan — ekipi ynë është gjithmonë afër jush."
+    }
+  },
+  "servicesPage": {
+    "hero": {
+      "title": "Shërbimet Tona",
+      "subtitle": "Zgjidhje të plota dhe profesionale për çdo nevojë ngritëse"
+    },
+    "features": {
+      "installation": [
+        "Ashensorë pasagjerësh (2–30+ persona)",
+        "Ashensorë mallrash dhe industrialë",
+        "Ashensorë panoramikë me xham",
+        "Instalim sipas EN 81 dhe CE",
+        "Projekt dhe planifikim teknik",
+        "Dorëzim me dokumentacion të plotë"
+      ],
+      "maintenance": [
+        "Kontrata vjetore mirëmbajtjeje",
+        "Inspektime çdo 6 muaj",
+        "Shërbim urgjent 24/7",
+        "Pjesë originale rezervë",
+        "Raporte teknike pas çdo vizite",
+        "Modernizim dhe update sistemesh"
+      ],
+      "homelift": [
+        "Kapacitet 2–4 persona",
+        "Dizajn i personalizuar",
+        "Instalim pa gropë (pitless)",
+        "Operim me energji të ulët",
+        "Kabinat me dritë dhe pasqyrë",
+        "Garanci 5 vjeçare"
+      ],
+      "accessibility": [
+        "Platforma vertikale ngritëse",
+        "Platformë rrëshqitëse (stairlift)",
+        "Rampa dhe ashensorë mjekësorë",
+        "Të gjitha llojet e ndërtesave",
+        "Certifikate sipas direktivave BE",
+        "Shërbim i shpejtë instalimi"
+      ],
+      "escalators": [
+        "Eskalatorë komercialë",
+        "Korridor lëvizës (moving walkways)",
+        "Gjerësi 600–1000mm",
+        "Shpejtësi 0.5 m/s standard",
+        "Dritat LED integrate",
+        "Mirëmbajtje periodike"
+      ],
+      "security": [
+        "Kamera CCTV brenda kabinës",
+        "Sisteme alarmi dhe intercom",
+        "Monitorim i largët 24/7",
+        "Kyçje automatike dhe sisteme access",
+        "Sensorë mbi-ngarkim",
+        "Sisteme emergjencie ARD"
+      ]
+    },
+    "cta": {
+      "title": "Keni nevojë për ndihmë?",
+      "subtitle": "Na kontaktoni sot dhe do t'ju ofrojmë zgjidhjen e duhur",
+      "button": "Na Kontaktoni"
+    }
+  },
+  "projectsPage": {
+    "hero": {
+      "title": "Projektet Tona",
+      "subtitle": "Punë cilësore që flet vetë"
+    }
+  },
+  "gallery": {
+    "hero": {
+      "title": "Galeria",
+      "subtitle": "Shikoni punën tonë në foto"
+    },
+    "categories": {
+      "all": "Të Gjitha",
+      "elevators": "Ashensorë",
+      "installations": "Instalimet",
+      "team": "Ekipi",
+      "beforeAfter": "Para & Pas"
+    }
+  },
+  "faq": {
+    "hero": {
+      "title": "Pyetjet e Shpeshta",
+      "subtitle": "Gjeni përgjigje për pyetjet tuaja"
+    },
+    "search": "Kërko pyetje...",
+    "items": [
+      {
+        "q": "Sa kohë zgjat instalimi i një ashensori?",
+        "a": "Koha e instalimit varet nga lloji dhe kompleksiteti. Zakonisht një ashensor standard kërkon 3-7 ditë pune. Ashensorët home lift mund të instalohen edhe në 1-2 ditë."
+      },
+      {
+        "q": "A ofrohet garanci për ashensorët?",
+        "a": "Po, të gjithë ashensorët tanë vijnë me garanci minimale 2 vjeçare. Disa modele kanë garanci deri në 5 vjet për pjesë mekanike."
+      },
+      {
+        "q": "Çfarë lloj mirëmbajtjeje nevojitet?",
+        "a": "Rekomandojmë mirëmbajtje të rregullt çdo 6 muaj. Kjo përfshin kontrollimin e sistemeve të sigurisë, lubrifikimin e pjesëve lëvizëse dhe testimin e funksionimit."
+      },
+      {
+        "q": "A punoni jashtë Kosovës?",
+        "a": "Po, kemi projekte edhe në Shqipëri dhe Maqedoninë e Veriut. Na kontaktoni për projekte ndërkombëtare."
+      },
+      {
+        "q": "Çfarë markash ashensorësh shisni?",
+        "a": "Punojmë me markat më të njohura europiane si Thyssenkrupp, KONE, Schindler dhe Otis, si dhe me marka cilësore nga Italia dhe Gjermania."
+      },
+      {
+        "q": "A ofrojmë shërbim emergjence?",
+        "a": "Po! Shërbimi ynë 24/7 është gjithmonë aktiv. Mund të na kontaktoni në çdo orë të ditës ose të natës për emergjencat."
+      },
+      {
+        "q": "Sa kushton instalimi i një ashensori shtëpiak?",
+        "a": "Çmimet variojnë sipas specifikimeve dhe dimensioneve. Ofrojmë konsultim falas dhe ofertë pa detyrim. Na kontaktoni për çmim të personalizuar."
+      },
+      {
+        "q": "A mund të instalohet ashensori në ndërtesa ekzistuese?",
+        "a": "Po, kemi eksperiencë të gjerë në instalimin e ashensorëve edhe në ndërtesa ekzistuese pa planifikim të mëparshëm, duke gjetur zgjidhjet teknike optimale."
+      },
+      {
+        "q": "A janë ashensorët tuaj të sigurt?",
+        "a": "Absolutisht. Të gjithë ashensorët tanë certifikohen sipas standardeve europiane EN 81 dhe i nënshtrohen inspektimit të rregullt nga organet kompetente."
+      },
+      {
+        "q": "Si mund të kërkoj ofertë?",
+        "a": "Mund të na kontaktoni nëpërmjet formularit online, telefonit, ose të vizitoni zyrën tonë në Prishtinë. Ofrojmë konsultim dhe vlerësim falas në vend."
+      }
+    ]
+  },
+  "contact": {
+    "hero": {
+      "title": "Na Kontaktoni",
+      "subtitle": "Jemi këtu për çdo pyetje ose nevojë tuajën"
+    },
+    "form": {
+      "name": "Emri i plotë",
+      "email": "Email",
+      "phone": "Telefoni",
+      "type": "Lloji i kërkesës",
+      "message": "Mesazhi",
+      "submit": "Dërgo Mesazhin",
+      "types": {
+        "quote": "Ofertë çmimi",
+        "maintenance": "Mirëmbajtje",
+        "info": "Informacion",
+        "other": "Tjetër"
+      },
+      "success": "Mesazhi u dërgua me sukses! Do t'ju kontaktojmë së shpejti.",
+      "error": "Ndodhi një gabim. Ju lutemi provoni përsëri.",
+      "ratelimit": "Shumë kërkesa. Ju lutemi prisni 15 minuta dhe provoni përsëri.",
+      "validationError": "Ju lutemi kontrolloni fushat e mëposhtme dhe provoni përsëri.",
+      "required": "* Fushat e detyrueshme"
+    },
+    "emergency": {
+      "title": "Urgjencë 24/7",
+      "subtitle": "Jemi gjithmonë të disponueshëm"
+    }
+  },
+  "partners": {
+    "hero": {
+      "title": "Partnerët Tanë",
+      "subtitle": "Bashkëpunim me markat më të mira europiane"
+    },
+    "text": "Green Up bashkëpunon me prodhuesit dhe shpërndarësit më të njohur të ashensorëve në Europë. Partneritetet tona na mundësojnë të ofrojmë produktet me cilësinë më të lartë dhe çmimet më konkurruese.",
+    "logoPlaceholder": "Logo e Partnerit"
+  }
+}

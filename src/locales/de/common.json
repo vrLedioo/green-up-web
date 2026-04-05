@@ -1,0 +1,324 @@
+{
+  "nav": {
+    "home": "Startseite",
+    "about": "Über Uns",
+    "services": "Leistungen",
+    "projects": "Projekte",
+    "gallery": "Galerie",
+    "faq": "FAQ",
+    "contact": "Kontakt",
+    "partners": "Partner",
+    "getQuote": "Angebot Anfragen"
+  },
+  "emergency": {
+    "text": "Notdienst 24/7",
+    "phone": "+383 XX XXX XXX",
+    "dismiss": "Schließen"
+  },
+  "hero": {
+    "headline": "Jeden Etage erheben.",
+    "subheadline": "Green Up bietet Premium-Aufzugsinstallation, -verkauf und -wartung in ganz Kosovo.",
+    "cta_primary": "Leistungen ansehen",
+    "cta_secondary": "Kostenloses Angebot"
+  },
+  "stats": {
+    "projects": "Abgeschlossene Projekte",
+    "experience": "Jahre Erfahrung",
+    "satisfaction": "Kundenzufriedenheit",
+    "support": "Notdienst"
+  },
+  "services": {
+    "title": "Unsere Leistungen",
+    "subtitle": "Komplettlösungen für jeden Aufzugsbedarf",
+    "learnMore": "Mehr erfahren",
+    "items": {
+      "installation": {
+        "title": "Aufzugsverkauf & -installation",
+        "description": "Professionelle Installation von Aufzügen der renommiertesten europäischen Marken mit Garantie und hohen Standards."
+      },
+      "maintenance": {
+        "title": "Wartung & Reparatur",
+        "description": "Regelmäßiger Wartungsservice und schnelle 24/7-Reparatur für alle Aufzugstypen."
+      },
+      "homelift": {
+        "title": "Homelifte & Hausaufzüge",
+        "description": "Elegante und kompakte Aufzüge für Privathäuser und Villen mit modernem Design."
+      },
+      "accessibility": {
+        "title": "Barrierefreiheitsplattformen",
+        "description": "Hebeplatformen und Spezialaufzüge für Menschen mit Behinderungen."
+      },
+      "escalators": {
+        "title": "Fahrtreppen",
+        "description": "Installation und Wartung von Fahrtreppen für Einkaufszentren, Hotels und öffentliche Gebäude."
+      },
+      "security": {
+        "title": "Sicherheitssysteme",
+        "description": "Die modernsten Aufzugs-Sicherheitssysteme: Kameras, Sensoren und Alarmanlagen."
+      }
+    }
+  },
+  "projects": {
+    "title": "Unsere Projekte",
+    "subtitle": "Qualitätsarbeit in ganz Kosovo",
+    "viewAll": "Alle Projekte ansehen",
+    "viewDetails": "Details ansehen",
+    "filters": {
+      "all": "Alle",
+      "passenger": "Personen",
+      "cargo": "Waren",
+      "home": "Haus",
+      "escalator": "Fahrtreppe",
+      "security": "Sicherheit"
+    }
+  },
+  "whyUs": {
+    "title": "Warum Uns Wählen?",
+    "subtitle": "Erfahrung, Qualität und Zuverlässigkeit bei jedem Projekt",
+    "items": {
+      "coverage": "Vollständige Abdeckung in ganz Kosovo",
+      "certified": "EU-zertifizierte Produkte",
+      "team": "Ausgebildetes und lizenziertes Team",
+      "warranty": "Garantie und After-Sales-Service"
+    }
+  },
+  "testimonials": {
+    "title": "Was Unsere Kunden Sagen",
+    "subtitle": "Meinungen zufriedener Kunden",
+    "items": [
+      {
+        "text": "Green Up hat bei der Installation des Aufzugs in unserem Gebäude hervorragende Arbeit geleistet. Hohe Professionalität und außergewöhnliche Qualität.",
+        "name": "Arben Krasniqi",
+        "company": "Krasniqi Bau GmbH"
+      },
+      {
+        "text": "Der After-Sales-Service ist außergewöhnlich. Immer bereit, wenn wir Wartung benötigen.",
+        "name": "Blerta Hoxha",
+        "company": "Hotel Prishtina"
+      },
+      {
+        "text": "Sie haben unser dringendes Problem am Wochenende gelöst. Echter 24/7-Service!",
+        "name": "Driton Berisha",
+        "company": "Albi Einkaufszentrum"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Bereit, Ihr Projekt zu starten?",
+    "subtitle": "Kontaktieren Sie uns noch heute für ein kostenloses Angebot",
+    "contact": "Kontaktieren Sie Uns",
+    "quote": "Kostenloses Angebot"
+  },
+  "footer": {
+    "tagline": "Jeden Etage, jeden Tag.",
+    "rights": "Alle Rechte vorbehalten.",
+    "about": "Über Green Up",
+    "aboutText": "Green Up ist das führende Unternehmen in Kosovo für den Verkauf, die Installation und Wartung von Premium-Aufzügen.",
+    "pages": "Seiten",
+    "services": "Leistungen",
+    "contact": "Kontakt",
+    "address": "Prishtina, Kosovo",
+    "phone": "+383 XX XXX XXX",
+    "email": "info@greenup-ks.com",
+    "builtBy": "Gebaut mit Sorgfalt"
+  },
+  "about": {
+    "hero": {
+      "title": "Über Green Up",
+      "subtitle": "Unsere Geschichte, unsere Mission, unsere Werte"
+    },
+    "mission": {
+      "title": "Mission & Vision",
+      "missionTitle": "Unsere Mission",
+      "missionText": "Unseren Kunden sichere, qualitativ hochwertige und nachhaltige Aufzugslösungen anzubieten, indem wir modernste Technologie mit professionellstem Service verbinden.",
+      "visionTitle": "Unsere Vision",
+      "visionText": "Das vertrauenswürdigste und führende Unternehmen in der Aufzugsbranche in Kosovo und der Region zu sein."
+    },
+    "timeline": {
+      "title": "Unsere Geschichte",
+      "items": [
+        { "year": "2009", "text": "Green Up gegründet in Prishtina" },
+        { "year": "2012", "text": "Erstes Großprojekt — 15-stöckiges Gebäude" },
+        { "year": "2015", "text": "Expansion der Dienstleistungen in ganz Kosovo" },
+        { "year": "2018", "text": "Partnerschaften mit führenden europäischen Marken" },
+        { "year": "2020", "text": "Über 300 erfolgreich abgeschlossene Projekte" },
+        { "year": "2024", "text": "Über 500 Projekte und regionale Expansion" }
+      ]
+    },
+    "team": {
+      "title": "Unser Team",
+      "subtitle": "Engagierte Fachleute"
+    },
+    "coverage": {
+      "title": "Unsere Abdeckung",
+      "text": "Wir sind in ganz Kosovo und im Ausland tätig",
+      "subtitle": "Von Prizren bis Mitrovica, von Peja bis Gjilan — unser Team ist immer in Ihrer Nähe."
+    }
+  },
+  "servicesPage": {
+    "hero": {
+      "title": "Unsere Leistungen",
+      "subtitle": "Vollständige und professionelle Lösungen für jeden Aufzugsbedarf"
+    },
+    "features": {
+      "installation": [
+        "Personenaufzüge (2–30+ Personen)",
+        "Waren- und Industrieaufzüge",
+        "Panorama-Glasaufzüge",
+        "Installation nach EN 81 und CE",
+        "Technische Planung und Projektierung",
+        "Übergabe mit vollständiger Dokumentation"
+      ],
+      "maintenance": [
+        "Jährliche Wartungsverträge",
+        "Inspektionen alle 6 Monate",
+        "24/7-Notdienst",
+        "Original-Ersatzteile",
+        "Technische Berichte nach jedem Besuch",
+        "Modernisierung und System-Updates"
+      ],
+      "homelift": [
+        "Kapazität 2–4 Personen",
+        "Individuelles Design",
+        "Grubenlose Installation",
+        "Energiesparender Betrieb",
+        "Kabinen mit Beleuchtung und Spiegeln",
+        "5 Jahre Garantie"
+      ],
+      "accessibility": [
+        "Vertikale Hebebühnen",
+        "Treppenlifte",
+        "Rampen und medizinische Aufzüge",
+        "Alle Gebäudetypen",
+        "Zertifiziert nach EU-Richtlinien",
+        "Schneller Installationsservice"
+      ],
+      "escalators": [
+        "Kommerzielle Fahrtreppen",
+        "Fahrsteige (Moving Walkways)",
+        "Breite 600–1000mm",
+        "Geschwindigkeit 0,5 m/s Standard",
+        "Integrierte LED-Beleuchtung",
+        "Regelmäßige Wartung"
+      ],
+      "security": [
+        "CCTV-Kameras in der Kabine",
+        "Alarm- und Gegensprechanlagen",
+        "Fernüberwachung 24/7",
+        "Automatische Verriegelung und Zugangssysteme",
+        "Überlastsensoren",
+        "ARD-Notfallsysteme"
+      ]
+    },
+    "cta": {
+      "title": "Brauchen Sie Hilfe?",
+      "subtitle": "Kontaktieren Sie uns noch heute und wir bieten Ihnen die richtige Lösung",
+      "button": "Kontaktieren Sie Uns"
+    }
+  },
+  "projectsPage": {
+    "hero": {
+      "title": "Unsere Projekte",
+      "subtitle": "Qualitätsarbeit, die für sich selbst spricht"
+    }
+  },
+  "gallery": {
+    "hero": {
+      "title": "Galerie",
+      "subtitle": "Sehen Sie unsere Arbeit in Fotos"
+    },
+    "categories": {
+      "all": "Alle",
+      "elevators": "Aufzüge",
+      "installations": "Installationen",
+      "team": "Team",
+      "beforeAfter": "Vorher & Nachher"
+    }
+  },
+  "faq": {
+    "hero": {
+      "title": "Häufig Gestellte Fragen",
+      "subtitle": "Finden Sie Antworten auf Ihre Fragen"
+    },
+    "search": "Fragen suchen...",
+    "items": [
+      {
+        "q": "Wie lange dauert die Aufzugsinstallation?",
+        "a": "Die Installationszeit hängt von Typ und Komplexität ab. Üblicherweise benötigt ein Standardaufzug 3-7 Arbeitstage. Homelifte können in 1-2 Tagen installiert werden."
+      },
+      {
+        "q": "Wird eine Garantie auf Aufzüge angeboten?",
+        "a": "Ja, alle unsere Aufzüge kommen mit einer Mindestgarantie von 2 Jahren. Einige Modelle haben bis zu 5 Jahre Garantie auf mechanische Teile."
+      },
+      {
+        "q": "Welche Art von Wartung ist erforderlich?",
+        "a": "Wir empfehlen regelmäßige Wartung alle 6 Monate. Dies umfasst die Überprüfung der Sicherheitssysteme, Schmierung beweglicher Teile und Funktionsprüfung."
+      },
+      {
+        "q": "Arbeiten Sie außerhalb von Kosovo?",
+        "a": "Ja, wir haben Projekte in Albanien und Nordmazedonien. Kontaktieren Sie uns für internationale Projekte."
+      },
+      {
+        "q": "Welche Aufzugsmarken verkaufen Sie?",
+        "a": "Wir arbeiten mit den renommiertesten europäischen Marken wie Thyssenkrupp, KONE, Schindler und Otis sowie Qualitätsmarken aus Italien und Deutschland."
+      },
+      {
+        "q": "Bieten Sie Notdienst an?",
+        "a": "Ja! Unser 24/7-Service ist immer aktiv. Sie können uns zu jeder Tages- und Nachtzeit bei Notfällen kontaktieren."
+      },
+      {
+        "q": "Was kostet die Installation eines Homelifts?",
+        "a": "Die Preise variieren je nach Spezifikationen und Abmessungen. Wir bieten kostenlose Beratung und unverbindliches Angebot. Kontaktieren Sie uns für einen personalisierten Preis."
+      },
+      {
+        "q": "Kann ein Aufzug in bestehenden Gebäuden installiert werden?",
+        "a": "Ja, wir haben umfangreiche Erfahrung bei der Installation von Aufzügen in bestehenden Gebäuden ohne vorherige Planung."
+      },
+      {
+        "q": "Sind Ihre Aufzüge sicher?",
+        "a": "Absolut. Alle unsere Aufzüge sind nach europäischen Normen EN 81 zertifiziert und werden regelmäßig von zuständigen Behörden inspiziert."
+      },
+      {
+        "q": "Wie kann ich ein Angebot anfragen?",
+        "a": "Sie können uns über das Online-Formular, Telefon kontaktieren oder unser Büro in Prishtina besuchen. Wir bieten kostenlose Vor-Ort-Beratung an."
+      }
+    ]
+  },
+  "contact": {
+    "hero": {
+      "title": "Kontaktieren Sie Uns",
+      "subtitle": "Wir sind für jede Frage oder jeden Bedarf da"
+    },
+    "form": {
+      "name": "Vollständiger Name",
+      "email": "E-Mail",
+      "phone": "Telefon",
+      "type": "Anfragetyp",
+      "message": "Nachricht",
+      "submit": "Nachricht Senden",
+      "types": {
+        "quote": "Preisangebot",
+        "maintenance": "Wartung",
+        "info": "Information",
+        "other": "Sonstiges"
+      },
+      "success": "Nachricht erfolgreich gesendet! Wir werden Sie bald kontaktieren.",
+      "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
+      "ratelimit": "Zu viele Anfragen. Bitte warten Sie 15 Minuten und versuchen Sie es erneut.",
+      "validationError": "Bitte überprüfen Sie die folgenden Felder und versuchen Sie es erneut.",
+      "required": "* Pflichtfelder"
+    },
+    "emergency": {
+      "title": "Notfall 24/7",
+      "subtitle": "Wir sind immer verfügbar"
+    }
+  },
+  "partners": {
+    "hero": {
+      "title": "Unsere Partner",
+      "subtitle": "Zusammenarbeit mit den besten europäischen Marken"
+    },
+    "text": "Green Up arbeitet mit den renommiertesten europäischen Aufzugsherstellern und -händlern zusammen. Unsere Partnerschaften ermöglichen es uns, die qualitativ hochwertigsten Produkte zu den wettbewerbsfähigsten Preisen anzubieten.",
+    "logoPlaceholder": "Partnerlogo"
+  }
+}

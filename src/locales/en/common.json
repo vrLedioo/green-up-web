@@ -1,0 +1,324 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "projects": "Projects",
+    "gallery": "Gallery",
+    "faq": "FAQ",
+    "contact": "Contact",
+    "partners": "Partners",
+    "getQuote": "Request Quote"
+  },
+  "emergency": {
+    "text": "Emergency Service 24/7",
+    "phone": "+383 XX XXX XXX",
+    "dismiss": "Close"
+  },
+  "hero": {
+    "headline": "Elevating Every Floor.",
+    "subheadline": "Green Up provides premium elevator installation, sales and maintenance throughout Kosovo.",
+    "cta_primary": "View Services",
+    "cta_secondary": "Request Free Quote"
+  },
+  "stats": {
+    "projects": "Completed Projects",
+    "experience": "Years Experience",
+    "satisfaction": "Client Satisfaction",
+    "support": "Emergency Service"
+  },
+  "services": {
+    "title": "Our Services",
+    "subtitle": "Complete solutions for every lifting need",
+    "learnMore": "Learn More",
+    "items": {
+      "installation": {
+        "title": "Elevator Sales & Installation",
+        "description": "Professional installation of elevators from the most renowned European brands, with warranty and high standards."
+      },
+      "maintenance": {
+        "title": "Maintenance & Repair",
+        "description": "Regular maintenance service and fast 24/7 repair for all types of elevators."
+      },
+      "homelift": {
+        "title": "Home Lift & Residential Elevators",
+        "description": "Elegant and compact elevators for private homes and villas, with modern design."
+      },
+      "accessibility": {
+        "title": "Accessibility Platforms",
+        "description": "Lifting platforms and special elevators for people with disabilities."
+      },
+      "escalators": {
+        "title": "Escalators",
+        "description": "Installation and maintenance of escalators for shopping centers, hotels and public buildings."
+      },
+      "security": {
+        "title": "Security Systems",
+        "description": "The most modern elevator security systems: cameras, sensors and alarm systems."
+      }
+    }
+  },
+  "projects": {
+    "title": "Our Projects",
+    "subtitle": "Quality work throughout Kosovo",
+    "viewAll": "View All Projects",
+    "viewDetails": "View Details",
+    "filters": {
+      "all": "All",
+      "passenger": "Passenger",
+      "cargo": "Cargo",
+      "home": "Home",
+      "escalator": "Escalator",
+      "security": "Security"
+    }
+  },
+  "whyUs": {
+    "title": "Why Choose Us?",
+    "subtitle": "Experience, quality and reliability in every project",
+    "items": {
+      "coverage": "Full coverage throughout Kosovo",
+      "certified": "Products certified to EU standards",
+      "team": "Trained and licensed team",
+      "warranty": "Warranty and after-sales service"
+    }
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "subtitle": "Opinions from satisfied customers",
+    "items": [
+      {
+        "text": "Green Up did an excellent job installing the elevator in our building. High professionalism and outstanding quality.",
+        "name": "Arben Krasniqi",
+        "company": "Krasniqi Construction LLC"
+      },
+      {
+        "text": "The after-sales service is exceptional. Always ready when we need maintenance.",
+        "name": "Blerta Hoxha",
+        "company": "Hotel Prishtina"
+      },
+      {
+        "text": "They solved our urgent problem over the weekend. True 24/7 service!",
+        "name": "Driton Berisha",
+        "company": "Albi Shopping Center"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to start your project?",
+    "subtitle": "Contact us today for a free quote",
+    "contact": "Contact Us",
+    "quote": "Request Free Quote"
+  },
+  "footer": {
+    "tagline": "Elevating every floor, every day.",
+    "rights": "All rights reserved.",
+    "about": "About Green Up",
+    "aboutText": "Green Up is the leading company in Kosovo for sales, installation and maintenance of premium elevators.",
+    "pages": "Pages",
+    "services": "Services",
+    "contact": "Contact",
+    "address": "Prishtina, Kosovo",
+    "phone": "+383 XX XXX XXX",
+    "email": "info@greenup-ks.com",
+    "builtBy": "Built with care"
+  },
+  "about": {
+    "hero": {
+      "title": "About Green Up",
+      "subtitle": "Our history, our mission, our values"
+    },
+    "mission": {
+      "title": "Mission & Vision",
+      "missionTitle": "Our Mission",
+      "missionText": "To offer our clients safe, quality and sustainable lifting solutions, combining the most modern technology with the most professional service.",
+      "visionTitle": "Our Vision",
+      "visionText": "To be the most trusted and leading company in the elevator industry in Kosovo and the region, contributing to the construction of modern infrastructure."
+    },
+    "timeline": {
+      "title": "Our History",
+      "items": [
+        { "year": "2009", "text": "Green Up founded in Prishtina" },
+        { "year": "2012", "text": "First major project — 15-storey building" },
+        { "year": "2015", "text": "Expansion of services throughout Kosovo" },
+        { "year": "2018", "text": "Partnerships with leading European brands" },
+        { "year": "2020", "text": "Over 300 successfully completed projects" },
+        { "year": "2024", "text": "Over 500 projects and regional expansion" }
+      ]
+    },
+    "team": {
+      "title": "Our Team",
+      "subtitle": "Dedicated professionals"
+    },
+    "coverage": {
+      "title": "Our Coverage",
+      "text": "We serve throughout Kosovo and abroad",
+      "subtitle": "From Prizren to Mitrovica, from Peja to Gjilan — our team is always close to you."
+    }
+  },
+  "servicesPage": {
+    "hero": {
+      "title": "Our Services",
+      "subtitle": "Complete and professional solutions for every lifting need"
+    },
+    "features": {
+      "installation": [
+        "Passenger elevators (2–30+ persons)",
+        "Cargo and industrial elevators",
+        "Panoramic glass elevators",
+        "Installation per EN 81 and CE standards",
+        "Technical design and planning",
+        "Delivery with complete documentation"
+      ],
+      "maintenance": [
+        "Annual maintenance contracts",
+        "Inspections every 6 months",
+        "24/7 emergency service",
+        "Original spare parts",
+        "Technical reports after every visit",
+        "System modernization and upgrades"
+      ],
+      "homelift": [
+        "Capacity 2–4 persons",
+        "Customized design",
+        "Pitless installation",
+        "Low energy operation",
+        "Cabins with lighting and mirrors",
+        "5-year warranty"
+      ],
+      "accessibility": [
+        "Vertical lifting platforms",
+        "Stairlifts",
+        "Ramps and medical elevators",
+        "All building types",
+        "Certified per EU directives",
+        "Fast installation service"
+      ],
+      "escalators": [
+        "Commercial escalators",
+        "Moving walkways",
+        "Width 600–1000mm",
+        "Speed 0.5 m/s standard",
+        "Integrated LED lighting",
+        "Periodic maintenance"
+      ],
+      "security": [
+        "CCTV cameras inside cabin",
+        "Alarm and intercom systems",
+        "Remote monitoring 24/7",
+        "Automatic locking and access systems",
+        "Overload sensors",
+        "ARD emergency systems"
+      ]
+    },
+    "cta": {
+      "title": "Need help?",
+      "subtitle": "Contact us today and we will offer you the right solution",
+      "button": "Contact Us"
+    }
+  },
+  "projectsPage": {
+    "hero": {
+      "title": "Our Projects",
+      "subtitle": "Quality work that speaks for itself"
+    }
+  },
+  "gallery": {
+    "hero": {
+      "title": "Gallery",
+      "subtitle": "View our work in photos"
+    },
+    "categories": {
+      "all": "All",
+      "elevators": "Elevators",
+      "installations": "Installations",
+      "team": "Team",
+      "beforeAfter": "Before & After"
+    }
+  },
+  "faq": {
+    "hero": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Find answers to your questions"
+    },
+    "search": "Search questions...",
+    "items": [
+      {
+        "q": "How long does elevator installation take?",
+        "a": "Installation time depends on the type and complexity. Usually a standard elevator requires 3-7 working days. Home lift elevators can be installed in 1-2 days."
+      },
+      {
+        "q": "Is warranty offered for elevators?",
+        "a": "Yes, all our elevators come with a minimum 2-year warranty. Some models have up to 5 years warranty on mechanical parts."
+      },
+      {
+        "q": "What kind of maintenance is needed?",
+        "a": "We recommend regular maintenance every 6 months. This includes checking safety systems, lubricating moving parts and testing functionality."
+      },
+      {
+        "q": "Do you work outside Kosovo?",
+        "a": "Yes, we have projects in Albania and North Macedonia. Contact us for international projects."
+      },
+      {
+        "q": "What elevator brands do you sell?",
+        "a": "We work with the most renowned European brands such as Thyssenkrupp, KONE, Schindler and Otis, as well as quality brands from Italy and Germany."
+      },
+      {
+        "q": "Do you offer emergency service?",
+        "a": "Yes! Our 24/7 service is always active. You can contact us at any time of day or night for emergencies."
+      },
+      {
+        "q": "How much does home lift installation cost?",
+        "a": "Prices vary depending on specifications and dimensions. We offer free consultation and no-obligation quote. Contact us for a personalized price."
+      },
+      {
+        "q": "Can an elevator be installed in existing buildings?",
+        "a": "Yes, we have extensive experience installing elevators in existing buildings without prior planning, finding optimal technical solutions."
+      },
+      {
+        "q": "Are your elevators safe?",
+        "a": "Absolutely. All our elevators are certified according to European standards EN 81 and undergo regular inspection by competent bodies."
+      },
+      {
+        "q": "How can I request a quote?",
+        "a": "You can contact us through the online form, phone, or visit our office in Prishtina. We offer free on-site consultation and assessment."
+      }
+    ]
+  },
+  "contact": {
+    "hero": {
+      "title": "Contact Us",
+      "subtitle": "We are here for any question or need you may have"
+    },
+    "form": {
+      "name": "Full name",
+      "email": "Email",
+      "phone": "Phone",
+      "type": "Request type",
+      "message": "Message",
+      "submit": "Send Message",
+      "types": {
+        "quote": "Price quote",
+        "maintenance": "Maintenance",
+        "info": "Information",
+        "other": "Other"
+      },
+      "success": "Message sent successfully! We will contact you soon.",
+      "error": "An error occurred. Please try again.",
+      "ratelimit": "Too many requests. Please wait 15 minutes and try again.",
+      "validationError": "Please check the fields below and try again.",
+      "required": "* Required fields"
+    },
+    "emergency": {
+      "title": "Emergency 24/7",
+      "subtitle": "We are always available"
+    }
+  },
+  "partners": {
+    "hero": {
+      "title": "Our Partners",
+      "subtitle": "Collaboration with the best European brands"
+    },
+    "text": "Green Up collaborates with the most renowned European elevator manufacturers and distributors. Our partnerships enable us to offer the highest quality products at the most competitive prices.",
+    "logoPlaceholder": "Partner Logo"
+  }
+}

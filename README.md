@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Green Up — Premium Elevator Company Website
+
+A multilingual, production-ready website for **Green Up**, a premium elevator company based in Kosovo.
+
+## Tech Stack
+
+- **Next.js 16** (App Router)
+- **Tailwind CSS v4**
+- **Framer Motion** — scroll animations, page transitions, counters
+- **next-intl** — multilingual (Albanian, English, German)
+- **Formspree** — contact form submissions
+
+## Languages
+
+| Code | Language | URL |
+|------|----------|-----|
+| `sq` | Albanian (default) | `/` |
+| `en` | English | `/en/` |
+| `de` | German | `/de/` |
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
+cd greenup
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Pages
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Page | Route |
+|------|-------|
+| Homepage | `/` |
+| About | `/about` |
+| Services | `/services` |
+| Projects | `/projects` |
+| Gallery | `/gallery` |
+| FAQ | `/faq` |
+| Contact | `/contact` |
+| Partners | `/partners` |
 
-## Learn More
+## Environment Variables
 
-To learn more about Next.js, take a look at the following resources:
+Create `.env.local`:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```env
+NEXT_PUBLIC_FORMSPREE_ID=xzdkjeje
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment (Netlify)
 
-## Deploy on Vercel
+The `netlify.toml` is pre-configured. Build command: `npm run build`. Publish directory: `.next`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Customization Checklist
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- [ ] Replace `+383 XX XXX XXX` phone placeholder with real number
+- [ ] Replace `Prishtine, Kosove` address placeholder with real address
+- [ ] Replace gradient image placeholders with real photos (search `TODO: Replace` in source)
+- [ ] Replace partner logo placeholders with real logos (`/partners` page)
+- [ ] Add real team photos (`/about` page)
+- [ ] Embed real Google Maps iframe on contact page and footer
+- [ ] Update social media links (Instagram, LinkedIn, TikTok) — currently `href="#"`
+- [ ] Replace placeholder testimonials with real client quotes
+- [ ] Update `info@greenup-ks.com` with real email
+- [ ] Swap placeholder logo SVGs with real brand logo
+
+## Brand Colors
+
+| Name | Hex |
+|------|-----|
+| Primary Green | `#2D6A4F` |
+| Medium Green | `#40916C` |
+| Light Green | `#74C69D` |
+| Mint | `#B7E4C7` |
+| Pale | `#D8F3DC` |
+| Dark | `#1B1B1B` |
+| Cream | `#F8FAF9` |
+| Gold | `#C9A84C` |
