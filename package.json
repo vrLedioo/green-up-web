@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "build:netlify": "next build --no-turbopack",
     "start": "next start",
     "lint:types": "tsc --noEmit",
     "audit:ci": "npm audit --audit-level=high"
