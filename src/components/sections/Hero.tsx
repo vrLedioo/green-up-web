@@ -3,11 +3,12 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import { motion } from "framer-motion";
-import { ArrowDown, ArrowRight } from "lucide-react";
+import { ArrowDown, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import type { Locale } from "@/lib/i18n";
+import Elevator3D from "@/components/ui/Elevator3D";
 
-function useCounter(target: number, duration = 2000, active = false) {
+function useCounter(target: number, duration = 1800, active = false) {
   const [count, setCount] = useState(0);
   useEffect(() => {
     if (!active) return;
@@ -15,7 +16,8 @@ function useCounter(target: number, duration = 2000, active = false) {
     const step = (ts: number) => {
       if (!startTime) startTime = ts;
       const progress = Math.min((ts - startTime) / duration, 1);
-      setCount(Math.floor(progress * target));
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(Math.floor(eased * target));
       if (progress < 1) requestAnimationFrame(step);
     };
     requestAnimationFrame(step);
@@ -23,31 +25,17 @@ function useCounter(target: number, duration = 2000, active = false) {
   return count;
 }
 
-function Stat({ value, suffix, label, active }: { value: number; suffix: string; label: string; active: boolean }) {
+function Stat({
+  value, suffix, label, active,
+}: { value: number; suffix: string; label: string; active: boolean }) {
   const count = useCounter(value, 1800, active);
   return (
-    <div className="text-center">
-      <div className="font-display text-4xl md:text-5xl font-bold text-white">
+    <div className="flex flex-col">
+      <div className="font-display text-4xl md:text-5xl font-medium text-white tracking-tight">
         <span className="font-mono">{count}</span>
-        <span className="text-gold">{suffix}</span>
+        <span className="text-gradient-gold">{suffix}</span>
       </div>
-      <div className="text-white/60 text-xs md:text-sm mt-1 uppercase tracking-widest">{label}</div>
-    </div>
-  );
-}
-
-function ElevatorShaft() {
-  return (
-    <div className="absolute right-8 top-0 bottom-0 hidden xl:flex items-center pointer-events-none opacity-[0.08]">
-      <svg width="60" height="400" viewBox="0 0 60 400" fill="none">
-        <rect x="5" y="0" width="50" height="400" rx="4" stroke="white" strokeWidth="1.5" strokeDasharray="6 3" fill="none"/>
-        <line x1="18" y1="0" x2="18" y2="400" stroke="white" strokeWidth="0.5" opacity="0.5"/>
-        <line x1="42" y1="0" x2="42" y2="400" stroke="white" strokeWidth="0.5" opacity="0.5"/>
-        <motion.g animate={{ y: [-10, -280, -10] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", repeatDelay: 1 }}>
-          <rect x="12" y="320" width="36" height="50" rx="2" fill="white" opacity="0.2"/>
-          <line x1="30" y1="320" x2="30" y2="370" stroke="white" strokeWidth="0.5" opacity="0.5"/>
-        </motion.g>
-      </svg>
+      <div className="text-white/55 text-[11px] mt-1 uppercase tracking-[0.22em]">{label}</div>
     </div>
   );
 }
@@ -62,7 +50,10 @@ export default function Hero() {
   useEffect(() => {
     const el = statsRef.current;
     if (!el) return;
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setStatsActive(true); }, { threshold: 0.3 });
+    const obs = new IntersectionObserver(
+      ([e]) => { if (e.isIntersecting) setStatsActive(true); },
+      { threshold: 0.3 }
+    );
     obs.observe(el);
     return () => obs.disconnect();
   }, []);
@@ -70,68 +61,81 @@ export default function Hero() {
   const prefix = locale !== "sq" ? `/${locale}` : "";
 
   return (
-    <section className="relative min-h-screen flex flex-col justify-center overflow-hidden noise-overlay">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#0f2d1f] via-[#1a4332] to-[#2D6A4F]" />
-      <div className="absolute top-20 left-10 w-96 h-96 rounded-full bg-green-medium/10 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-20 right-20 w-80 h-80 rounded-full bg-green-light/5 blur-3xl pointer-events-none" />
+    <section className="relative min-h-[100svh] flex flex-col justify-center overflow-hidden noise-overlay bg-forest">
+      {/* Aurora glows */}
+      <div className="absolute -top-32 -left-24 w-[520px] h-[520px] rounded-full bg-green-medium/25 blur-3xl anim-aurora pointer-events-none" />
+      <div className="absolute -bottom-32 -right-24 w-[480px] h-[480px] rounded-full bg-gold/15 blur-3xl anim-aurora pointer-events-none" style={{ animationDelay: "-6s" }} />
+      <div className="absolute top-1/3 left-1/3 w-[320px] h-[320px] rounded-full bg-green-light/10 blur-3xl anim-aurora pointer-events-none" style={{ animationDelay: "-12s" }} />
 
-      <ElevatorShaft />
+      <div className="relative z-10 max-w-[82rem] w-full mx-auto px-4 md:px-8 lg:px-16 pt-36 pb-24 md:pt-40 md:pb-28">
+        <div className="grid lg:grid-cols-12 gap-12 items-center">
+          {/* Content */}
+          <div className="lg:col-span-8">
+            {/* Eyebrow */}
+            <div className="anim-fade-up inline-flex items-center gap-3 rounded-full px-3.5 py-1.5 mb-8 glass-dark">
+              <span className="relative flex h-1.5 w-1.5">
+                <span className="absolute inline-flex h-full w-full rounded-full bg-gold/80 animate-ping" />
+                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-gold" />
+              </span>
+              <span className="text-white/85 text-[11px] tracking-[0.28em] uppercase font-semibold">
+                Kosovo · Est. 2010
+              </span>
+            </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 lg:px-16 pt-32 pb-20">
-        <div className="max-w-3xl">
-          {/* Badge — CSS fade in */}
-          <div className="anim-fade-up inline-flex items-center gap-2 bg-white/10 border border-white/20 rounded-full px-4 py-1.5 mb-6">
-            <span className="w-2 h-2 rounded-full bg-gold" />
-            <span className="text-white/80 text-xs tracking-widest uppercase font-semibold">Green Up — Kosovo</span>
+            {/* Headline */}
+            <h1 className="anim-fade-up anim-delay-1 display-xl text-white text-[58px] sm:text-[76px] md:text-[96px] lg:text-[116px] mb-7">
+              <span className="block">{t("headline")}</span>
+            </h1>
+
+            {/* Subheadline */}
+            <p className="anim-fade-up anim-delay-2 text-white/70 text-lg md:text-xl leading-relaxed max-w-xl mb-10">
+              {t("subheadline")}
+            </p>
+
+            {/* CTAs */}
+            <div className="anim-fade-up anim-delay-3 flex flex-wrap gap-3 mb-16">
+              <Link href={`${prefix}/contact`} className="btn-base btn-gold cursor-pointer">
+                {t("cta_secondary")}
+                <ArrowUpRight size={15} />
+              </Link>
+              <Link href={`${prefix}/services`} className="btn-base btn-ghost-light cursor-pointer">
+                {t("cta_primary")}
+              </Link>
+            </div>
           </div>
 
-          {/* Headline */}
-          <h1 className="anim-fade-up anim-delay-1 font-display text-[68px] md:text-[88px] lg:text-[108px] leading-[0.9] font-bold text-white mb-6">
-            {t("headline")}
-          </h1>
-
-          {/* Subheadline */}
-          <p className="anim-fade-up anim-delay-2 text-white/70 text-lg md:text-xl leading-relaxed max-w-xl mb-10">
-            {t("subheadline")}
-          </p>
-
-          {/* CTAs */}
-          <div className="anim-fade-up anim-delay-3 flex flex-wrap gap-4 mb-20">
-            <Link
-              href={`${prefix}/services`}
-              className="inline-flex items-center gap-2 border border-white text-white font-semibold px-7 py-3.5 rounded-sm hover:bg-white hover:text-green-primary transition-all duration-300 text-sm tracking-wide"
-            >
-              {t("cta_primary")} <ArrowRight size={16} />
-            </Link>
-            <Link
-              href={`${prefix}/contact`}
-              className="inline-flex items-center gap-2 bg-gold text-dark font-semibold px-7 py-3.5 rounded-sm hover:bg-yellow-500 transition-all duration-300 shadow-lg shadow-gold/30 text-sm tracking-wide"
-            >
-              {t("cta_secondary")}
-            </Link>
+          {/* 3D Elevator — hidden on mobile */}
+          <div className="hidden lg:block lg:col-span-4 anim-fade-up anim-delay-4">
+            <div className="anim-floaty">
+              <Elevator3D />
+            </div>
           </div>
         </div>
 
-        {/* Stats */}
-        <div ref={statsRef} className="anim-fade-up anim-delay-4 grid grid-cols-2 lg:grid-cols-4 gap-8 pt-10 border-t border-white/10">
+        {/* Stats bar */}
+        <div
+          ref={statsRef}
+          className="anim-fade-up anim-delay-5 grid grid-cols-2 lg:grid-cols-4 gap-8 pt-10 border-t border-white/10"
+        >
           <Stat value={500} suffix="+" label={stats("projects")} active={statsActive} />
           <Stat value={15}  suffix="+" label={stats("experience")} active={statsActive} />
           <Stat value={100} suffix="%" label={stats("satisfaction")} active={statsActive} />
-          <div className="text-center">
-            <div className="font-display text-4xl md:text-5xl font-bold text-white font-mono">
-              24<span className="text-gold">/7</span>
+          <div className="flex flex-col">
+            <div className="font-display text-4xl md:text-5xl font-medium text-white font-mono tracking-tight">
+              24<span className="text-gradient-gold">/7</span>
             </div>
-            <div className="text-white/60 text-xs md:text-sm mt-1 uppercase tracking-widest">{stats("support")}</div>
+            <div className="text-white/55 text-[11px] mt-1 uppercase tracking-[0.22em]">
+              {stats("support")}
+            </div>
           </div>
         </div>
       </div>
 
       {/* Scroll cue */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/40 flex flex-col items-center gap-2 anim-fade-in anim-delay-8">
-        <span className="text-xs uppercase tracking-widest">Scroll</span>
-        <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.5, repeat: Infinity }}>
-          <ArrowDown size={16} />
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/40 flex flex-col items-center gap-2 anim-fade-in anim-delay-8">
+        <span className="text-[10px] uppercase tracking-[0.28em]">Scroll</span>
+        <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.8, repeat: Infinity }}>
+          <ArrowDown size={14} />
         </motion.div>
       </div>
     </section>

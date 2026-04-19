@@ -3,6 +3,8 @@ import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin("./src/lib/i18n.ts");
 
+const isDev = process.env.NODE_ENV === "development";
+
 // OWASP A05 — Security Misconfiguration
 // All headers are applied to every route via the catch-all matcher.
 const securityHeaders = [
@@ -33,7 +35,11 @@ const securityHeaders = [
   // Notes:
   //   • script-src 'unsafe-inline': required for Next.js hydration JSON blobs and
   //     Framer Motion inline animation styles in the App Router.
+  //   • script-src 'unsafe-eval': required in development mode only — React dev tools
+  //     use eval() to reconstruct call stacks across server/client boundaries (Turbopack).
+  //     Production builds never use eval(), so this directive is omitted in prod.
   //   • style-src 'unsafe-inline': required for Tailwind's utility classes applied at runtime.
+  //   • connect-src 'self' + ws://localhost: dev HMR WebSocket (Turbopack). Prod: 'self' only.
   //   • connect-src 'self': form now posts to /api/contact (same origin) — no client-side
   //     calls to formspree.io any more.
   //   • If you add Google Analytics, reCAPTCHA, or other third-party scripts in the
@@ -42,18 +48,22 @@ const securityHeaders = [
     key: "Content-Security-Policy",
     value: [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline'",
+      isDev
+        ? "script-src 'self' 'unsafe-inline' 'unsafe-eval'"
+        : "script-src 'self' 'unsafe-inline'",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
       "img-src 'self' data: blob:",
-      "connect-src 'self'",
+      isDev
+        ? "connect-src 'self' ws://localhost:* http://localhost:*"
+        : "connect-src 'self'",
       "media-src 'none'",
       "object-src 'none'",
       "frame-src 'none'",
       "frame-ancestors 'none'",
       "base-uri 'self'",
       "form-action 'self'",
-      "upgrade-insecure-requests",
+      ...(!isDev ? ["upgrade-insecure-requests"] : []),
     ].join("; "),
   },
 ];

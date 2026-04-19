@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail, ArrowUpRight } from "lucide-react";
 import type { Locale } from "@/lib/i18n";
 
 function InstagramIcon() {
@@ -35,6 +35,7 @@ export default function Footer() {
   const t = useTranslations("footer");
   const nav = useTranslations("nav");
   const services = useTranslations("services.items");
+  const hero = useTranslations("hero");
   const locale = useLocale() as Locale;
 
   const getHref = (path: string) => {
@@ -45,53 +46,66 @@ export default function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="bg-dark text-white">
-      <div className="max-w-7xl mx-auto px-4 md:px-8 lg:px-16 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Column 1: About */}
-          <div>
+    <footer className="relative bg-forest text-white overflow-hidden noise-overlay">
+      <div aria-hidden className="absolute -top-40 left-1/2 -translate-x-1/2 w-[900px] h-[500px] rounded-full bg-green-medium/20 blur-3xl pointer-events-none" />
+      <div aria-hidden className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-gold/10 blur-3xl pointer-events-none" />
+
+      <div className="relative container-wide px-4 md:px-8 lg:px-16 pt-20 pb-10">
+        {/* Big editorial headline */}
+        <div className="max-w-4xl mb-16">
+          <span className="eyebrow text-green-mint">{t("tagline")}</span>
+          <h3 className="font-display text-5xl md:text-7xl font-medium leading-[0.95] tracking-tight mt-4">
+            <span className="text-gradient-emerald">{hero("headline")}</span>
+          </h3>
+          <div className="mt-8">
+            <Link
+              href={getHref("/contact")}
+              className="btn-base btn-gold cursor-pointer"
+            >
+              {nav("getQuote")}
+              <ArrowUpRight size={14} />
+            </Link>
+          </div>
+        </div>
+
+        {/* Columns */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 border-t border-white/10 pt-14">
+          {/* Column 1: Brand */}
+          <div className="col-span-2 md:col-span-1">
             <Image
               src="/logo-white.svg"
               alt="Green Up"
-              width={130}
-              height={34}
-              className="mb-4"
+              width={120}
+              height={32}
+              className="mb-5"
             />
-            <p className="text-white/60 text-sm leading-relaxed mb-5">
+            <p className="text-white/55 text-[13px] leading-relaxed mb-6 max-w-xs">
               {t("aboutText")}
             </p>
-            <p className="text-green-mint text-xs italic mb-4">{t("tagline")}</p>
-            <div className="flex items-center gap-3">
-              <a
-                href="#"
-                aria-label="Instagram"
-                className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/60 transition-colors"
-              >
-                <InstagramIcon />
-              </a>
-              <a
-                href="#"
-                aria-label="LinkedIn"
-                className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/60 transition-colors"
-              >
-                <LinkedInIcon />
-              </a>
-              <a
-                href="#"
-                aria-label="TikTok"
-                className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/60 hover:text-white hover:border-white/60 transition-colors"
-              >
-                <TikTokIcon />
-              </a>
+            <div className="flex items-center gap-2">
+              {[
+                { icon: InstagramIcon, label: "Instagram" },
+                { icon: LinkedInIcon,  label: "LinkedIn" },
+                { icon: TikTokIcon,    label: "TikTok" },
+              ].map(({ icon: Icon, label }) => (
+                <a
+                  key={label}
+                  href="#"
+                  aria-label={label}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-full border border-white/15 flex items-center justify-center text-white/60 hover:text-white hover:border-gold/60 hover:bg-white/5 transition-all cursor-pointer"
+                >
+                  <Icon />
+                </a>
+              ))}
             </div>
           </div>
 
           {/* Column 2: Pages */}
           <div>
-            <h4 className="font-semibold text-sm uppercase tracking-widest text-green-mint mb-4">
-              {t("pages")}
-            </h4>
-            <ul className="space-y-2">
+            <h4 className="font-display text-xl text-white mb-5">{t("pages")}</h4>
+            <ul className="space-y-2.5">
               {(
                 [
                   ["home", "/"],
@@ -107,7 +121,7 @@ export default function Footer() {
                 <li key={key}>
                   <Link
                     href={getHref(path)}
-                    className="text-white/60 hover:text-white text-sm transition-colors"
+                    className="text-white/55 hover:text-white text-[13.5px] transition-colors cursor-pointer"
                   >
                     {nav(key)}
                   </Link>
@@ -118,10 +132,8 @@ export default function Footer() {
 
           {/* Column 3: Services */}
           <div>
-            <h4 className="font-semibold text-sm uppercase tracking-widest text-green-mint mb-4">
-              {t("services")}
-            </h4>
-            <ul className="space-y-2">
+            <h4 className="font-display text-xl text-white mb-5">{t("services")}</h4>
+            <ul className="space-y-2.5">
               {(
                 [
                   "installation",
@@ -135,7 +147,7 @@ export default function Footer() {
                 <li key={key}>
                   <Link
                     href={getHref("/services")}
-                    className="text-white/60 hover:text-white text-sm transition-colors"
+                    className="text-white/55 hover:text-white text-[13.5px] transition-colors cursor-pointer"
                   >
                     {services(`${key}.title`)}
                   </Link>
@@ -145,19 +157,17 @@ export default function Footer() {
           </div>
 
           {/* Column 4: Contact */}
-          <div>
-            <h4 className="font-semibold text-sm uppercase tracking-widest text-green-mint mb-4">
-              {t("contact")}
-            </h4>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-2.5 text-white/60 text-sm">
+          <div className="col-span-2 md:col-span-1">
+            <h4 className="font-display text-xl text-white mb-5">{t("contact")}</h4>
+            <ul className="space-y-3.5">
+              <li className="flex items-start gap-3 text-white/55 text-[13.5px]">
                 <MapPin size={15} className="mt-0.5 text-gold shrink-0" />
                 <span>{t("address")}</span>
               </li>
               <li>
                 <a
                   href={`tel:${t("phone")}`}
-                  className="flex items-center gap-2.5 text-white/60 hover:text-white text-sm transition-colors"
+                  className="flex items-center gap-3 text-white/55 hover:text-white text-[13.5px] transition-colors cursor-pointer"
                 >
                   <Phone size={15} className="text-gold shrink-0" />
                   <span className="font-mono">{t("phone")}</span>
@@ -166,7 +176,7 @@ export default function Footer() {
               <li>
                 <a
                   href={`mailto:${t("email")}`}
-                  className="flex items-center gap-2.5 text-white/60 hover:text-white text-sm transition-colors"
+                  className="flex items-center gap-3 text-white/55 hover:text-white text-[13.5px] transition-colors cursor-pointer"
                 >
                   <Mail size={15} className="text-gold shrink-0" />
                   <span>{t("email")}</span>
@@ -176,17 +186,16 @@ export default function Footer() {
 
             {/* Maps placeholder */}
             {/* TODO: Replace with real Google Maps embed when address is confirmed */}
-            <div className="mt-5 w-full h-28 bg-white/5 border border-white/10 rounded flex items-center justify-center text-white/30 text-xs">
+            <div className="mt-6 w-full h-28 rounded-xl glass-dark flex items-center justify-center text-white/35 text-xs">
               Google Maps · Prishtinë, Kosovë
             </div>
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-white/40 text-xs">
-          <p>
-            © {year} Green Up. {t("rights")}
-          </p>
-          <p>{t("builtBy")} ♥</p>
+        {/* Bottom bar */}
+        <div className="mt-16 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-white/40 text-[12px]">
+          <p>© {year} Green Up. {t("rights")}</p>
+          <p className="font-mono tracking-wide">{t("builtBy")}</p>
         </div>
       </div>
     </footer>

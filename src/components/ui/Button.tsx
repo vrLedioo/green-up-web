@@ -2,7 +2,7 @@ import { type ReactNode } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
-type Variant = "gold" | "outline-white" | "outline-green" | "solid-green";
+type Variant = "gold" | "ghost-light" | "ghost-green" | "solid-green";
 
 interface ButtonProps {
   href?: string;
@@ -14,14 +14,11 @@ interface ButtonProps {
   disabled?: boolean;
 }
 
-const variants: Record<Variant, string> = {
-  gold: "bg-gold text-dark font-semibold hover:bg-yellow-500 shadow-lg shadow-gold/20",
-  "outline-white":
-    "border border-white text-white hover:bg-white hover:text-green-primary",
-  "outline-green":
-    "border border-green-primary text-green-primary hover:bg-green-primary hover:text-white",
-  "solid-green":
-    "bg-green-primary text-white hover:bg-green-medium shadow-lg shadow-green-primary/30",
+const variantClass: Record<Variant, string> = {
+  gold: "btn-gold",
+  "ghost-light": "btn-ghost-light",
+  "ghost-green": "btn-ghost-green",
+  "solid-green": "btn-solid-green",
 };
 
 export default function Button({
@@ -33,9 +30,7 @@ export default function Button({
   type = "button",
   disabled,
 }: ButtonProps) {
-  const base =
-    "inline-flex items-center gap-2 px-6 py-3 font-semibold text-sm tracking-wide transition-all duration-300 rounded-sm cursor-pointer";
-  const classes = cn(base, variants[variant], className);
+  const classes = cn("btn-base", variantClass[variant], className);
 
   if (href) {
     return (
@@ -50,7 +45,7 @@ export default function Button({
       type={type}
       onClick={onClick}
       disabled={disabled}
-      className={classes}
+      className={cn(classes, disabled && "opacity-60 cursor-not-allowed")}
     >
       {children}
     </button>

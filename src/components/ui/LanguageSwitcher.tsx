@@ -4,10 +4,10 @@ import { useLocale } from "next-intl";
 import { useRouter, usePathname } from "next/navigation";
 import { locales, type Locale } from "@/lib/i18n";
 
-const flags: Record<Locale, { flag: string; label: string }> = {
-  sq: { flag: "🇦🇱", label: "SQ" },
-  en: { flag: "🇬🇧", label: "EN" },
-  de: { flag: "🇩🇪", label: "DE" },
+const labels: Record<Locale, string> = {
+  sq: "SQ",
+  en: "EN",
+  de: "DE",
 };
 
 export default function LanguageSwitcher({ dark = false }: { dark?: boolean }) {
@@ -28,25 +28,30 @@ export default function LanguageSwitcher({ dark = false }: { dark?: boolean }) {
     }
   };
 
+  const inactiveCls = dark
+    ? "text-ink/55 hover:text-green-primary"
+    : "text-white/55 hover:text-white";
+  const activeCls = dark
+    ? "bg-green-primary text-white"
+    : "bg-white/15 text-white";
+
   return (
-    <div className="flex items-center gap-1">
+    <div
+      className={`inline-flex items-center gap-0.5 rounded-full p-0.5 ${
+        dark ? "bg-green-primary/5 border border-green-primary/15" : "bg-white/5 border border-white/10"
+      }`}
+    >
       {locales.map((loc) => (
         <button
           key={loc}
           onClick={() => switchLocale(loc)}
-          className={`flex items-center gap-1 px-2 py-1 rounded text-xs font-semibold transition-all duration-200 ${
-            locale === loc
-              ? dark
-                ? "bg-green-primary text-white"
-                : "bg-white/20 text-white"
-              : dark
-              ? "text-dark/60 hover:text-green-primary"
-              : "text-white/60 hover:text-white"
+          className={`px-2.5 py-1 rounded-full text-[11px] font-semibold tracking-widest transition-all duration-200 cursor-pointer ${
+            locale === loc ? activeCls : inactiveCls
           }`}
-          title={flags[loc].label}
+          aria-current={locale === loc ? "true" : undefined}
+          aria-label={labels[loc]}
         >
-          <span>{flags[loc].flag}</span>
-          <span className="hidden sm:inline">{flags[loc].label}</span>
+          {labels[loc]}
         </button>
       ))}
     </div>

@@ -3,25 +3,25 @@
 import { useRef } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
-import { MapPin, ArrowRight } from "lucide-react";
+import { MapPin, ArrowUpRight, ArrowLeft, ArrowRight } from "lucide-react";
 import type { Locale } from "@/lib/i18n";
 
 const projects = [
-  { title: "Rezidenca Dardania", location: "Prishtinë", type: "passenger", desc: "Instalim i 4 ashensorëve pasagjerë në kompleksin rezidencial 12-katësh.", gradient: "from-green-primary via-green-medium to-green-light" },
-  { title: "Hotel Grand",        location: "Prizren",   type: "passenger", desc: "Ashensor panoramik me kabinë xham për hotelin 5 yjesh.", gradient: "from-[#1a4332] via-green-primary to-green-medium" },
-  { title: "Qendra Tregtare",    location: "Ferizaj",   type: "escalator", desc: "Instalim i 6 eskalatorëve dhe 2 ashensorëve mallrash.", gradient: "from-dark via-green-primary to-green-medium" },
-  { title: "Vila Moderne",       location: "Gjakovë",   type: "home",      desc: "Home lift elegant me veshje dru e çelikut inox.", gradient: "from-green-medium via-green-light to-green-mint" },
-  { title: "Spitali Publik",     location: "Prishtinë", type: "passenger", desc: "Platforma ngritëse dhe ashensorë mjekësorë sipas standardeve ndërkombëtare.", gradient: "from-[#0f2d1f] via-green-primary to-green-medium" },
-  { title: "Ndërtesa Zyrave",    location: "Mitrovicë", type: "passenger", desc: "Modernizim dhe instalim i ashensorëve të rinj në ndërtesën e zyrave.", gradient: "from-green-primary via-dark to-green-medium" },
+  { title: "Rezidenca Dardania", location: "Prishtinë", year: "2023", type: "passenger", desc: "Instalim i 4 ashensorëve pasagjerë në kompleksin rezidencial 12-katësh.", gradient: "from-green-primary via-green-medium to-green-light" },
+  { title: "Hotel Grand",        location: "Prizren",   year: "2022", type: "passenger", desc: "Ashensor panoramik me kabinë xham për hotelin 5 yjesh.",                gradient: "from-green-deep via-green-primary to-green-medium" },
+  { title: "Qendra Tregtare",    location: "Ferizaj",   year: "2023", type: "escalator", desc: "Instalim i 6 eskalatorëve dhe 2 ashensorëve mallrash.",                gradient: "from-ink via-green-primary to-green-medium" },
+  { title: "Vila Moderne",       location: "Gjakovë",   year: "2024", type: "home",      desc: "Home lift elegant me veshje dru e çelikut inox.",                       gradient: "from-green-medium via-green-light to-green-mint" },
+  { title: "Spitali Publik",     location: "Prishtinë", year: "2022", type: "passenger", desc: "Platforma ngritëse dhe ashensorë mjekësorë sipas standardeve BE.",     gradient: "from-green-abyss via-green-primary to-green-medium" },
+  { title: "Ndërtesa Zyrave",    location: "Mitrovicë", year: "2021", type: "passenger", desc: "Modernizim dhe instalim i ashensorëve të rinj në ndërtesën e zyrave.", gradient: "from-green-primary via-ink to-green-medium" },
 ];
 
 const typeBadge: Record<string, string> = {
-  passenger:  "bg-green-primary/20 text-green-primary",
-  escalator:  "bg-gold/20 text-yellow-700",
-  home:       "bg-green-mint/50 text-green-primary",
-  cargo:      "bg-gray-100 text-gray-700",
-  security:   "bg-white/20 text-white",
-  accessibility: "bg-green-pale text-green-primary",
+  passenger:  "bg-white/10 text-green-mint border-green-mint/30",
+  escalator:  "bg-gold/15 text-gold border-gold/40",
+  home:       "bg-green-mint/15 text-green-mint border-green-mint/30",
+  cargo:      "bg-white/10 text-white/80 border-white/20",
+  security:   "bg-white/10 text-white border-white/20",
+  accessibility: "bg-green-pale/15 text-green-mint border-green-mint/30",
 };
 
 export default function FeaturedProjects() {
@@ -29,6 +29,13 @@ export default function FeaturedProjects() {
   const locale = useLocale() as Locale;
   const scrollRef = useRef<HTMLDivElement>(null);
   const prefix = locale !== "sq" ? `/${locale}` : "";
+
+  const scrollBy = (dir: "left" | "right") => {
+    const el = scrollRef.current;
+    if (!el) return;
+    const amount = el.clientWidth * 0.8;
+    el.scrollBy({ left: dir === "left" ? -amount : amount, behavior: "smooth" });
+  };
 
   const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     const el = scrollRef.current;
@@ -47,48 +54,96 @@ export default function FeaturedProjects() {
   };
 
   return (
-    <section className="section-padding bg-dark overflow-hidden" id="projects">
-      <div className="container-wide">
+    <section className="relative section-padding bg-forest overflow-hidden noise-overlay" id="projects">
+      <div aria-hidden className="absolute top-0 left-1/4 w-[600px] h-[300px] rounded-full bg-green-medium/20 blur-3xl anim-aurora pointer-events-none" />
+
+      <div className="relative container-wide">
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
-          <div>
-            <span className="text-green-mint text-sm font-semibold uppercase tracking-widest">— {t("title")} —</span>
-            <h2 className="font-display text-5xl md:text-6xl font-bold text-white mt-3">{t("title")}</h2>
-            <p className="text-white/50 text-lg mt-2">{t("subtitle")}</p>
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
+          <div className="max-w-xl">
+            <span className="eyebrow text-green-mint">{t("title")}</span>
+            <h2 className="font-display text-5xl md:text-6xl lg:text-7xl font-medium text-white mt-4 leading-[0.95] tracking-tight">
+              {t("subtitle")}
+            </h2>
           </div>
-          <Link href={`${prefix}/projects`} className="inline-flex items-center gap-2 text-gold hover:text-yellow-400 font-semibold text-sm transition-colors shrink-0">
-            {t("viewAll")} <ArrowRight size={16} />
-          </Link>
+          <div className="flex items-center gap-3">
+            <button
+              onClick={() => scrollBy("left")}
+              aria-label="Previous"
+              className="w-11 h-11 rounded-full border border-white/20 text-white/80 hover:text-white hover:bg-white/10 hover:border-white/40 flex items-center justify-center transition-all cursor-pointer"
+            >
+              <ArrowLeft size={16} />
+            </button>
+            <button
+              onClick={() => scrollBy("right")}
+              aria-label="Next"
+              className="w-11 h-11 rounded-full border border-white/20 text-white/80 hover:text-white hover:bg-white/10 hover:border-white/40 flex items-center justify-center transition-all cursor-pointer"
+            >
+              <ArrowRight size={16} />
+            </button>
+            <Link
+              href={`${prefix}/projects`}
+              className="btn-base btn-ghost-light !py-2.5 !px-5 text-[12.5px] cursor-pointer ml-2"
+            >
+              {t("viewAll")}
+              <ArrowUpRight size={14} />
+            </Link>
+          </div>
         </div>
 
         {/* Horizontal scroll carousel */}
         <div
           ref={scrollRef}
-          className="scroll-container flex gap-6 pb-4 -mx-4 px-4 md:-mx-8 md:px-8 lg:-mx-16 lg:px-16 cursor-grab active:cursor-grabbing"
+          className="scroll-container flex gap-5 pb-6 -mx-4 px-4 md:-mx-8 md:px-8 lg:-mx-16 lg:px-16 cursor-grab active:cursor-grabbing"
           onMouseDown={handleMouseDown}
         >
           {projects.map((project, i) => (
-            <div key={i} className="shrink-0 w-72 md:w-80 group">
+            <article
+              key={i}
+              className="shrink-0 w-[280px] md:w-[340px] group snap-start"
+            >
               {/* TODO: Replace gradient div with real project photo */}
-              <div className={`w-full h-48 rounded-sm bg-gradient-to-br ${project.gradient} relative overflow-hidden mb-4`}>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                <div className={`absolute top-3 left-3 px-2.5 py-1 rounded-full text-xs font-semibold ${typeBadge[project.type] ?? "bg-white/20 text-white"}`}>
-                  {t(`filters.${project.type}` as any)}
+              <div
+                className={`relative w-full h-[360px] rounded-2xl bg-gradient-to-br ${project.gradient} overflow-hidden mb-4`}
+              >
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                <div
+                  aria-hidden
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{ backgroundImage: "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1), transparent 60%)" }}
+                />
+
+                <div className={`absolute top-4 left-4 text-[10px] font-semibold uppercase tracking-[0.2em] px-2.5 py-1 rounded-full border backdrop-blur-md ${typeBadge[project.type] ?? "bg-white/10 text-white border-white/20"}`}>
+                  {t(`filters.${project.type}`)}
                 </div>
+
+                <div className="absolute bottom-4 left-4 right-4 text-white">
+                  <div className="flex items-center gap-1.5 text-white/60 text-[11px] mb-2">
+                    <MapPin size={11} />
+                    <span>{project.location}</span>
+                    <span className="opacity-50">·</span>
+                    <span className="font-mono">{project.year}</span>
+                  </div>
+                  <h3 className="font-display text-2xl font-medium leading-tight">
+                    {project.title}
+                  </h3>
+                </div>
+
                 <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/30">
-                  <Link href={`${prefix}/projects`} className="bg-white text-dark text-xs font-semibold px-4 py-2 rounded-sm">
+                  <Link
+                    href={`${prefix}/projects`}
+                    className="btn-base btn-gold !py-2.5 !px-5 text-[12px] cursor-pointer"
+                  >
                     {t("viewDetails")}
+                    <ArrowUpRight size={14} />
                   </Link>
                 </div>
               </div>
-              <div>
-                <div className="flex items-center gap-1.5 text-white/40 text-xs mb-1">
-                  <MapPin size={11} /><span>{project.location}</span>
-                </div>
-                <h3 className="text-white font-semibold text-base mb-1.5">{project.title}</h3>
-                <p className="text-white/50 text-sm leading-relaxed">{project.desc}</p>
-              </div>
-            </div>
+
+              <p className="text-white/55 text-sm leading-relaxed line-clamp-2">
+                {project.desc}
+              </p>
+            </article>
           ))}
         </div>
       </div>
