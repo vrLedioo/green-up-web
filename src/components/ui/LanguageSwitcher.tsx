@@ -1,7 +1,7 @@
 "use client";
 
 import { useLocale } from "next-intl";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter, usePathname } from "@/lib/navigation";
 import { locales, type Locale } from "@/lib/i18n";
 
 const labels: Record<Locale, string> = {
@@ -16,16 +16,7 @@ export default function LanguageSwitcher({ dark = false }: { dark?: boolean }) {
   const pathname = usePathname();
 
   const switchLocale = (newLocale: Locale) => {
-    const segments = pathname.split("/").filter(Boolean);
-    const isLocaleSegment = locales.includes(segments[0] as Locale);
-    const rest = isLocaleSegment ? segments.slice(1) : segments;
-    const pathWithoutLocale = rest.length > 0 ? "/" + rest.join("/") : "";
-
-    if (newLocale === "sq") {
-      router.push(pathWithoutLocale || "/");
-    } else {
-      router.push(`/${newLocale}${pathWithoutLocale}`);
-    }
+    router.replace(pathname, { locale: newLocale });
   };
 
   const inactiveCls = dark
