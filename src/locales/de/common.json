@@ -224,6 +224,19 @@
     "tabs": {
       "projects": "Projekte",
       "gallery": "Galerie"
+    },
+    "modal": {
+      "close": "Schließen",
+      "photos": "Projektfotos",
+      "overview": "Über das Projekt",
+      "services": "Erbrachte Leistungen",
+      "specs": "Technische Spezifikationen",
+      "prev": "Vorheriges Projekt",
+      "next": "Nächstes Projekt",
+      "client": "Kunde",
+      "duration": "Dauer",
+      "year": "Jahr",
+      "location": "Standort"
     }
   },
   "gallery": {

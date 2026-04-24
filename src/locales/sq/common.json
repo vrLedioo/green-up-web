@@ -224,6 +224,19 @@
     "tabs": {
       "projects": "Projektet",
       "gallery": "Galeria"
+    },
+    "modal": {
+      "close": "Mbyll",
+      "photos": "Fotot e Projektit",
+      "overview": "Rreth Projektit",
+      "services": "Shërbimet e Kryera",
+      "specs": "Specifikimet Teknike",
+      "prev": "Projekti i Mëparshëm",
+      "next": "Projekti Tjetër",
+      "client": "Klienti",
+      "duration": "Kohëzgjatja",
+      "year": "Viti",
+      "location": "Vendndodhja"
     }
   },
   "gallery": {
