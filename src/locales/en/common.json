@@ -337,5 +337,16 @@
     },
     "text": "Green Up collaborates with the most renowned European elevator manufacturers and distributors. Our partnerships enable us to offer the highest quality products at the most competitive prices.",
     "logoPlaceholder": "Partner Logo"
+  },
+  "chatbot": {
+    "title": "Green Up Assistant",
+    "subtitle": "Online now",
+    "welcome": "Hi there! 👋 I'm the Green Up virtual assistant. I can help with info on elevators, pricing, maintenance, or guide you to the right page. What would you like to know?",
+    "placeholder": "Type your message...",
+    "send": "Send",
+    "open": "Open chat",
+    "close": "Close",
+    "reset": "Reset conversation",
+    "fallback": "Sorry, I didn't quite catch that. I can help with these topics:"
   }
 }

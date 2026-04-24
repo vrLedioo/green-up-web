@@ -6,6 +6,7 @@ import { notFound } from "next/navigation";
 import { locales, type Locale } from "@/lib/i18n";
 import PageTransition from "@/components/layout/PageTransition";
 import ElevatorPanel from "@/components/layout/ElevatorPanel";
+import Chatbot from "@/components/layout/Chatbot";
 import EmergencyBanner from "@/components/ui/EmergencyBanner";
 import "../globals.css";
 
@@ -71,6 +72,7 @@ export default async function LocaleLayout({
         <NextIntlClientProvider messages={messages}>
           <EmergencyBanner />
           <ElevatorPanel />
+          <Chatbot />
           <PageTransition>{children}</PageTransition>
         </NextIntlClientProvider>
       </body>

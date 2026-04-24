@@ -337,5 +337,16 @@
     },
     "text": "Green Up arbeitet mit den renommiertesten europäischen Aufzugsherstellern und -händlern zusammen. Unsere Partnerschaften ermöglichen es uns, die qualitativ hochwertigsten Produkte zu den wettbewerbsfähigsten Preisen anzubieten.",
     "logoPlaceholder": "Partnerlogo"
+  },
+  "chatbot": {
+    "title": "Green Up Assistent",
+    "subtitle": "Jetzt online",
+    "welcome": "Hallo! 👋 Ich bin der virtuelle Assistent von Green Up. Ich helfe bei Fragen zu Aufzügen, Preisen, Wartung oder leite Sie zur richtigen Seite. Was möchten Sie wissen?",
+    "placeholder": "Ihre Nachricht eingeben...",
+    "send": "Senden",
+    "open": "Chat öffnen",
+    "close": "Schließen",
+    "reset": "Unterhaltung zurücksetzen",
+    "fallback": "Das habe ich leider nicht verstanden. Ich kann Ihnen bei diesen Themen helfen:"
   }
 }

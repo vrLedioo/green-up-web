@@ -337,5 +337,16 @@
     },
     "text": "Green Up bashkëpunon me prodhuesit dhe shpërndarësit më të njohur të ashensorëve në Europë. Partneritetet tona na mundësojnë të ofrojmë produktet me cilësinë më të lartë dhe çmimet më konkurruese.",
     "logoPlaceholder": "Logo e Partnerit"
+  },
+  "chatbot": {
+    "title": "Asistenti Green Up",
+    "subtitle": "Online tani",
+    "welcome": "Përshëndetje! 👋 Jam asistenti virtual i Green Up. Mund t'ju ndihmoj me informacione rreth ashensorëve, çmimeve, mirëmbajtjes ose t'ju drejtoj në faqen e duhur. Çfarë ju intereson?",
+    "placeholder": "Shkruani mesazhin tuaj...",
+    "send": "Dërgo",
+    "open": "Hap chat",
+    "close": "Mbyll",
+    "reset": "Rinis bisedën",
+    "fallback": "Më falni, nuk e kuptova plotësisht. Mund t'ju ndihmoj me këto tema:"
   }
 }
