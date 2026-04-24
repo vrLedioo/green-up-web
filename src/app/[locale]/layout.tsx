@@ -5,6 +5,8 @@ import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { locales, type Locale } from "@/lib/i18n";
 import PageTransition from "@/components/layout/PageTransition";
+import ElevatorPanel from "@/components/layout/ElevatorPanel";
+import EmergencyBanner from "@/components/ui/EmergencyBanner";
 import "../globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -67,6 +69,8 @@ export default async function LocaleLayout({
         className={`${cormorant.variable} ${dmSans.variable} ${jetbrains.variable} bg-[#F8FAF9] text-[#1B1B1B] antialiased`}
       >
         <NextIntlClientProvider messages={messages}>
+          <EmergencyBanner />
+          <ElevatorPanel />
           <PageTransition>{children}</PageTransition>
         </NextIntlClientProvider>
       </body>

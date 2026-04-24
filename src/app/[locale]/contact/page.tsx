@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 import { useTranslations } from "next-intl";
-import EmergencyBanner from "@/components/ui/EmergencyBanner";
-import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { MapPin, Phone, Mail } from "lucide-react";
 
@@ -75,8 +73,6 @@ export default function ContactPage() {
 
   return (
     <>
-      <EmergencyBanner />
-      <Navbar />
       <main>
         {/* Hero */}
         <section className="relative min-h-[50vh] flex items-end pb-16 overflow-hidden noise-overlay">

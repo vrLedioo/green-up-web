@@ -1,5 +1,5 @@
-import { redirect } from "@/lib/navigation";
+import { redirect } from "next/navigation";
 
 export default function GalleryPage() {
-  redirect("/projects");
+  redirect("../projects");
 }

@@ -2,8 +2,6 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { useTranslations } from "next-intl";
-import EmergencyBanner from "@/components/ui/EmergencyBanner";
-import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { MapPin, Calendar, X, ArrowUpRight, ChevronLeft, ChevronRight, Plus } from "lucide-react";
 
@@ -93,8 +91,6 @@ export default function ProjectsPage() {
 
   return (
     <>
-      <EmergencyBanner />
-      <Navbar />
       <main>
         {/* Hero */}
         <section className="relative min-h-[60vh] flex items-end pb-20 overflow-hidden noise-overlay bg-forest">

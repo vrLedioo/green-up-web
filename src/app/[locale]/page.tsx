@@ -1,7 +1,5 @@
 import type { Metadata } from "next";
 import { getTranslations } from "next-intl/server";
-import EmergencyBanner from "@/components/ui/EmergencyBanner";
-import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
 import Services from "@/components/sections/Services";
@@ -28,8 +26,6 @@ export async function generateMetadata({
 export default function HomePage() {
   return (
     <>
-      <EmergencyBanner />
-      <Navbar />
       <ElevatorFrame>
         <main>
           <FloorSection index={0} label="G" name="Welcome" tone="dark" tiltIntensity={0}>

@@ -2,8 +2,6 @@
 
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
-import EmergencyBanner from "@/components/ui/EmergencyBanner";
-import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import { ArrowUpRight, Check } from "lucide-react";
 import type { Locale } from "@/lib/i18n";
@@ -38,8 +36,6 @@ export default function ServicesPage() {
 
   return (
     <>
-      <EmergencyBanner />
-      <Navbar />
       <main>
         {/* Hero */}
         <section className="relative min-h-[60vh] flex items-end pb-20 overflow-hidden noise-overlay bg-forest">

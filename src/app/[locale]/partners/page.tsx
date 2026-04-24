@@ -1,8 +1,6 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import EmergencyBanner from "@/components/ui/EmergencyBanner";
-import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CTABanner from "@/components/sections/CTABanner";
 
@@ -13,8 +11,6 @@ export default function PartnersPage() {
 
   return (
     <>
-      <EmergencyBanner />
-      <Navbar />
       <main>
         {/* Hero */}
         <section className="relative min-h-[50vh] flex items-end pb-16 overflow-hidden noise-overlay">

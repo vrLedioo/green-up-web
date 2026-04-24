@@ -1,8 +1,6 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import EmergencyBanner from "@/components/ui/EmergencyBanner";
-import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CTABanner from "@/components/sections/CTABanner";
 import { Target, Eye, MapPin } from "lucide-react";
@@ -20,8 +18,6 @@ export default function AboutPage() {
 
   return (
     <>
-      <EmergencyBanner />
-      <Navbar />
       <main>
         {/* Hero */}
         <section className="relative min-h-[60vh] flex items-end pb-20 overflow-hidden noise-overlay bg-forest">
