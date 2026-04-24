@@ -218,8 +218,12 @@
   },
   "projectsPage": {
     "hero": {
-      "title": "Projektet Tona",
+      "title": "Projektet & Galeria",
       "subtitle": "Punë cilësore që flet vetë"
+    },
+    "tabs": {
+      "projects": "Projektet",
+      "gallery": "Galeria"
     }
   },
   "gallery": {

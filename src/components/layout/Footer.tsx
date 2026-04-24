@@ -112,7 +112,6 @@ export default function Footer() {
                   ["about", "/about"],
                   ["services", "/services"],
                   ["projects", "/projects"],
-                  ["gallery", "/gallery"],
                   ["faq", "/faq"],
                   ["contact", "/contact"],
                   ["partners", "/partners"],

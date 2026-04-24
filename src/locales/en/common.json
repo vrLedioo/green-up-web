@@ -218,8 +218,12 @@
   },
   "projectsPage": {
     "hero": {
-      "title": "Our Projects",
+      "title": "Projects & Gallery",
       "subtitle": "Quality work that speaks for itself"
+    },
+    "tabs": {
+      "projects": "Projects",
+      "gallery": "Gallery"
     }
   },
   "gallery": {

@@ -14,7 +14,6 @@ const navKeys = [
   "about",
   "services",
   "projects",
-  "gallery",
   "faq",
   "contact",
   "partners",
