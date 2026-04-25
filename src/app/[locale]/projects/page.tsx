@@ -48,7 +48,7 @@ const allProjects: Project[] = [
     fullDesc: "Instalim i një ashensori panoramik me xham të plotë në Hotel Grand të Prizrenit. Projekti kërkoi zgjidhje inxhinierike të veçanta për integrimin e ashensorit në arkitekturën historike të hotelit duke ruajtur estetikën origjinale. Kabinat me xham ofrojnë pamje panoramike të oborrit të brendshëm.",
     client: "Hotel Grand Prizren", duration: "2 javë",
     services: ["Instalim ashensori panoramik me xham", "Dizajn i personalizuar i kabinës", "Integrimi arkitektonik", "Ndriçim ambiental LED", "Garanci 5 vjeçare"],
-    specs: [{ label: "Ashensorë", value: "1 njësi panoramike" }, { label: "Kate", value: "6 kate" }, { label: "Kapaciteti", value: "480 kg / 6 persona" }, { label: "Xhami", value: "Triplex 10mm" }, { label: "Standardi", value: "EN 81-40" }],
+    specs: [{ label: "Ashensorë", value: "1 njësi panoramike" }, { label: "Kate", value: "6 kate" }, { label: "Kapaciteti", value: "480 kg / 6 persona" }, { label: "Xhami", value: "Triplex 10mm" }, { label: "Standardi", value: "EN 81-20/50" }],
     photos: ["from-green-deep via-green-primary to-green-medium", "from-green-primary via-green-light to-green-mint", "from-ink via-green-medium to-green-light", "from-green-medium via-ink to-green-primary", "from-green-abyss via-green-primary to-green-light"],
   },
   {
@@ -81,7 +81,7 @@ const allProjects: Project[] = [
     fullDesc: "Green Up realizoi instalimin e 3 ashensorëve mjekësorë në Qendrën Klinike Universitare të Kosovës. Ashensorët janë të dimensionimit special për transport shtretërish dhe pajisje mjekësore, me sistem të veçantë higjienik dhe hapje me prioritet për emergjencat.",
     client: "QKUK — Ministria e Shëndetësisë", duration: "5 javë",
     services: ["Instalim 3 ashensorësh mjekësorë", "Sistem prioriteti për emergjenca", "Kabinat me sipërfaqe anti-bakteriale", "Integrimi me sistemin e bllokimit zjarrfiks", "Certifikim i posaçëm mjekësor"],
-    specs: [{ label: "Ashensorë", value: "3 njësi mjekësore" }, { label: "Dimensioni", value: "1400×2100 mm" }, { label: "Kapaciteti", value: "1600 kg / shtrat+staf" }, { label: "Tipi", value: "MRL Trakcion" }, { label: "Certifikimi", value: "Medical Grade EN 81-76" }],
+    specs: [{ label: "Ashensorë", value: "3 njësi mjekësore" }, { label: "Dimensioni", value: "1400×2100 mm" }, { label: "Kapaciteti", value: "1600 kg / shtrat+staf" }, { label: "Tipi", value: "MRL Trakcion" }, { label: "Certifikimi", value: "EN 81-20/50 / Medical Grade" }],
     photos: ["from-green-abyss via-green-primary to-green-medium", "from-green-deep via-green-primary to-green-light", "from-ink via-green-abyss to-green-primary", "from-green-primary via-green-abyss to-green-deep", "from-green-medium via-green-abyss to-green-primary"],
   },
   {
@@ -125,7 +125,7 @@ const allProjects: Project[] = [
     fullDesc: "Green Up instaloi platforma ngritëse vertikale dhe shkallë lëvizëse (stairlift) për të siguruar aksesueshmëri të plotë për nxënësit me aftësi të kufizuara në shkollën speciale në Gjilan. Projekti u financua nga fondet BE dhe plotëson të gjitha standardet e direktivës europiane të aksesueshmërisë.",
     client: "MASHT — Ministria e Arsimit", duration: "2 javë",
     services: ["Instalim 2 platformash vertikale", "Instalim stairlift për shkallë", "Certifikim sipas direktivës BE", "Trajnim i stafit shkollor", "Mirëmbajtje vjetore falas (3 vjet)"],
-    specs: [{ label: "Platforma", value: "2 njësi vertikale" }, { label: "Stairlift", value: "1 njësi" }, { label: "Kapaciteti", value: "300 kg" }, { label: "Certifikimi", value: "EN 81-41 / BE" }, { label: "Financimi", value: "Fondet BE" }],
+    specs: [{ label: "Platforma", value: "2 njësi vertikale" }, { label: "Stairlift", value: "1 njësi" }, { label: "Kapaciteti", value: "300 kg" }, { label: "Certifikimi", value: "EN 81-20/50 / BE" }, { label: "Financimi", value: "Fondet BE" }],
     photos: ["from-green-medium via-green-primary to-green-deep", "from-green-primary via-green-medium to-green-abyss", "from-green-deep via-green-medium to-green-primary", "from-green-abyss via-green-deep to-green-medium", "from-green-medium via-green-abyss to-green-deep"],
   },
   {

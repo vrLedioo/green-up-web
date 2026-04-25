@@ -171,7 +171,7 @@
         "Personenaufzüge (2–30+ Personen)",
         "Waren- und Industrieaufzüge",
         "Panorama-Glasaufzüge",
-        "Installation nach EN 81 und CE",
+        "Installation nach EN 81-20/50 und CE",
         "Technische Planung und Projektierung",
         "Übergabe mit vollständiger Dokumentation"
       ],
@@ -300,7 +300,7 @@
       },
       {
         "q": "Sind Ihre Aufzüge sicher?",
-        "a": "Absolut. Alle unsere Aufzüge sind nach europäischen Normen EN 81 zertifiziert und werden regelmäßig von zuständigen Behörden inspiziert."
+        "a": "Absolut. Alle unsere Aufzüge sind nach europäischen Normen EN 81-20/50 zertifiziert, harmonisiert unter der Richtlinie 2014/33/EU, und werden regelmäßig von zuständigen Behörden inspiziert."
       },
       {
         "q": "Wie kann ich ein Angebot anfragen?",
@@ -320,6 +320,7 @@
       "type": "Anfragetyp",
       "message": "Nachricht",
       "submit": "Nachricht Senden",
+      "sending": "Wird gesendet...",
       "types": {
         "quote": "Preisangebot",
         "maintenance": "Wartung",

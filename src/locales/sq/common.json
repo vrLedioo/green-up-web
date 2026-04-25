@@ -171,7 +171,7 @@
         "Ashensorë pasagjerësh (2–30+ persona)",
         "Ashensorë mallrash dhe industrialë",
         "Ashensorë panoramikë me xham",
-        "Instalim sipas EN 81 dhe CE",
+        "Instalim sipas EN 81-20/50 dhe CE",
         "Projekt dhe planifikim teknik",
         "Dorëzim me dokumentacion të plotë"
       ],
@@ -300,7 +300,7 @@
       },
       {
         "q": "A janë ashensorët tuaj të sigurt?",
-        "a": "Absolutisht. Të gjithë ashensorët tanë certifikohen sipas standardeve europiane EN 81 dhe i nënshtrohen inspektimit të rregullt nga organet kompetente."
+        "a": "Absolutisht. Të gjithë ashensorët tanë certifikohen sipas standardeve europiane EN 81-20/50, të harmonizuara nën Direktivën 2014/33/EU, dhe i nënshtrohen inspektimit të rregullt nga organet kompetente."
       },
       {
         "q": "Si mund të kërkoj ofertë?",
@@ -320,6 +320,7 @@
       "type": "Lloji i kërkesës",
       "message": "Mesazhi",
       "submit": "Dërgo Mesazhin",
+      "sending": "Duke dërguar...",
       "types": {
         "quote": "Ofertë çmimi",
         "maintenance": "Mirëmbajtje",

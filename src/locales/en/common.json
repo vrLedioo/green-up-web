@@ -171,7 +171,7 @@
         "Passenger elevators (2–30+ persons)",
         "Cargo and industrial elevators",
         "Panoramic glass elevators",
-        "Installation per EN 81 and CE standards",
+        "Installation per EN 81-20/50 and CE standards",
         "Technical design and planning",
         "Delivery with complete documentation"
       ],
@@ -196,7 +196,7 @@
         "Stairlifts",
         "Ramps and medical elevators",
         "All building types",
-        "Certified per EU directives",
+        "Certified per EU Directive 2014/33/EU (EN 81-20/50)",
         "Fast installation service"
       ],
       "escalators": [
@@ -300,7 +300,7 @@
       },
       {
         "q": "Are your elevators safe?",
-        "a": "Absolutely. All our elevators are certified according to European standards EN 81 and undergo regular inspection by competent bodies."
+        "a": "Absolutely. All our elevators are certified according to European standards EN 81-20/50, harmonized under Directive 2014/33/EU, and undergo regular inspection by competent bodies."
       },
       {
         "q": "How can I request a quote?",
@@ -320,6 +320,7 @@
       "type": "Request type",
       "message": "Message",
       "submit": "Send Message",
+      "sending": "Sending...",
       "types": {
         "quote": "Price quote",
         "maintenance": "Maintenance",

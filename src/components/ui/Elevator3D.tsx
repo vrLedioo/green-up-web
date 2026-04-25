@@ -215,7 +215,7 @@ export default function Elevator3D() {
 
         {/* Spec strip */}
         <div className="relative z-10 grid grid-cols-3 divide-x divide-white/5 border-t border-white/8 px-2">
-          <SpecCell label="Cert" value="EN 81" />
+          <SpecCell label="Cert" value="EN 81-20/50" />
           <SpecCell label="Response" value="24 / 7" />
           <SpecCell label="Coverage" value="KS · EU" />
         </div>
