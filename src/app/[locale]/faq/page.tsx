@@ -64,7 +64,7 @@ export default function FAQPage() {
                 </div>
               ))}
               {filtered.length === 0 && (
-                <p className="text-center text-dark/40 py-12">Nuk u gjet asgjë.</p>
+                <p className="text-center text-dark/40 py-12">{t("noResults")}</p>
               )}
             </div>
           </div>

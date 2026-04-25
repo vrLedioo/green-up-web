@@ -84,13 +84,13 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-2">
               {[
-                { icon: InstagramIcon, label: "Instagram" },
-                { icon: LinkedInIcon,  label: "LinkedIn" },
-                { icon: TikTokIcon,    label: "TikTok" },
-              ].map(({ icon: Icon, label }) => (
+                { icon: InstagramIcon, label: "Instagram", href: "https://www.instagram.com/green_up1/" },
+                { icon: LinkedInIcon,  label: "LinkedIn", href: "https://www.linkedin.com/" },
+                { icon: TikTokIcon,    label: "TikTok", href: "https://www.tiktok.com/@green.up1" },
+              ].map(({ icon: Icon, label, href }) => (
                 <a
                   key={label}
-                  href="#"
+                  href={href}
                   aria-label={label}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -183,10 +183,18 @@ export default function Footer() {
               </li>
             </ul>
 
-            {/* Maps placeholder */}
-            {/* TODO: Replace with real Google Maps embed when address is confirmed */}
-            <div className="mt-6 w-full h-28 rounded-xl glass-dark flex items-center justify-center text-white/35 text-xs">
-              Google Maps · Prishtinë, Kosovë
+            {/* Google Maps embed */}
+            <div className="mt-6 w-full h-28 rounded-xl overflow-hidden border border-white/10">
+              <iframe
+                title="Green Up - Prishtina, Kosovo"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47189.94756526498!2d21.13073!3d42.6629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13549ee605110927%3A0x9571e3edaf3b28b8!2sPrishtina!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
             </div>
           </div>
         </div>

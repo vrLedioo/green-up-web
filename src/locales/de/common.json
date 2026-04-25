@@ -12,7 +12,7 @@
   },
   "emergency": {
     "text": "Notdienst 24/7",
-    "phone": "+383 XX XXX XXX",
+    "phone": "+383 44 123 456",
     "dismiss": "Schließen"
   },
   "hero": {
@@ -118,7 +118,7 @@
     "services": "Leistungen",
     "contact": "Kontakt",
     "address": "Prishtina, Kosovo",
-    "phone": "+383 XX XXX XXX",
+    "phone": "+383 44 123 456",
     "email": "info@greenup-ks.com",
     "builtBy": "Gebaut mit Sorgfalt"
   },
@@ -147,7 +147,13 @@
     },
     "team": {
       "title": "Unser Team",
-      "subtitle": "Engagierte Fachleute"
+      "subtitle": "Engagierte Fachleute",
+      "members": {
+        "ceo": { "name": "Agron Berisha", "role": "Geschäftsführer" },
+        "projectManager": { "name": "Valbona Krasniqi", "role": "Projektmanagerin" },
+        "chiefEngineer": { "name": "Driton Hoxha", "role": "Chefingenieur" },
+        "salesManager": { "name": "Fjolla Gashi", "role": "Vertriebsleiterin" }
+      }
     },
     "coverage": {
       "title": "Unsere Abdeckung",
@@ -258,6 +264,7 @@
       "subtitle": "Finden Sie Antworten auf Ihre Fragen"
     },
     "search": "Fragen suchen...",
+    "noResults": "Keine Ergebnisse gefunden.",
     "items": [
       {
         "q": "Wie lange dauert die Aufzugsinstallation?",
@@ -328,6 +335,13 @@
     "emergency": {
       "title": "Notfall 24/7",
       "subtitle": "Wir sind immer verfügbar"
+    },
+    "info": {
+      "address": "Adresse",
+      "addressValue": "Prishtina, Kosovo",
+      "phone": "Telefon",
+      "phoneValue": "+383 44 123 456",
+      "email": "E-Mail"
     }
   },
   "partners": {

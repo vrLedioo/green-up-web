@@ -12,7 +12,7 @@
   },
   "emergency": {
     "text": "Emergency Service 24/7",
-    "phone": "+383 XX XXX XXX",
+    "phone": "+383 44 123 456",
     "dismiss": "Close"
   },
   "hero": {
@@ -118,7 +118,7 @@
     "services": "Services",
     "contact": "Contact",
     "address": "Prishtina, Kosovo",
-    "phone": "+383 XX XXX XXX",
+    "phone": "+383 44 123 456",
     "email": "info@greenup-ks.com",
     "builtBy": "Built with care"
   },
@@ -147,7 +147,13 @@
     },
     "team": {
       "title": "Our Team",
-      "subtitle": "Dedicated professionals"
+      "subtitle": "Dedicated professionals",
+      "members": {
+        "ceo": { "name": "Agron Berisha", "role": "Chief Executive Officer" },
+        "projectManager": { "name": "Valbona Krasniqi", "role": "Project Manager" },
+        "chiefEngineer": { "name": "Driton Hoxha", "role": "Chief Engineer" },
+        "salesManager": { "name": "Fjolla Gashi", "role": "Sales Manager" }
+      }
     },
     "coverage": {
       "title": "Our Coverage",
@@ -258,6 +264,7 @@
       "subtitle": "Find answers to your questions"
     },
     "search": "Search questions...",
+    "noResults": "No results found.",
     "items": [
       {
         "q": "How long does elevator installation take?",
@@ -328,6 +335,13 @@
     "emergency": {
       "title": "Emergency 24/7",
       "subtitle": "We are always available"
+    },
+    "info": {
+      "address": "Address",
+      "addressValue": "Prishtina, Kosovo",
+      "phone": "Phone",
+      "phoneValue": "+383 44 123 456",
+      "email": "Email"
     }
   },
   "partners": {

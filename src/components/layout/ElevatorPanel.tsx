@@ -261,6 +261,8 @@ export default function ElevatorPanel() {
 
           {/* Floor buttons with hover tooltips */}
           <div
+            role="menu"
+            aria-label="Floor navigation"
             style={{
               display: "flex",
               flexDirection: "column",

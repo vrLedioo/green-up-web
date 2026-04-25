@@ -105,9 +105,9 @@ export default function ContactPage() {
 
               <div className="space-y-4 mb-8">
                 {[
-                  { icon: MapPin, label: "Adresa", value: "Prishtinë, Kosovë", href: undefined },
-                  { icon: Phone, label: "Telefoni", value: "+383 XX XXX XXX", href: "tel:+383XXXXXXX" },
-                  { icon: Mail,  label: "Email",    value: "info@greenup-ks.com", href: "mailto:info@greenup-ks.com" },
+                  { icon: MapPin, label: t("info.address"), value: t("info.addressValue"), href: undefined },
+                  { icon: Phone, label: t("info.phone"), value: t("info.phoneValue"), href: `tel:${t("info.phoneValue").replace(/\s/g, '')}` },
+                  { icon: Mail,  label: t("info.email"),    value: "info@greenup-ks.com", href: "mailto:info@greenup-ks.com" },
                 ].map(({ icon: Icon, label, value, href }) => (
                   <div key={label} className="flex items-start gap-4 p-4 bg-white border border-green-mint/30 rounded-sm">
                     <div className="w-10 h-10 bg-green-primary rounded-sm flex items-center justify-center shrink-0">
@@ -125,11 +125,18 @@ export default function ContactPage() {
                 ))}
               </div>
 
-              {/* TODO: Replace with real Google Maps embed once address is confirmed */}
-              <div className="w-full h-56 bg-gradient-to-br from-green-pale to-green-mint border border-green-mint/50 rounded-sm flex flex-col items-center justify-center text-green-primary">
-                <MapPin size={36} className="opacity-40 mb-2" />
-                <p className="font-semibold text-sm">Google Maps</p>
-                <p className="text-xs opacity-50 mt-1">Prishtinë, Kosovë</p>
+              {/* Google Maps embed for Prishtina, Kosovo */}
+              <div className="w-full h-56 rounded-sm overflow-hidden border border-green-mint/50">
+                <iframe
+                  title="Green Up Location - Prishtina, Kosovo"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47189.94756526498!2d21.13073!3d42.6629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13549ee605110927%3A0x9571e3edaf3b28b8!2sPrishtina!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
               </div>
             </div>
 

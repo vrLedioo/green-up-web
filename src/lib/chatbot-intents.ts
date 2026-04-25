@@ -15,7 +15,7 @@ export type Intent = {
 };
 
 const PHONE_TEL = "+38344123456";
-const PHONE_DISPLAY = "+383 XX XXX XXX";
+const PHONE_DISPLAY = "+383 44 123 456";
 const EMAIL = "info@greenup-ks.com";
 
 const BTN_VIEW_SERVICES: ActionButton = {

@@ -70,10 +70,18 @@ export default async function LocaleLayout({
         className={`${cormorant.variable} ${dmSans.variable} ${jetbrains.variable} bg-[#F8FAF9] text-[#1B1B1B] antialiased`}
       >
         <NextIntlClientProvider messages={messages}>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-green-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-sm focus:text-sm focus:font-semibold"
+          >
+            Skip to main content
+          </a>
           <EmergencyBanner />
           <ElevatorPanel />
           <Chatbot />
-          <PageTransition>{children}</PageTransition>
+          <div id="main-content">
+            <PageTransition>{children}</PageTransition>
+          </div>
         </NextIntlClientProvider>
       </body>
     </html>

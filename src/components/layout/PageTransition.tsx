@@ -8,13 +8,13 @@ type FloorMap = Record<string, { label: string; name: string }>;
 
 const PAGE_FLOORS: FloorMap = {
   "/":          { label: "G",  name: "Lobby" },
-  "/about":     { label: "02", name: "About" },
-  "/services":  { label: "03", name: "Services" },
-  "/projects":  { label: "04", name: "Projects" },
-  "/gallery":   { label: "05", name: "Gallery" },
-  "/faq":       { label: "06", name: "FAQ" },
-  "/contact":   { label: "07", name: "Contact" },
-  "/partners":  { label: "PH", name: "Partners" },
+  "/about":     { label: "01", name: "About" },
+  "/services":  { label: "02", name: "Services" },
+  "/projects":  { label: "03", name: "Projects" },
+  "/gallery":   { label: "03", name: "Gallery" },
+  "/faq":       { label: "04", name: "FAQ" },
+  "/contact":   { label: "05", name: "Contact" },
+  "/partners":  { label: "06", name: "Partners" },
 };
 
 function stripLocale(pathname: string) {
@@ -38,7 +38,7 @@ export default function PageTransition({ children }: { children: React.ReactNode
 
   useEffect(() => {
     // Infer direction from numeric floor ordering
-    const order = ["G", "02", "03", "04", "05", "06", "07", "PH"];
+    const order = ["G", "01", "02", "03", "04", "05", "06"];
     const a = order.indexOf(prevFloor.current);
     const b = order.indexOf(floor.label);
     if (a !== -1 && b !== -1 && a !== b) setDir(b > a ? "up" : "down");

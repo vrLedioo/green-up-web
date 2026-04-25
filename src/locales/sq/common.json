@@ -12,7 +12,7 @@
   },
   "emergency": {
     "text": "Shërbim Urgjent 24/7",
-    "phone": "+383 XX XXX XXX",
+    "phone": "+383 44 123 456",
     "dismiss": "Mbyll"
   },
   "hero": {
@@ -118,7 +118,7 @@
     "services": "Shërbimet",
     "contact": "Kontakti",
     "address": "Prishtinë, Kosovë",
-    "phone": "+383 XX XXX XXX",
+    "phone": "+383 44 123 456",
     "email": "info@greenup-ks.com",
     "builtBy": "Ndërtuar me kujdes"
   },
@@ -147,7 +147,13 @@
     },
     "team": {
       "title": "Ekipi Ynë",
-      "subtitle": "Profesionistë të dedikuar"
+      "subtitle": "Profesionistë të dedikuar",
+      "members": {
+        "ceo": { "name": "Agron Berisha", "role": "Drejtor Ekzekutiv" },
+        "projectManager": { "name": "Valbona Krasniqi", "role": "Menaxhere Projektesh" },
+        "chiefEngineer": { "name": "Driton Hoxha", "role": "Inxhinier Kryesor" },
+        "salesManager": { "name": "Fjolla Gashi", "role": "Menaxhere Shitjesh" }
+      }
     },
     "coverage": {
       "title": "Mbulimi Ynë",
@@ -258,6 +264,7 @@
       "subtitle": "Gjeni përgjigje për pyetjet tuaja"
     },
     "search": "Kërko pyetje...",
+    "noResults": "Nuk u gjet asnjë rezultat.",
     "items": [
       {
         "q": "Sa kohë zgjat instalimi i një ashensori?",
@@ -328,6 +335,13 @@
     "emergency": {
       "title": "Urgjencë 24/7",
       "subtitle": "Jemi gjithmonë të disponueshëm"
+    },
+    "info": {
+      "address": "Adresa",
+      "addressValue": "Prishtinë, Kosovë",
+      "phone": "Telefoni",
+      "phoneValue": "+383 44 123 456",
+      "email": "Email"
     }
   },
   "partners": {
