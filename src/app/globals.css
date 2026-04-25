@@ -32,6 +32,7 @@
 html {
   scroll-behavior: smooth;
   background-color: #F8FAF9;
+  overflow-x: hidden;
 }
 body {
   font-family: var(--font-body);
@@ -39,6 +40,7 @@ body {
   color: #1B1B1B;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 ::selection { background: #2D6A4F; color: #F8FAF9; }
 
