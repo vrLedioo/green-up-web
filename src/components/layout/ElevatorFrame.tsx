@@ -100,21 +100,7 @@ export default function ElevatorFrame({ children }: { children: React.ReactNode 
         </ul>
       </div>
 
-      {/* Arrival sweep — thin gold beam on floor change */}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={arrivalKey}
-          initial={{ scaleX: 0, opacity: 0.9 }}
-          animate={{ scaleX: 1, opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="pointer-events-none fixed inset-x-0 top-[68px] z-30 h-[2px] origin-left"
-          style={{
-            background:
-              "linear-gradient(90deg, transparent, rgba(201,168,76,0.95), transparent)",
-          }}
-        />
-      </AnimatePresence>
+
     </div>
   );
 }
