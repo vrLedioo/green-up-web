@@ -9,7 +9,6 @@ const teamKeys = ["ceo", "projectManager", "chiefEngineer", "salesManager"] as c
 
 export default function AboutPage() {
   const t = useTranslations("about");
-  const timeline = t.raw("timeline.items") as Array<{ year: string; text: string }>;
 
   return (
     <>
@@ -59,47 +58,6 @@ export default function AboutPage() {
                   <h3 className="font-display text-3xl font-medium mb-4 tracking-tight">{t("mission.visionTitle")}</h3>
                   <p className="text-white/75 leading-relaxed text-[15.5px]">{t("mission.visionText")}</p>
                 </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Timeline */}
-        <section className="relative section-padding bg-forest overflow-hidden noise-overlay">
-          <div aria-hidden className="absolute top-0 left-1/3 w-[500px] h-[400px] rounded-full bg-green-medium/25 blur-3xl pointer-events-none" />
-
-          <div className="relative container-wide">
-            <div className="text-center mb-16">
-              <span className="eyebrow text-green-mint">{t("timeline.title")}</span>
-              <h2 className="font-display text-5xl md:text-6xl font-medium text-white mt-4 tracking-tight leading-[0.95]">
-                {t("timeline.title")}
-              </h2>
-            </div>
-            <div className="relative">
-              <div aria-hidden className="absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-gold/40 to-transparent hidden md:block" />
-              <div className="space-y-10">
-                {timeline.map((item, i) => (
-                  <div
-                    key={i}
-                    className={`flex flex-col md:flex-row items-start md:items-center gap-6 ${
-                      i % 2 === 0 ? "" : "md:flex-row-reverse"
-                    }`}
-                  >
-                    <div className={`flex-1 ${i % 2 === 0 ? "md:text-right" : "md:text-left"}`}>
-                      <div className="rounded-2xl glass-dark p-6 inline-block max-w-md">
-                        <p className="text-white/80 text-[15px] leading-relaxed">{item.text}</p>
-                      </div>
-                    </div>
-                    <div className="hidden md:flex w-12 h-12 rounded-full bg-gradient-to-br from-gold to-[#B08D34] border-4 border-green-abyss items-center justify-center shrink-0 z-10 shadow-lg shadow-gold/30">
-                      <span className="text-ink text-[11px] font-bold font-mono">{item.year.slice(2)}</span>
-                    </div>
-                    <div className="flex-1">
-                      <span className="font-display text-5xl md:text-6xl font-medium text-gradient-gold tracking-tight">
-                        {item.year}
-                      </span>
-                    </div>
-                  </div>
-                ))}
               </div>
             </div>
           </div>
