@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import Footer from "@/components/layout/Footer";
-import { MapPin, Phone, Mail } from "lucide-react";
+import { MapPin, Phone, Mail, ArrowUpRight, Loader2 } from "lucide-react";
 
 type FormStatus = "idle" | "loading" | "success" | "error" | "ratelimit" | "validation";
 
@@ -20,10 +20,21 @@ export default function ContactPage() {
     phone: "",
     type: "" as RequestType,
     message: "",
-    honeypot: "", // must remain empty — hidden from real users
+    honeypot: "",
   });
   const [status, setStatus] = useState<FormStatus>("idle");
   const [fieldErrors, setFieldErrors] = useState<Record<string, string[]>>({});
+
+  const updateField = <K extends keyof typeof formData>(key: K, value: (typeof formData)[K]) => {
+    setFormData((prev) => ({ ...prev, [key]: value }));
+    if (fieldErrors[key]) {
+      setFieldErrors((prev) => {
+        const next = { ...prev };
+        delete next[key];
+        return next;
+      });
+    }
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -68,19 +79,23 @@ export default function ContactPage() {
   };
 
   const inputClass =
-    "w-full px-4 py-3 border border-green-mint/40 rounded-sm text-dark focus:outline-none focus:border-green-primary transition-colors";
-  const errorClass = "mt-1 text-red-600 text-xs";
+    "w-full px-4 py-3 bg-white border border-green-mint/40 rounded-xl text-ink placeholder:text-ink/40 focus:outline-none focus:border-green-primary focus:ring-2 focus:ring-green-primary/15 transition-all";
+  const errorClass = "mt-1.5 text-red-600 text-xs";
 
   return (
     <>
       <main>
         {/* Hero */}
-        <section className="relative min-h-[50vh] flex items-end pb-16 overflow-hidden noise-overlay">
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0f2d1f] via-[#1a4332] to-[#2D6A4F]" />
-          <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 lg:px-16 pt-32">
-            <span className="text-green-mint text-sm font-semibold uppercase tracking-widest anim-fade-up">— Green Up —</span>
-            <h1 className="font-display text-6xl md:text-8xl font-bold text-white mt-3 anim-fade-up anim-delay-1">{t("hero.title")}</h1>
-            <p className="text-white/70 text-xl mt-4 max-w-xl anim-fade-up anim-delay-2">{t("hero.subtitle")}</p>
+        <section className="relative min-h-[60vh] flex items-end pb-20 overflow-hidden noise-overlay bg-forest">
+          <div aria-hidden className="absolute -top-20 right-0 w-[500px] h-[500px] rounded-full bg-green-medium/25 blur-3xl anim-aurora pointer-events-none" />
+          <div aria-hidden className="absolute bottom-0 left-0 w-[360px] h-[360px] rounded-full bg-gold/15 blur-3xl anim-aurora pointer-events-none" style={{ animationDelay: "-8s" }} />
+
+          <div className="relative z-10 max-w-[82rem] w-full mx-auto px-4 md:px-8 lg:px-16 pt-36">
+            <span className="eyebrow text-green-mint anim-fade-up">Green Up — Kosovo</span>
+            <h1 className="display-xl text-white text-[56px] md:text-[96px] lg:text-[120px] mt-4 anim-fade-up anim-delay-1">
+              {t("hero.title")}
+            </h1>
+            <p className="text-white/70 text-xl mt-5 max-w-2xl anim-fade-up anim-delay-2">{t("hero.subtitle")}</p>
           </div>
         </section>
 
@@ -89,15 +104,15 @@ export default function ContactPage() {
             {/* Left: info */}
             <div>
               {/* Emergency box */}
-              <div className="bg-red-50 border-2 border-red-200 rounded-sm p-6 mb-8 flex items-start gap-4">
+              <div className="bg-red-50 border-2 border-red-200 rounded-2xl p-6 mb-8 flex items-start gap-4">
                 <div className="relative flex h-4 w-4 mt-0.5 shrink-0">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-4 w-4 bg-red-500" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-red-700 text-lg">{t("emergency.title")}</h3>
+                  <h3 className="font-display text-xl font-medium text-red-700 tracking-tight">{t("emergency.title")}</h3>
                   <p className="text-red-600 text-sm mb-2">{t("emergency.subtitle")}</p>
-                  <a href={`tel:${emergency("phone")}`} className="font-mono font-bold text-red-700 text-xl hover:underline">
+                  <a href={`tel:${emergency("phone")}`} className="font-mono font-bold text-red-700 text-xl hover:underline cursor-pointer">
                     {emergency("phone")}
                   </a>
                 </div>
@@ -109,16 +124,16 @@ export default function ContactPage() {
                   { icon: Phone, label: t("info.phone"), value: t("info.phoneValue"), href: `tel:${t("info.phoneValue").replace(/\s/g, '')}` },
                   { icon: Mail,  label: t("info.email"),    value: "info@greenup-ks.com", href: "mailto:info@greenup-ks.com" },
                 ].map(({ icon: Icon, label, value, href }) => (
-                  <div key={label} className="flex items-start gap-4 p-4 bg-white border border-green-mint/30 rounded-sm">
-                    <div className="w-10 h-10 bg-green-primary rounded-sm flex items-center justify-center shrink-0">
+                  <div key={label} className="flex items-start gap-4 p-4 bg-white border border-green-mint/30 rounded-2xl">
+                    <div className="w-10 h-10 bg-gradient-to-br from-green-primary to-green-medium rounded-xl flex items-center justify-center shrink-0 shadow-lg shadow-green-primary/15">
                       <Icon size={18} className="text-white" />
                     </div>
                     <div>
-                      <p className="font-semibold text-dark text-sm">{label}</p>
+                      <p className="font-semibold text-ink text-sm">{label}</p>
                       {href ? (
-                        <a href={href} className="text-green-primary font-mono text-sm mt-0.5 hover:underline block">{value}</a>
+                        <a href={href} className="text-green-primary font-mono text-sm mt-0.5 hover:underline block cursor-pointer">{value}</a>
                       ) : (
-                        <p className="text-dark/60 text-sm mt-0.5">{value}</p>
+                        <p className="text-ink/60 text-sm mt-0.5">{value}</p>
                       )}
                     </div>
                   </div>
@@ -126,7 +141,7 @@ export default function ContactPage() {
               </div>
 
               {/* Google Maps embed for Prishtina, Kosovo */}
-              <div className="w-full h-56 rounded-sm overflow-hidden border border-green-mint/50">
+              <div className="w-full h-56 rounded-2xl overflow-hidden border border-green-mint/50">
                 <iframe
                   title="Green Up Location - Prishtina, Kosovo"
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47189.94756526498!2d21.13073!3d42.6629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13549ee605110927%3A0x9571e3edaf3b28b8!2sPrishtina!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
@@ -142,12 +157,10 @@ export default function ContactPage() {
 
             {/* Right: form */}
             <div>
-              <form onSubmit={handleSubmit} className="bg-white border border-green-mint/30 rounded-sm p-8 space-y-5" noValidate>
+              <form onSubmit={handleSubmit} className="bg-white border border-green-mint/30 rounded-[24px] p-8 md:p-10 space-y-5 shadow-[0_30px_60px_-30px_rgba(15,45,31,0.18)]" noValidate>
 
                 {/*
-                  SECURITY: Honeypot field — visually hidden, not focusable.
-                  Bots that autofill every field will fill this; real users won't see it.
-                  The server also validates this field is empty.
+                  Honeypot: visually hidden, not focusable. Server also validates empty.
                 */}
                 <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", opacity: 0, height: 0, overflow: "hidden" }}>
                   <label htmlFor="website">Website (leave blank)</label>
@@ -158,116 +171,149 @@ export default function ContactPage() {
                     tabIndex={-1}
                     autoComplete="off"
                     value={formData.honeypot}
-                    onChange={(e) => setFormData({ ...formData, honeypot: e.target.value })}
+                    onChange={(e) => updateField("honeypot", e.target.value)}
                   />
                 </div>
 
                 <div className="grid sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-sm font-semibold text-dark mb-1.5">{t("form.name")} *</label>
+                    <label htmlFor="contact-name" className="block text-sm font-semibold text-ink mb-1.5">{t("form.name")} *</label>
                     <input
+                      id="contact-name"
+                      name="name"
                       type="text"
                       required
                       maxLength={100}
                       autoComplete="name"
                       value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                      onChange={(e) => updateField("name", e.target.value)}
+                      aria-invalid={Boolean(fieldErrors.name)}
+                      aria-describedby={fieldErrors.name ? "contact-name-error" : undefined}
                       className={inputClass}
                     />
-                    {fieldErrors.name && <p className={errorClass}>{fieldErrors.name[0]}</p>}
+                    {fieldErrors.name && <p id="contact-name-error" className={errorClass}>{fieldErrors.name[0]}</p>}
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-dark mb-1.5">{t("form.email")} *</label>
+                    <label htmlFor="contact-email" className="block text-sm font-semibold text-ink mb-1.5">{t("form.email")} *</label>
                     <input
+                      id="contact-email"
+                      name="email"
                       type="email"
                       required
                       maxLength={254}
                       autoComplete="email"
                       value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                      onChange={(e) => updateField("email", e.target.value)}
+                      aria-invalid={Boolean(fieldErrors.email)}
+                      aria-describedby={fieldErrors.email ? "contact-email-error" : undefined}
                       className={inputClass}
                     />
-                    {fieldErrors.email && <p className={errorClass}>{fieldErrors.email[0]}</p>}
+                    {fieldErrors.email && <p id="contact-email-error" className={errorClass}>{fieldErrors.email[0]}</p>}
                   </div>
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-dark mb-1.5">{t("form.phone")}</label>
+                  <label htmlFor="contact-phone" className="block text-sm font-semibold text-ink mb-1.5">{t("form.phone")}</label>
                   <input
+                    id="contact-phone"
+                    name="phone"
                     type="tel"
                     maxLength={30}
                     autoComplete="tel"
                     value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    onChange={(e) => updateField("phone", e.target.value)}
+                    aria-invalid={Boolean(fieldErrors.phone)}
+                    aria-describedby={fieldErrors.phone ? "contact-phone-error" : undefined}
                     className={inputClass}
                   />
-                  {fieldErrors.phone && <p className={errorClass}>{fieldErrors.phone[0]}</p>}
+                  {fieldErrors.phone && <p id="contact-phone-error" className={errorClass}>{fieldErrors.phone[0]}</p>}
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-dark mb-1.5">{t("form.type")} *</label>
+                  <label htmlFor="contact-type" className="block text-sm font-semibold text-ink mb-1.5">{t("form.type")} *</label>
                   <select
+                    id="contact-type"
+                    name="type"
                     required
                     value={formData.type}
-                    onChange={(e) => setFormData({ ...formData, type: e.target.value as RequestType })}
-                    className={`${inputClass} bg-white`}
+                    onChange={(e) => updateField("type", e.target.value as RequestType)}
+                    aria-invalid={Boolean(fieldErrors.type)}
+                    aria-describedby={fieldErrors.type ? "contact-type-error" : undefined}
+                    className={`${inputClass} cursor-pointer`}
                   >
                     <option value="">—</option>
                     {ALLOWED_TYPES.map((opt) => (
                       <option key={opt} value={opt}>{t(`form.types.${opt}`)}</option>
                     ))}
                   </select>
-                  {fieldErrors.type && <p className={errorClass}>{fieldErrors.type[0]}</p>}
+                  {fieldErrors.type && <p id="contact-type-error" className={errorClass}>{fieldErrors.type[0]}</p>}
                 </div>
 
                 <div>
-                  <label className="block text-sm font-semibold text-dark mb-1.5">{t("form.message")} *</label>
+                  <label htmlFor="contact-message" className="block text-sm font-semibold text-ink mb-1.5">{t("form.message")} *</label>
                   <textarea
+                    id="contact-message"
+                    name="message"
                     required
                     rows={5}
                     minLength={10}
                     maxLength={5000}
                     value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    onChange={(e) => updateField("message", e.target.value)}
+                    aria-invalid={Boolean(fieldErrors.message)}
+                    aria-describedby={fieldErrors.message ? "contact-message-error" : undefined}
                     className={`${inputClass} resize-none`}
                   />
                   <div className="flex justify-between mt-0.5">
                     {fieldErrors.message
-                      ? <p className={errorClass}>{fieldErrors.message[0]}</p>
+                      ? <p id="contact-message-error" className={errorClass}>{fieldErrors.message[0]}</p>
                       : <span />}
-                    <span className="text-dark/30 text-xs">{formData.message.length}/5000</span>
+                    <span className="text-ink/30 text-xs font-mono">{formData.message.length}/5000</span>
                   </div>
                 </div>
 
-                <p className="text-dark/40 text-xs">{t("form.required")}</p>
+                <p className="text-ink/40 text-xs">{t("form.required")}</p>
 
-                {status === "success" && (
-                  <div className="bg-green-pale border border-green-mint rounded-sm p-4 text-green-primary text-sm font-semibold">
-                    ✓ {t("form.success")}
-                  </div>
-                )}
-                {status === "error" && (
-                  <div className="bg-red-50 border border-red-200 rounded-sm p-4 text-red-600 text-sm">
-                    {t("form.error")}
-                  </div>
-                )}
-                {status === "ratelimit" && (
-                  <div className="bg-yellow-50 border border-yellow-200 rounded-sm p-4 text-yellow-800 text-sm">
-                    {t("form.ratelimit")}
-                  </div>
-                )}
-                {status === "validation" && Object.keys(fieldErrors).length > 0 && (
-                  <div className="bg-red-50 border border-red-200 rounded-sm p-4 text-red-600 text-sm">
-                    {t("form.validationError")}
-                  </div>
-                )}
+                <div role="status" aria-live="polite">
+                  {status === "success" && (
+                    <div className="bg-green-pale border border-green-mint rounded-2xl p-4 text-green-primary text-sm font-semibold">
+                      {t("form.success")}
+                    </div>
+                  )}
+                  {status === "error" && (
+                    <div className="bg-red-50 border border-red-200 rounded-2xl p-4 text-red-600 text-sm">
+                      {t("form.error")}
+                    </div>
+                  )}
+                  {status === "ratelimit" && (
+                    <div className="bg-yellow-50 border border-yellow-200 rounded-2xl p-4 text-yellow-800 text-sm">
+                      {t("form.ratelimit")}
+                    </div>
+                  )}
+                  {status === "validation" && Object.keys(fieldErrors).length > 0 && (
+                    <div className="bg-red-50 border border-red-200 rounded-2xl p-4 text-red-600 text-sm">
+                      {t("form.validationError")}
+                    </div>
+                  )}
+                </div>
 
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="w-full bg-green-primary text-white font-semibold py-4 rounded-sm hover:bg-green-medium transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+                  aria-busy={status === "loading"}
+                  className="btn-base btn-solid-green w-full justify-center !py-3.5 cursor-pointer disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  {status === "loading" ? "..." : t("form.submit")}
+                  {status === "loading" ? (
+                    <>
+                      <Loader2 size={16} className="animate-spin" />
+                      {t("form.sending")}
+                    </>
+                  ) : (
+                    <>
+                      {t("form.submit")}
+                      <ArrowUpRight size={15} />
+                    </>
+                  )}
                 </button>
               </form>
             </div>

@@ -8,6 +8,7 @@ import PageTransition from "@/components/layout/PageTransition";
 import ElevatorPanel from "@/components/layout/ElevatorPanel";
 import Chatbot from "@/components/layout/Chatbot";
 import EmergencyBanner from "@/components/ui/EmergencyBanner";
+import { Analytics } from "@vercel/analytics/next";
 import "../globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -83,6 +84,7 @@ export default async function LocaleLayout({
             <PageTransition>{children}</PageTransition>
           </div>
         </NextIntlClientProvider>
+        <Analytics />
       </body>
     </html>
   );

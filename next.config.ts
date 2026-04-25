@@ -59,7 +59,8 @@ const securityHeaders = [
         : "connect-src 'self'",
       "media-src 'none'",
       "object-src 'none'",
-      "frame-src 'none'",
+      // Google Maps embed in Footer / contact / about. No other iframes are allowed.
+      "frame-src https://www.google.com",
       "frame-ancestors 'none'",
       "base-uri 'self'",
       "form-action 'self'",
