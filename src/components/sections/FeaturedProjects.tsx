@@ -6,13 +6,15 @@ import Link from "next/link";
 import { MapPin, ArrowUpRight, ArrowLeft, ArrowRight } from "lucide-react";
 import type { Locale } from "@/lib/i18n";
 
+import Image from "next/image";
+
 const projects = [
-  { title: "Rezidenca Dardania", location: "Prishtinë", year: "2023", type: "passenger", desc: "Instalim i 4 ashensorëve pasagjerë në kompleksin rezidencial 12-katësh.", gradient: "from-green-primary via-green-medium to-green-light" },
-  { title: "Hotel Grand",        location: "Prizren",   year: "2022", type: "passenger", desc: "Ashensor panoramik me kabinë xham për hotelin 5 yjesh.",                gradient: "from-green-deep via-green-primary to-green-medium" },
-  { title: "Qendra Tregtare",    location: "Ferizaj",   year: "2023", type: "escalator", desc: "Instalim i 6 eskalatorëve dhe 2 ashensorëve mallrash.",                gradient: "from-ink via-green-primary to-green-medium" },
-  { title: "Vila Moderne",       location: "Gjakovë",   year: "2024", type: "home",      desc: "Home lift elegant me veshje dru e çelikut inox.",                       gradient: "from-green-medium via-green-light to-green-mint" },
-  { title: "Spitali Publik",     location: "Prishtinë", year: "2022", type: "passenger", desc: "Platforma ngritëse dhe ashensorë mjekësorë sipas standardeve BE.",     gradient: "from-green-abyss via-green-primary to-green-medium" },
-  { title: "Ndërtesa Zyrave",    location: "Mitrovicë", year: "2021", type: "passenger", desc: "Modernizim dhe instalim i ashensorëve të rinj në ndërtesën e zyrave.", gradient: "from-green-primary via-ink to-green-medium" },
+  { title: "Rezidenca Dardania", location: "Prishtinë", year: "2023", type: "passenger", desc: "Instalim i 4 ashensorëve pasagjerë në kompleksin rezidencial 12-katësh.", image: "https://picsum.photos/seed/resid1/400/533", gradient: "from-green-primary via-green-medium to-green-light" },
+  { title: "Hotel Grand",        location: "Prizren",   year: "2022", type: "passenger", desc: "Ashensor panoramik me kabinë xham për hotelin 5 yjesh.",                image: "https://picsum.photos/seed/hotel1/400/533", gradient: "from-green-deep via-green-primary to-green-medium" },
+  { title: "Qendra Tregtare",    location: "Ferizaj",   year: "2023", type: "escalator", desc: "Instalim i 6 eskalatorëve dhe 2 ashensorëve mallrash.",                image: "https://picsum.photos/seed/mall1/400/533", gradient: "from-ink via-green-primary to-green-medium" },
+  { title: "Vila Moderne",       location: "Gjakovë",   year: "2024", type: "home",      desc: "Home lift elegant me veshje dru e çelikut inox.",                       image: "https://picsum.photos/seed/vila1/400/533", gradient: "from-green-medium via-green-light to-green-mint" },
+  { title: "Spitali Publik",     location: "Prishtinë", year: "2022", type: "passenger", desc: "Platforma ngritëse dhe ashensorë mjekësorë sipas standardeve BE.",     image: "https://picsum.photos/seed/hosp1/400/533", gradient: "from-green-abyss via-green-primary to-green-medium" },
+  { title: "Ndërtesa Zyrave",    location: "Mitrovicë", year: "2021", type: "passenger", desc: "Modernizim dhe instalim i ashensorëve të rinj në ndërtesën e zyrave.", image: "https://picsum.photos/seed/office1/400/533", gradient: "from-green-primary via-ink to-green-medium" },
 ];
 
 const typeBadge: Record<string, string> = {
@@ -102,11 +104,18 @@ export default function FeaturedProjects() {
               key={i}
               className="shrink-0 w-[280px] md:w-[340px] group snap-start"
             >
-              {/* TODO: Replace gradient div with real project photo */}
               <div
                 className={`relative w-full h-[360px] rounded-2xl bg-gradient-to-br ${project.gradient} overflow-hidden mb-4`}
               >
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent" />
+                {project.image && (
+                  <Image 
+                    src={project.image} 
+                    alt={project.title} 
+                    fill 
+                    className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                  />
+                )}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/10" />
                 <div
                   aria-hidden
                   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -129,7 +138,7 @@ export default function FeaturedProjects() {
                   </h3>
                 </div>
 
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/30">
+                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40 backdrop-blur-[2px]">
                   <Link
                     href={`${prefix}/projects`}
                     className="btn-base btn-gold !py-2.5 !px-5 text-[12px] cursor-pointer"

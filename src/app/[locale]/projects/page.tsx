@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 import Footer from "@/components/layout/Footer";
 import {
   MapPin, Calendar, X, ArrowUpRight, ChevronLeft,
@@ -38,7 +39,7 @@ const allProjects: Project[] = [
     client: "Dardania Properties sh.p.k.", duration: "3 javë",
     services: ["Instalim i 4 ashensorëve pasagjerësh", "Sistem kontrolli inteligjent", "Ndriçim LED brenda kabinës", "Sisteme sigurie ARD", "Trajnim i personelit teknik"],
     specs: [{ label: "Ashensorë", value: "4 njësi" }, { label: "Kate", value: "12 kate" }, { label: "Kapaciteti", value: "630 kg / 8 persona" }, { label: "Shpejtësia", value: "1.6 m/s" }, { label: "Standardi", value: "EN 81-20/50" }],
-    photos: ["from-green-primary via-green-medium to-green-light", "from-green-deep via-green-primary to-green-medium", "from-green-medium via-green-light to-green-mint", "from-ink via-green-primary to-green-medium", "from-green-abyss via-green-medium to-green-light", "from-green-light via-green-primary to-green-deep"],
+    photos: ["https://picsum.photos/seed/rd1/1200/675","https://picsum.photos/seed/rd2/1200/675","https://picsum.photos/seed/rd3/1200/675","https://picsum.photos/seed/rd4/1200/675","https://picsum.photos/seed/rd5/1200/675","https://picsum.photos/seed/rd6/1200/675"],
   },
   {
     title: "Hotel Grand",
@@ -49,7 +50,7 @@ const allProjects: Project[] = [
     client: "Hotel Grand Prizren", duration: "2 javë",
     services: ["Instalim ashensori panoramik me xham", "Dizajn i personalizuar i kabinës", "Integrimi arkitektonik", "Ndriçim ambiental LED", "Garanci 5 vjeçare"],
     specs: [{ label: "Ashensorë", value: "1 njësi panoramike" }, { label: "Kate", value: "6 kate" }, { label: "Kapaciteti", value: "480 kg / 6 persona" }, { label: "Xhami", value: "Triplex 10mm" }, { label: "Standardi", value: "EN 81-20/50" }],
-    photos: ["from-green-deep via-green-primary to-green-medium", "from-green-primary via-green-light to-green-mint", "from-ink via-green-medium to-green-light", "from-green-medium via-ink to-green-primary", "from-green-abyss via-green-primary to-green-light"],
+    photos: ["https://picsum.photos/seed/hg1/1200/675","https://picsum.photos/seed/hg2/1200/675","https://picsum.photos/seed/hg3/1200/675","https://picsum.photos/seed/hg4/1200/675","https://picsum.photos/seed/hg5/1200/675"],
   },
   {
     title: "Qendra Tregtare",
@@ -60,7 +61,7 @@ const allProjects: Project[] = [
     client: "QT Ferizaj Invest", duration: "8 javë",
     services: ["Instalim 6 eskalatorësh komercialë", "Instalim 2 ashensorësh mallrash", "Sistem monitorimi të centralizuar", "Ndriçim LED integrues", "Kontrata mirëmbajtjeje 3 vjeçare"],
     specs: [{ label: "Eskalatorë", value: "6 njësi" }, { label: "Ashensorë mallrash", value: "2 njësi" }, { label: "Kapaciteti eskalator", value: "9000 persona/orë" }, { label: "Kapaciteti mallra", value: "2000 kg" }, { label: "Gjerësia", value: "1000 mm" }],
-    photos: ["from-ink via-green-primary to-green-medium", "from-green-deep via-ink to-green-primary", "from-green-primary via-green-medium to-green-light", "from-green-medium via-green-primary to-green-deep", "from-ink via-green-medium to-green-light", "from-green-abyss via-green-primary to-green-medium"],
+    photos: ["https://picsum.photos/seed/qt1/1200/675","https://picsum.photos/seed/qt2/1200/675","https://picsum.photos/seed/qt3/1200/675","https://picsum.photos/seed/qt4/1200/675","https://picsum.photos/seed/qt5/1200/675","https://picsum.photos/seed/qt6/1200/675"],
   },
   {
     title: "Vila Moderna",
@@ -71,7 +72,7 @@ const allProjects: Project[] = [
     client: "Privat", duration: "4 ditë",
     services: ["Instalim home lift pa gropë (pitless)", "Kabinat me dru dhe inoks të personalizuar", "Sistem operimi me energji të ulët", "Integrimi me sistemin e inteligjencës shtëpiake", "Garanci 5 vjeçare"],
     specs: [{ label: "Kapaciteti", value: "250 kg / 3 persona" }, { label: "Kate", value: "3 kate" }, { label: "Shpejtësia", value: "0.15 m/s" }, { label: "Materiali", value: "Dru + Inoks" }, { label: "Tipi", value: "Pitless / Hidraulik" }],
-    photos: ["from-green-medium via-green-light to-green-mint", "from-green-primary via-green-light to-green-deep", "from-green-light via-green-medium to-green-primary", "from-green-mint via-green-light to-green-medium", "from-green-deep via-green-medium to-green-light"],
+    photos: ["https://picsum.photos/seed/vm1/1200/675","https://picsum.photos/seed/vm2/1200/675","https://picsum.photos/seed/vm3/1200/675","https://picsum.photos/seed/vm4/1200/675","https://picsum.photos/seed/vm5/1200/675"],
   },
   {
     title: "QKUK",
@@ -82,7 +83,7 @@ const allProjects: Project[] = [
     client: "QKUK — Ministria e Shëndetësisë", duration: "5 javë",
     services: ["Instalim 3 ashensorësh mjekësorë", "Sistem prioriteti për emergjenca", "Kabinat me sipërfaqe anti-bakteriale", "Integrimi me sistemin e bllokimit zjarrfiks", "Certifikim i posaçëm mjekësor"],
     specs: [{ label: "Ashensorë", value: "3 njësi mjekësore" }, { label: "Dimensioni", value: "1400×2100 mm" }, { label: "Kapaciteti", value: "1600 kg / shtrat+staf" }, { label: "Tipi", value: "MRL Trakcion" }, { label: "Certifikimi", value: "EN 81-20/50 / Medical Grade" }],
-    photos: ["from-green-abyss via-green-primary to-green-medium", "from-green-deep via-green-primary to-green-light", "from-ink via-green-abyss to-green-primary", "from-green-primary via-green-abyss to-green-deep", "from-green-medium via-green-abyss to-green-primary"],
+    photos: ["https://picsum.photos/seed/qk1/1200/675","https://picsum.photos/seed/qk2/1200/675","https://picsum.photos/seed/qk3/1200/675","https://picsum.photos/seed/qk4/1200/675","https://picsum.photos/seed/qk5/1200/675"],
   },
   {
     title: "Ndërtesa Businessit",
@@ -93,7 +94,7 @@ const allProjects: Project[] = [
     client: "Ndërtesa Business Center sh.p.k.", duration: "6 javë",
     services: ["Modernizim i 4 ashensorëve", "Instalim kontrolluesish inverter", "Sistem i ri portave automatike", "Ndriçim LED dhe kabina të reja", "Kursim 40% energji elektrike"],
     specs: [{ label: "Ashensorë modernizuar", value: "4 njësi" }, { label: "Kontrollues", value: "VVVF Inverter" }, { label: "Kursim energjie", value: "40%" }, { label: "Kate", value: "8 kate" }, { label: "Shpejtësia e re", value: "1.0 m/s" }],
-    photos: ["from-green-primary via-ink to-green-medium", "from-ink via-green-primary to-green-light", "from-green-deep via-ink to-green-medium", "from-green-medium via-ink to-green-primary", "from-ink via-green-medium to-green-primary"],
+    photos: ["https://picsum.photos/seed/nb1/1200/675","https://picsum.photos/seed/nb2/1200/675","https://picsum.photos/seed/nb3/1200/675","https://picsum.photos/seed/nb4/1200/675","https://picsum.photos/seed/nb5/1200/675"],
   },
   {
     title: "Warehouse Logistics",
@@ -104,7 +105,7 @@ const allProjects: Project[] = [
     client: "Kosovo Logistics Group", duration: "3 javë",
     services: ["Instalim ashensori industrial 2000kg", "Porta me hapje të plotë dysh", "Dysheme çeliku e forcuara", "Sistem kontrolli automatik+manual", "Certifikim industrial"],
     specs: [{ label: "Kapaciteti", value: "2000 kg" }, { label: "Hapja e portës", value: "2000×2200 mm" }, { label: "Kate", value: "4 kate" }, { label: "Shpejtësia", value: "0.5 m/s" }, { label: "Tipi", value: "Hidraulik Industrial" }],
-    photos: ["from-ink via-green-primary to-green-light", "from-green-deep via-ink to-green-primary", "from-ink via-green-medium to-green-light", "from-green-primary via-ink to-green-medium", "from-green-medium via-green-deep to-ink"],
+    photos: ["https://picsum.photos/seed/wl1/1200/675","https://picsum.photos/seed/wl2/1200/675","https://picsum.photos/seed/wl3/1200/675","https://picsum.photos/seed/wl4/1200/675","https://picsum.photos/seed/wl5/1200/675"],
   },
   {
     title: "Rezidenca Sfera",
@@ -115,7 +116,7 @@ const allProjects: Project[] = [
     client: "Sfera Development Group", duration: "4 javë",
     services: ["Instalim 6 ashensorësh pasagjerësh", "Kabina me finishe premium", "Pasqyra dhe dru i personalizuar", "Ndriçim ambient LED", "Sistem destinacioni me ekran"],
     specs: [{ label: "Ashensorë", value: "6 njësi" }, { label: "Kate", value: "14 kate" }, { label: "Kapaciteti", value: "800 kg / 10 persona" }, { label: "Shpejtësia", value: "2.0 m/s" }, { label: "Finishi", value: "Premium me pasqyrë" }],
-    photos: ["from-green-light via-green-medium to-green-primary", "from-green-mint via-green-light to-green-medium", "from-green-primary via-green-light to-green-mint", "from-green-medium via-green-primary to-green-deep", "from-green-light via-green-primary to-green-deep", "from-green-mint via-green-medium to-green-primary"],
+    photos: ["https://picsum.photos/seed/rs1/1200/675","https://picsum.photos/seed/rs2/1200/675","https://picsum.photos/seed/rs3/1200/675","https://picsum.photos/seed/rs4/1200/675","https://picsum.photos/seed/rs5/1200/675","https://picsum.photos/seed/rs6/1200/675"],
   },
   {
     title: "Shkolla Speciale",
@@ -126,7 +127,7 @@ const allProjects: Project[] = [
     client: "MASHT — Ministria e Arsimit", duration: "2 javë",
     services: ["Instalim 2 platformash vertikale", "Instalim stairlift për shkallë", "Certifikim sipas direktivës BE", "Trajnim i stafit shkollor", "Mirëmbajtje vjetore falas (3 vjet)"],
     specs: [{ label: "Platforma", value: "2 njësi vertikale" }, { label: "Stairlift", value: "1 njësi" }, { label: "Kapaciteti", value: "300 kg" }, { label: "Certifikimi", value: "EN 81-20/50 / BE" }, { label: "Financimi", value: "Fondet BE" }],
-    photos: ["from-green-medium via-green-primary to-green-deep", "from-green-primary via-green-medium to-green-abyss", "from-green-deep via-green-medium to-green-primary", "from-green-abyss via-green-deep to-green-medium", "from-green-medium via-green-abyss to-green-deep"],
+    photos: ["https://picsum.photos/seed/ss1/1200/675","https://picsum.photos/seed/ss2/1200/675","https://picsum.photos/seed/ss3/1200/675","https://picsum.photos/seed/ss4/1200/675","https://picsum.photos/seed/ss5/1200/675"],
   },
   {
     title: "Airport Hotel",
@@ -137,7 +138,7 @@ const allProjects: Project[] = [
     client: "Airport Hotel Prishtina", duration: "4 javë",
     services: ["Instalim 2 eskalatorësh reprezentativë", "Instalim 2 ashensorësh premium", "Iluminim integrues eskalator", "Sistem auto ndezje/fikje", "Kontrata mirëmbajtjeje 5 vjeçare"],
     specs: [{ label: "Eskalatorë", value: "2 njësi" }, { label: "Ashensorë", value: "2 njësi premium" }, { label: "Gjerësia eskalator", value: "800 mm" }, { label: "Shpejtësia", value: "0.5 m/s" }, { label: "Kursim energjie", value: "35% auto" }],
-    photos: ["from-green-deep via-ink to-green-primary", "from-ink via-green-deep to-green-medium", "from-green-primary via-green-deep to-ink", "from-green-medium via-ink to-green-deep", "from-ink via-green-primary to-green-deep"],
+    photos: ["https://picsum.photos/seed/ah1/1200/675","https://picsum.photos/seed/ah2/1200/675","https://picsum.photos/seed/ah3/1200/675","https://picsum.photos/seed/ah4/1200/675","https://picsum.photos/seed/ah5/1200/675"],
   },
   {
     title: "Vila Brezovica",
@@ -148,7 +149,7 @@ const allProjects: Project[] = [
     client: "Privat — Vila Resort", duration: "3 ditë",
     services: ["Instalim home lift gjatë ndërtimit", "Kabina me dru luksoz dhe dritare", "Sistem ndriçimi ambient", "Integrim me sistemin e smart home", "Garanci 5 vjeçare + mirëmbajtje vjetore"],
     specs: [{ label: "Kapaciteti", value: "320 kg / 4 persona" }, { label: "Kate", value: "4 kate" }, { label: "Shpejtësia", value: "0.15 m/s" }, { label: "Materiali", value: "Dru Ahu + Xham" }, { label: "Tipi", value: "MRL Trakcion Pitless" }],
-    photos: ["from-green-primary via-green-light to-green-mint", "from-green-mint via-green-primary to-green-light", "from-green-light via-green-mint to-green-medium", "from-green-medium via-green-light to-green-mint", "from-green-mint via-green-medium to-green-primary"],
+    photos: ["https://picsum.photos/seed/vb1/1200/675","https://picsum.photos/seed/vb2/1200/675","https://picsum.photos/seed/vb3/1200/675","https://picsum.photos/seed/vb4/1200/675","https://picsum.photos/seed/vb5/1200/675"],
   },
   {
     title: "Fabrika Ramiq",
@@ -159,23 +160,23 @@ const allProjects: Project[] = [
     client: "Ramiq Industrial sh.p.k.", duration: "4 javë",
     services: ["Instalim ashensori 5000 kg", "Platformë për fork-lift", "Porta industriale 3×3m", "Sistem kontrolli PLC", "Certifikim i Inspection Body akredituar"],
     specs: [{ label: "Kapaciteti", value: "5000 kg" }, { label: "Hapja e portës", value: "3000×3000 mm" }, { label: "Kate", value: "3 kate" }, { label: "Shpejtësia", value: "0.25 m/s" }, { label: "Kontrolluesi", value: "PLC Siemens" }],
-    photos: ["from-ink via-green-primary to-green-light", "from-green-deep via-ink to-green-medium", "from-ink via-green-medium to-green-primary", "from-green-primary via-green-deep to-ink", "from-green-medium via-green-primary to-ink", "from-ink via-green-deep to-green-primary"],
+    photos: ["https://picsum.photos/seed/fr1/1200/675","https://picsum.photos/seed/fr2/1200/675","https://picsum.photos/seed/fr3/1200/675","https://picsum.photos/seed/fr4/1200/675","https://picsum.photos/seed/fr5/1200/675","https://picsum.photos/seed/fr6/1200/675"],
   },
 ];
 
 const galleryItems = [
-  { cat: "elevators" as GalleryCategory,     gradient: "from-green-primary via-green-medium to-green-light",  h: "h-80" },
-  { cat: "installations" as GalleryCategory, gradient: "from-green-deep via-green-primary to-green-medium",   h: "h-56" },
-  { cat: "team" as GalleryCategory,          gradient: "from-ink via-green-primary to-green-medium",          h: "h-64" },
-  { cat: "elevators" as GalleryCategory,     gradient: "from-green-medium via-green-light to-green-mint",     h: "h-48" },
-  { cat: "beforeAfter" as GalleryCategory,   gradient: "from-green-abyss via-green-primary to-green-medium",  h: "h-80" },
-  { cat: "installations" as GalleryCategory, gradient: "from-green-primary via-ink to-green-medium",          h: "h-56" },
-  { cat: "elevators" as GalleryCategory,     gradient: "from-green-light via-green-primary to-green-deep",    h: "h-64" },
-  { cat: "team" as GalleryCategory,          gradient: "from-ink via-green-medium to-green-light",            h: "h-48" },
-  { cat: "beforeAfter" as GalleryCategory,   gradient: "from-green-medium via-ink to-green-primary",          h: "h-80" },
-  { cat: "installations" as GalleryCategory, gradient: "from-green-primary via-green-medium to-green-light",  h: "h-56" },
-  { cat: "elevators" as GalleryCategory,     gradient: "from-green-deep via-ink to-green-primary",            h: "h-48" },
-  { cat: "team" as GalleryCategory,          gradient: "from-green-medium via-green-primary to-green-deep",   h: "h-64" },
+  { cat: "elevators" as GalleryCategory,     image: "https://picsum.photos/seed/g1/800/1000",  h: "h-80" },
+  { cat: "installations" as GalleryCategory, image: "https://picsum.photos/seed/g2/800/700",   h: "h-56" },
+  { cat: "team" as GalleryCategory,          image: "https://picsum.photos/seed/g3/800/800",   h: "h-64" },
+  { cat: "elevators" as GalleryCategory,     image: "https://picsum.photos/seed/g4/800/600",   h: "h-48" },
+  { cat: "beforeAfter" as GalleryCategory,   image: "https://picsum.photos/seed/g5/800/1000",  h: "h-80" },
+  { cat: "installations" as GalleryCategory, image: "https://picsum.photos/seed/g6/800/700",   h: "h-56" },
+  { cat: "elevators" as GalleryCategory,     image: "https://picsum.photos/seed/g7/800/800",   h: "h-64" },
+  { cat: "team" as GalleryCategory,          image: "https://picsum.photos/seed/g8/800/600",   h: "h-48" },
+  { cat: "beforeAfter" as GalleryCategory,   image: "https://picsum.photos/seed/g9/800/1000",  h: "h-80" },
+  { cat: "installations" as GalleryCategory, image: "https://picsum.photos/seed/g10/800/700",  h: "h-56" },
+  { cat: "elevators" as GalleryCategory,     image: "https://picsum.photos/seed/g11/800/600",  h: "h-48" },
+  { cat: "team" as GalleryCategory,          image: "https://picsum.photos/seed/g12/800/800",  h: "h-64" },
 ];
 
 export default function ProjectsPage() {
@@ -319,6 +320,13 @@ export default function ProjectsPage() {
                         onClick={() => openModal(project, idxInAll)}
                       >
                         <div className={`relative w-full aspect-[3/4] rounded-2xl bg-gradient-to-br ${project.gradient} overflow-hidden mb-4`}>
+                          <Image
+                            src={project.photos[0]}
+                            alt={project.title}
+                            fill
+                            className="object-cover transition-transform duration-700 group-hover:scale-105"
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                          />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
                           <span className="absolute top-3 left-3 rounded-full px-2.5 py-1 glass-dark text-white text-[10px] font-semibold uppercase tracking-[0.2em]">
                             {t(`filters.${project.category}`)}
@@ -360,13 +368,19 @@ export default function ProjectsPage() {
                     </button>
                   ))}
                 </div>
-                {/* TODO: Replace gradient divs with real gallery photos */}
                 <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4">
                   {filteredGallery.map((item, i) => (
                     <div key={`${item.cat}-${i}`}
-                      className={`${item.h} w-full break-inside-avoid mb-4 rounded-2xl bg-gradient-to-br ${item.gradient} relative overflow-hidden group cursor-pointer lift`}
+                      className={`${item.h} w-full break-inside-avoid mb-4 rounded-2xl bg-green-deep relative overflow-hidden group cursor-pointer lift`}
                       onClick={() => setLightboxIdx(i)}
                     >
+                      <Image
+                        src={item.image}
+                        alt={`Gallery ${i + 1}`}
+                        fill
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      />
                       <div className="absolute inset-0 bg-black/5 group-hover:bg-black/30 transition-colors duration-300" />
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <div className="w-12 h-12 rounded-full glass-dark flex items-center justify-center text-white">
@@ -437,8 +451,15 @@ export default function ProjectsPage() {
                 {/* LEFT — Photo section */}
                 <div className="lg:w-[55%] shrink-0 bg-[#0f2d1f]">
                   {/* Hero photo */}
-                  {/* TODO: Replace with real project <Image> when client provides photos */}
-                  <div className={`w-full aspect-video bg-gradient-to-br ${openProject.photos[activePhoto]} relative overflow-hidden`}>
+                  <div className="w-full aspect-video bg-green-deep relative overflow-hidden">
+                    <Image
+                      src={openProject.photos[activePhoto]}
+                      alt={`${openProject.title} — foto ${activePhoto + 1}`}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 1024px) 100vw, 55vw"
+                      priority
+                    />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
                     <span className="absolute top-4 left-4 rounded-full px-3 py-1 glass-dark text-white text-[10px] font-semibold uppercase tracking-[0.2em]">
                       {t(`filters.${openProject.category}`)}
@@ -468,13 +489,15 @@ export default function ProjectsPage() {
                   <div className="flex gap-2 p-3 overflow-x-auto scrollbar-hide">
                     {openProject.photos.map((photo, i) => (
                       <button key={i} onClick={() => setActivePhoto(i)}
-                        className={`shrink-0 w-20 h-14 rounded-lg bg-gradient-to-br ${photo} cursor-pointer transition-all duration-200 ${
+                        className={`shrink-0 w-20 h-14 rounded-lg bg-green-deep cursor-pointer transition-all duration-200 relative overflow-hidden ${
                           activePhoto === i
                             ? "ring-2 ring-gold ring-offset-1 ring-offset-[#0f2d1f] opacity-100"
                             : "opacity-50 hover:opacity-80"
                         }`}
                         aria-label={`Photo ${i + 1}`}
-                      />
+                      >
+                        <Image src={photo} alt={`Thumbnail ${i + 1}`} fill className="object-cover" sizes="80px" />
+                      </button>
                     ))}
                   </div>
                 </div>
@@ -576,9 +599,20 @@ export default function ProjectsPage() {
           >
             <ChevronLeft size={22} />
           </button>
-          <div className={`w-full max-w-3xl aspect-[4/3] bg-gradient-to-br ${filteredGallery[lightboxIdx]?.gradient} rounded-3xl mx-16 shadow-2xl shadow-black/50`}
+          <div className="w-full max-w-3xl aspect-[4/3] rounded-3xl mx-16 shadow-2xl shadow-black/50 relative overflow-hidden bg-green-deep"
             onClick={(e) => e.stopPropagation()}
-          />
+          >
+            {filteredGallery[lightboxIdx] && (
+              <Image
+                src={filteredGallery[lightboxIdx].image}
+                alt={`Gallery ${lightboxIdx + 1}`}
+                fill
+                className="object-cover"
+                sizes="(max-width: 1280px) 90vw, 896px"
+                priority
+              />
+            )}
+          </div>
           <button className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full glass-dark text-white flex items-center justify-center hover:bg-white/15 transition-colors z-10 cursor-pointer"
             onClick={(e) => { e.stopPropagation(); setLightboxIdx((p) => p !== null ? (p + 1) % galleryTotal : 0); }}
             aria-label="Next image"

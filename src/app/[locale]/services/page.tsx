@@ -2,6 +2,7 @@
 
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
+import Image from "next/image";
 import Footer from "@/components/layout/Footer";
 import { ArrowUpRight, Check } from "lucide-react";
 import type { Locale } from "@/lib/i18n";
@@ -15,13 +16,13 @@ const serviceKeys = [
   "security",
 ] as const;
 
-const serviceGradients = [
-  "from-green-primary via-green-medium to-green-light",
-  "from-green-medium via-green-light to-green-mint",
-  "from-green-deep via-green-primary to-green-medium",
-  "from-green-primary via-green-light to-green-mint",
-  "from-ink via-green-primary to-green-medium",
-  "from-green-medium via-ink to-green-primary",
+const serviceImages = [
+  "https://picsum.photos/seed/install1/1000/800",
+  "https://picsum.photos/seed/repair1/1000/800",
+  "https://picsum.photos/seed/homeelev1/1000/800",
+  "https://picsum.photos/seed/access1/1000/800",
+  "https://picsum.photos/seed/escal1/1000/800",
+  "https://picsum.photos/seed/secure1/1000/800",
 ];
 
 export default function ServicesPage() {
@@ -67,9 +68,16 @@ export default function ServicesPage() {
                   className={`lg:col-span-6 ${i % 2 === 1 ? "lg:order-2" : ""}`}
                 >
                   <div
-                    className={`relative w-full aspect-[5/4] rounded-[28px] bg-gradient-to-br ${serviceGradients[i]} overflow-hidden`}
+                    className="relative w-full aspect-[5/4] rounded-[28px] bg-green-deep overflow-hidden"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+                    <Image
+                      src={serviceImages[i]}
+                      alt={t(`items.${key}.title`)}
+                      fill
+                      className="object-cover transition-transform duration-700 hover:scale-105"
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/15 to-transparent" />
                     <div aria-hidden className="absolute inset-0 noise-overlay" />
                     <div className="absolute top-6 left-6">
                       <span className="inline-flex items-center rounded-full px-3 py-1 glass-dark text-white text-[10px] tracking-[0.28em] uppercase font-semibold">

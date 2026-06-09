@@ -53,7 +53,7 @@ const securityHeaders = [
         : "script-src 'self' 'unsafe-inline'",
       "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
       "font-src 'self' https://fonts.gstatic.com",
-      "img-src 'self' data: blob:",
+      "img-src 'self' data: blob: https://picsum.photos https://fastly.picsum.photos",
       isDev
         ? "connect-src 'self' ws://localhost:* http://localhost:*"
         : "connect-src 'self'",
@@ -72,8 +72,10 @@ const securityHeaders = [
 const nextConfig: NextConfig = {
   images: {
     formats: ["image/webp", "image/avif"],
-    // Only allow images from our own origin (no external domains used yet)
-    remotePatterns: [],
+    remotePatterns: [
+      { protocol: "https", hostname: "picsum.photos" },
+      { protocol: "https", hostname: "fastly.picsum.photos" },
+    ],
   },
   async headers() {
     return [
