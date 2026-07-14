@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
-import { MapPin, Phone, Mail, ArrowUpRight } from "lucide-react";
+import { MapPin, Phone, Mail, Globe, ArrowUpRight } from "lucide-react";
 import type { Locale } from "@/lib/i18n";
 
 function InstagramIcon() {
@@ -73,11 +73,11 @@ export default function Footer() {
           {/* Column 1: Brand */}
           <div className="col-span-2 md:col-span-1">
             <Image
-              src="/logo-white.svg"
-              alt="Green Up"
-              width={120}
-              height={32}
-              className="mb-5"
+              src="/logo-white.png"
+              alt="Green Up — Lift System"
+              width={1000}
+              height={423}
+              className="h-10 w-auto mb-5"
             />
             <p className="text-white/55 text-[13px] leading-relaxed mb-6 max-w-xs">
               {t("aboutText")}
@@ -140,7 +140,6 @@ export default function Footer() {
                   "homelift",
                   "accessibility",
                   "escalators",
-                  "security",
                 ] as const
               ).map((key) => (
                 <li key={key}>
@@ -181,13 +180,24 @@ export default function Footer() {
                   <span>{t("email")}</span>
                 </a>
               </li>
+              <li>
+                <a
+                  href="https://www.greenup-ks.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 text-white/55 hover:text-white text-[13.5px] transition-colors cursor-pointer"
+                >
+                  <Globe size={15} className="text-gold shrink-0" />
+                  <span>{t("website")}</span>
+                </a>
+              </li>
             </ul>
 
             {/* Google Maps embed */}
             <div className="mt-6 w-full h-28 rounded-xl overflow-hidden border border-white/10">
               <iframe
-                title="Green Up - Prishtina, Kosovo"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47189.94756526498!2d21.13073!3d42.6629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13549ee605110927%3A0x9571e3edaf3b28b8!2sPrishtina!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+                title="Green Up — Fushë Kosovë, Kosovo"
+                src="https://www.google.com/maps?q=Rr.+Hyzri+Talla+pn,+12000+Fush%C3%AB+Kosov%C3%AB,+Kosovo&output=embed"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}

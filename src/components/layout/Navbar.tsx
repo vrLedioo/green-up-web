@@ -69,12 +69,12 @@ export default function Navbar() {
           {/* Logo */}
           <Link href={getHref("home")} className="flex items-center gap-2 shrink-0 cursor-pointer group">
             <Image
-              src="/logo-white.svg"
-              alt="Green Up"
-              width={118}
-              height={30}
+              src="/logo-white.png"
+              alt="Green Up — Lift System"
+              width={1000}
+              height={423}
               priority
-              className="transition-transform duration-500 group-hover:scale-[1.02]"
+              className="h-7 md:h-8 w-auto transition-transform duration-500 group-hover:scale-[1.02]"
             />
           </Link>
 
@@ -128,10 +128,11 @@ export default function Navbar() {
 
             <div className="relative flex items-center justify-between p-6 border-b border-white/10">
               <Image
-                src="/logo-white.svg"
-                alt="Green Up"
-                width={120}
-                height={32}
+                src="/logo-white.png"
+                alt="Green Up — Lift System"
+                width={1000}
+                height={423}
+                className="h-9 w-auto"
               />
               <button
                 onClick={() => setMobileOpen(false)}

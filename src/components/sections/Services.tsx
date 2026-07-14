@@ -2,7 +2,7 @@
 
 import { useTranslations, useLocale } from "next-intl";
 import Link from "next/link";
-import { Wrench, Home, ArrowUpDown, Shield, ArrowUpRight } from "lucide-react";
+import { Wrench, Home, ArrowUpDown, ArrowUpRight } from "lucide-react";
 import type { Locale } from "@/lib/i18n";
 
 function ElevatorIcon({ size = 22 }: { size?: number }) {
@@ -25,14 +25,14 @@ function AccessibilityIcon({ size = 22 }: { size?: number }) {
   );
 }
 
-const serviceIcons = [ElevatorIcon, Wrench, Home, AccessibilityIcon, ArrowUpDown, Shield];
-const serviceKeys = ["installation", "maintenance", "homelift", "accessibility", "escalators", "security"] as const;
+const serviceIcons = [ElevatorIcon, Wrench, Home, AccessibilityIcon, ArrowUpDown];
+const serviceKeys = ["installation", "maintenance", "homelift", "accessibility", "escalators"] as const;
 
-// Bento layout: first + fourth tiles span 2 columns on lg
+// Bento layout on a 4-column grid: two wide tiles on the top row,
+// then one wide + two narrow tiles on the second row (5 tiles, no gaps).
 const tileSpan = [
   "md:col-span-2",
-  "",
-  "",
+  "md:col-span-2",
   "md:col-span-2",
   "",
   "",

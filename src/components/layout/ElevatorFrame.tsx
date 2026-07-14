@@ -8,7 +8,6 @@ export const FLOORS = [
   { label: "02", name: "Services" },
   { label: "03", name: "Projects" },
   { label: "04", name: "Why Us" },
-  { label: "05", name: "Testimonials" },
   { label: "PH", name: "Contact" },
 ] as const;
 

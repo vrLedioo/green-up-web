@@ -5,8 +5,11 @@ import Hero from "@/components/sections/Hero";
 import Services from "@/components/sections/Services";
 import FeaturedProjects from "@/components/sections/FeaturedProjects";
 import WhyUs from "@/components/sections/WhyUs";
-import Testimonials from "@/components/sections/Testimonials";
 import CTABanner from "@/components/sections/CTABanner";
+// NOTE: The Testimonials section is temporarily hidden until the client collects
+// real customer reviews. The <Testimonials /> component and its translation data
+// are intentionally kept in the codebase — re-add the import and the FloorSection
+// below (and restore the "Voices" floor in ElevatorFrame's FLOORS) to bring it back.
 import ElevatorFrame from "@/components/layout/ElevatorFrame";
 import FloorSection from "@/components/layout/FloorSection";
 
@@ -40,10 +43,7 @@ export default function HomePage() {
           <FloorSection index={3} label="04" name="Why Us" tone="light">
             <WhyUs />
           </FloorSection>
-          <FloorSection index={4} label="05" name="Voices" tone="light">
-            <Testimonials />
-          </FloorSection>
-          <FloorSection index={5} label="PH" name="Arrival" tone="dark">
+          <FloorSection index={4} label="PH" name="Arrival" tone="dark">
             <CTABanner />
           </FloorSection>
         </main>

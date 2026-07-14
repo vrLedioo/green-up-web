@@ -14,9 +14,10 @@ export type Intent = {
   followUps?: string[];
 };
 
-const PHONE_TEL = "+38344123456";
-const PHONE_DISPLAY = "+383 44 123 456";
+const PHONE_TEL = "+38344207541";
+const PHONE_DISPLAY = "+383 44 207 541";
 const EMAIL = "info@greenup-ks.com";
+const WEBSITE = "www.greenup-ks.com";
 
 const BTN_VIEW_SERVICES: ActionButton = {
   label: { sq: "Shiko Shërbimet", en: "View Services", de: "Leistungen ansehen" },
@@ -177,9 +178,9 @@ export const INTENTS: Intent[] = [
       de: ["sicherheit", "kamera", "alarm", "überwachung"],
     },
     response: {
-      sq: "Sistemet tona të sigurisë përfshijnë kamera CCTV brenda kabinës, alarme dhe intercom, monitorim të largët 24/7, kyçje automatike, sensorë mbingarkimi dhe sisteme emergjencie ARD.",
-      en: "Our security systems include CCTV cameras inside cabins, alarm and intercom systems, 24/7 remote monitoring, automatic locking, overload sensors, and ARD emergency systems.",
-      de: "Unsere Sicherheitssysteme umfassen CCTV-Kameras in der Kabine, Alarm- und Gegensprechanlagen, 24/7-Fernüberwachung, automatische Verriegelung, Überlastsensoren und ARD-Notfallsysteme.",
+      sq: "Ashensorët tanë mund të pajisen me veçori sigurie si kamera CCTV brenda kabinës, alarme dhe intercom, monitorim të largët 24/7, kyçje automatike, sensorë mbingarkimi dhe sisteme emergjencie ARD — të integruara gjatë instalimit dhe mirëmbajtjes.",
+      en: "Our elevators can be equipped with safety features such as CCTV cameras inside cabins, alarm and intercom systems, 24/7 remote monitoring, automatic locking, overload sensors, and ARD emergency systems — integrated during installation and maintenance.",
+      de: "Unsere Aufzüge können mit Sicherheitsmerkmalen wie CCTV-Kameras in der Kabine, Alarm- und Gegensprechanlagen, 24/7-Fernüberwachung, automatischer Verriegelung, Überlastsensoren und ARD-Notfallsystemen ausgestattet werden — integriert bei Installation und Wartung.",
     },
     actions: [BTN_VIEW_SERVICES],
     followUps: ["quote"],
@@ -221,9 +222,9 @@ export const INTENTS: Intent[] = [
       de: ["kontakt", "erreichen", "kontaktieren"],
     },
     response: {
-      sq: `📞 Telefon: ${PHONE_DISPLAY}\n📧 Email: ${EMAIL}\n📍 Adresa: Prishtinë, Kosovë\n\nJemi të disponueshëm 24/7 për urgjenca.`,
-      en: `📞 Phone: ${PHONE_DISPLAY}\n📧 Email: ${EMAIL}\n📍 Address: Prishtina, Kosovo\n\nWe're available 24/7 for emergencies.`,
-      de: `📞 Telefon: ${PHONE_DISPLAY}\n📧 E-Mail: ${EMAIL}\n📍 Adresse: Prishtina, Kosovo\n\nWir sind rund um die Uhr für Notfälle erreichbar.`,
+      sq: `📞 Telefon: ${PHONE_DISPLAY}\n📧 Email: ${EMAIL}\n🌐 Web: ${WEBSITE}\n📍 Adresa: Rr. Hyzri Talla pn, 12000 Fushë Kosovë, Kosovë\n\nJemi të disponueshëm 24/7 për urgjenca.`,
+      en: `📞 Phone: ${PHONE_DISPLAY}\n📧 Email: ${EMAIL}\n🌐 Web: ${WEBSITE}\n📍 Address: Rr. Hyzri Talla pn, 12000 Fushë Kosovë, Kosovo\n\nWe're available 24/7 for emergencies.`,
+      de: `📞 Telefon: ${PHONE_DISPLAY}\n📧 E-Mail: ${EMAIL}\n🌐 Web: ${WEBSITE}\n📍 Adresse: Rr. Hyzri Talla pn, 12000 Fushë Kosovë, Kosovo\n\nWir sind rund um die Uhr für Notfälle erreichbar.`,
     },
     actions: [BTN_CALL_NOW, BTN_EMAIL, BTN_VIEW_CONTACT],
   },
@@ -235,9 +236,9 @@ export const INTENTS: Intent[] = [
       de: ["wo seid ihr", "standort", "adresse", "büro"],
     },
     response: {
-      sq: "Zyra jonë qendrore është në Prishtinë, Kosovë. Punojmë në të gjithë Kosovën dhe kemi projekte edhe në Shqipëri dhe Maqedoninë e Veriut.",
-      en: "Our head office is in Prishtina, Kosovo. We operate throughout Kosovo and have projects in Albania and North Macedonia as well.",
-      de: "Unser Hauptsitz ist in Prishtina, Kosovo. Wir arbeiten in ganz Kosovo und haben auch Projekte in Albanien und Nordmazedonien.",
+      sq: "Zyra jonë qendrore është në Rr. Hyzri Talla pn, Fushë Kosovë. Punojmë në të gjithë Kosovën dhe kemi projekte edhe në Shqipëri dhe Maqedoninë e Veriut.",
+      en: "Our head office is in Rr. Hyzri Talla pn, Fushë Kosovë. We operate throughout Kosovo and have projects in Albania and North Macedonia as well.",
+      de: "Unser Hauptsitz ist in Rr. Hyzri Talla pn, Fushë Kosovë. Wir arbeiten in ganz Kosovo und haben auch Projekte in Albanien und Nordmazedonien.",
     },
     actions: [BTN_VIEW_CONTACT],
     followUps: ["coverage", "hours"],
@@ -321,9 +322,9 @@ export const INTENTS: Intent[] = [
       de: ["projekte", "referenzen", "arbeiten", "portfolio"],
     },
     response: {
-      sq: "Kemi mbi 500 projekte të kryera në Kosovë dhe rajon — ndërtesa banimi, hotele, qendra tregtare, spitale. Secili projekt ka galeri fotosh dhe detaje teknike.",
-      en: "We've completed over 500 projects across Kosovo and the region — residential buildings, hotels, shopping centers, hospitals. Each project has photo galleries and technical details.",
-      de: "Wir haben über 500 Projekte in Kosovo und der Region abgeschlossen — Wohngebäude, Hotels, Einkaufszentren, Krankenhäuser. Jedes Projekt hat Fotogalerien und technische Details.",
+      sq: "Kemi realizuar projekte në të gjithë Kosovën dhe rajon — ndërtesa banimi, hotele, qendra tregtare, spitale. Secili projekt ka galeri fotosh dhe detaje teknike.",
+      en: "We've completed projects across Kosovo and the region — residential buildings, hotels, shopping centers, hospitals. Each project has photo galleries and technical details.",
+      de: "Wir haben Projekte in ganz Kosovo und der Region abgeschlossen — Wohngebäude, Hotels, Einkaufszentren, Krankenhäuser. Jedes Projekt hat Fotogalerien und technische Details.",
     },
     actions: [BTN_VIEW_PROJECTS],
     followUps: ["quote"],
@@ -336,9 +337,9 @@ export const INTENTS: Intent[] = [
       de: ["über euch", "wer seid", "firmengeschichte", "unternehmen"],
     },
     response: {
-      sq: "Green Up është themeluar në vitin 2009 në Prishtinë dhe është kompania lider në Kosovë për shitjen, instalimin dhe mirëmbajtjen e ashensorëve premium. Mbi 15 vite eksperiencë dhe 500+ projekte.",
-      en: "Green Up was founded in 2009 in Prishtina and is Kosovo's leading company for premium elevator sales, installation, and maintenance. Over 15 years of experience and 500+ projects.",
-      de: "Green Up wurde 2009 in Prishtina gegründet und ist das führende Unternehmen in Kosovo für den Verkauf, die Installation und Wartung von Premium-Aufzügen. Über 15 Jahre Erfahrung und 500+ Projekte.",
+      sq: "Green Up është themeluar në vitin 2019 në Fushë Kosovë dhe është kompani e specializuar në Kosovë për shitjen, instalimin dhe mirëmbajtjen e ashensorëve premium. Mbi 6 vite eksperiencë dhe cilësi e certifikuar BE.",
+      en: "Green Up was founded in 2019 in Fushë Kosovë and is a specialized company in Kosovo for premium elevator sales, installation, and maintenance. Over 6 years of experience and EU-certified quality.",
+      de: "Green Up wurde 2019 in Fushë Kosovë gegründet und ist ein spezialisiertes Unternehmen in Kosovo für den Verkauf, die Installation und Wartung von Premium-Aufzügen. Über 6 Jahre Erfahrung und EU-zertifizierte Qualität.",
     },
     actions: [BTN_VIEW_ABOUT],
   },

@@ -78,7 +78,7 @@ export default function Hero() {
                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-gold" />
               </span>
               <span className="text-white/85 text-[11px] tracking-[0.28em] uppercase font-semibold">
-                Kosovo · Est. 2010
+                Est. 2019
               </span>
             </div>
 
@@ -115,10 +115,9 @@ export default function Hero() {
         {/* Stats bar */}
         <div
           ref={statsRef}
-          className="anim-fade-up anim-delay-5 grid grid-cols-2 lg:grid-cols-4 gap-8 pt-10 border-t border-white/10"
+          className="anim-fade-up anim-delay-5 grid grid-cols-3 gap-5 sm:gap-8 pt-10 border-t border-white/10"
         >
-          <Stat value={500} suffix="+" label={stats("projects")} active={statsActive} />
-          <Stat value={15}  suffix="+" label={stats("experience")} active={statsActive} />
+          <Stat value={6}   suffix="+" label={stats("experience")} active={statsActive} />
           <Stat value={100} suffix="%" label={stats("satisfaction")} active={statsActive} />
           <div className="flex flex-col">
             <div className="font-display text-4xl md:text-5xl font-medium text-white font-mono tracking-tight">

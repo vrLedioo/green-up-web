@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useTranslations } from "next-intl";
 import Footer from "@/components/layout/Footer";
-import { MapPin, Phone, Mail, ArrowUpRight, Loader2 } from "lucide-react";
+import { MapPin, Phone, Mail, Globe, ArrowUpRight, Loader2 } from "lucide-react";
 
 type FormStatus = "idle" | "loading" | "success" | "error" | "ratelimit" | "validation";
 
@@ -123,6 +123,7 @@ export default function ContactPage() {
                   { icon: MapPin, label: t("info.address"), value: t("info.addressValue"), href: undefined },
                   { icon: Phone, label: t("info.phone"), value: t("info.phoneValue"), href: `tel:${t("info.phoneValue").replace(/\s/g, '')}` },
                   { icon: Mail,  label: t("info.email"),    value: "info@greenup-ks.com", href: "mailto:info@greenup-ks.com" },
+                  { icon: Globe, label: t("info.website"),  value: t("info.websiteValue"), href: "https://www.greenup-ks.com" },
                 ].map(({ icon: Icon, label, value, href }) => (
                   <div key={label} className="flex items-start gap-4 p-4 bg-white border border-green-mint/30 rounded-2xl">
                     <div className="w-10 h-10 bg-gradient-to-br from-green-primary to-green-medium rounded-xl flex items-center justify-center shrink-0 shadow-lg shadow-green-primary/15">
@@ -140,11 +141,11 @@ export default function ContactPage() {
                 ))}
               </div>
 
-              {/* Google Maps embed for Prishtina, Kosovo */}
+              {/* Google Maps embed for Green Up HQ — Fushë Kosovë, Kosovo */}
               <div className="w-full h-56 rounded-2xl overflow-hidden border border-green-mint/50">
                 <iframe
-                  title="Green Up Location - Prishtina, Kosovo"
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47189.94756526498!2d21.13073!3d42.6629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13549ee605110927%3A0x9571e3edaf3b28b8!2sPrishtina!5e0!3m2!1sen!2s!4v1700000000000!5m2!1sen!2s"
+                  title="Green Up Location — Fushë Kosovë, Kosovo"
+                  src="https://www.google.com/maps?q=Rr.+Hyzri+Talla+pn,+12000+Fush%C3%AB+Kosov%C3%AB,+Kosovo&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

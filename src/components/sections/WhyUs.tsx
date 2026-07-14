@@ -23,31 +23,31 @@ export default function WhyUs() {
               {t("subtitle")}
             </h2>
 
-            {/* Decorative stat tile */}
+            {/* Decorative brand tile */}
             <div className="mt-10 relative rounded-[28px] overflow-hidden bg-forest p-8 noise-overlay aspect-[4/5] max-w-md">
               <div aria-hidden className="absolute -top-16 -right-16 w-80 h-80 rounded-full bg-gold/20 blur-3xl" />
               <div className="relative flex flex-col h-full text-white">
                 <div className="eyebrow text-white/70">
-                  Green Up — Est. 2010
+                  {t("panel.eyebrow")}
                 </div>
 
                 <div className="mt-auto">
-                  <div className="font-display text-[108px] leading-[0.85] font-medium text-gradient-emerald">
-                    500+
+                  <div className="font-display text-[44px] md:text-[52px] leading-[0.98] font-medium text-gradient-emerald tracking-tight">
+                    {t("panel.headline")}
                   </div>
-                  <div className="text-white/60 text-sm tracking-wide mt-2">
-                    Projekte të instaluara në Kosovë dhe rajon, nga rezidenca te qendra tregtare dhe hotele.
+                  <div className="text-white/60 text-sm leading-relaxed tracking-wide mt-4">
+                    {t("panel.desc")}
                   </div>
                 </div>
 
                 <div className="mt-8 pt-6 border-t border-white/10 grid grid-cols-2 gap-6">
                   <div>
-                    <div className="font-mono text-2xl text-white">15<span className="text-gold">+</span></div>
-                    <div className="text-[10px] text-white/60 uppercase tracking-[0.22em] mt-1">Vjet</div>
+                    <div className="font-mono text-2xl text-white">6<span className="text-gold">+</span></div>
+                    <div className="text-[10px] text-white/60 uppercase tracking-[0.22em] mt-1">{t("panel.yearsLabel")}</div>
                   </div>
                   <div>
                     <div className="font-mono text-2xl text-white">24<span className="text-gold">/7</span></div>
-                    <div className="text-[10px] text-white/60 uppercase tracking-[0.22em] mt-1">Urgjencë</div>
+                    <div className="text-[10px] text-white/60 uppercase tracking-[0.22em] mt-1">{t("panel.supportLabel")}</div>
                   </div>
                 </div>
               </div>

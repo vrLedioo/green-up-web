@@ -13,7 +13,6 @@ const serviceKeys = [
   "homelift",
   "accessibility",
   "escalators",
-  "security",
 ] as const;
 
 const serviceImages = [
@@ -22,7 +21,6 @@ const serviceImages = [
   "https://picsum.photos/seed/homeelev1/1000/800",
   "https://picsum.photos/seed/access1/1000/800",
   "https://picsum.photos/seed/escal1/1000/800",
-  "https://picsum.photos/seed/secure1/1000/800",
 ];
 
 export default function ServicesPage() {

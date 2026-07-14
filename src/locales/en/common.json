@@ -12,7 +12,7 @@
   },
   "emergency": {
     "text": "Emergency Service 24/7",
-    "phone": "+383 44 123 456",
+    "phone": "+383 44 207 541",
     "dismiss": "Close"
   },
   "hero": {
@@ -51,10 +51,6 @@
       "escalators": {
         "title": "Escalators",
         "description": "Installation and maintenance of escalators for shopping centers, hotels and public buildings."
-      },
-      "security": {
-        "title": "Security Systems",
-        "description": "The most modern elevator security systems: cameras, sensors and alarm systems."
       }
     }
   },
@@ -75,6 +71,13 @@
   "whyUs": {
     "title": "Why Choose Us?",
     "subtitle": "Experience, quality and reliability in every project",
+    "panel": {
+      "eyebrow": "Green Up — Est. 2019",
+      "headline": "Raising the standard.",
+      "desc": "Every elevator installed to European EN 81-20/50 standards and CE-certified — premium quality, no compromise.",
+      "yearsLabel": "Years",
+      "supportLabel": "Emergency"
+    },
     "items": {
       "coverage": "Full coverage throughout Kosovo",
       "certified": "Products certified to EU standards",
@@ -117,9 +120,10 @@
     "pages": "Pages",
     "services": "Services",
     "contact": "Contact",
-    "address": "Prishtina, Kosovo",
-    "phone": "+383 44 123 456",
+    "address": "Rr. Hyzri Talla pn, 12000 Fushë Kosovë, Kosovo",
+    "phone": "+383 44 207 541",
     "email": "info@greenup-ks.com",
+    "website": "www.greenup-ks.com",
     "builtBy": "Built with care"
   },
   "about": {
@@ -137,12 +141,12 @@
     "timeline": {
       "title": "Our History",
       "items": [
-        { "year": "2009", "text": "Green Up founded in Prishtina" },
-        { "year": "2012", "text": "First major project — 15-storey building" },
-        { "year": "2015", "text": "Expansion of services throughout Kosovo" },
-        { "year": "2018", "text": "Partnerships with leading European brands" },
-        { "year": "2020", "text": "Over 300 successfully completed projects" },
-        { "year": "2024", "text": "Over 500 projects and regional expansion" }
+        { "year": "2019", "text": "Green Up founded in Fushë Kosovë" },
+        { "year": "2020", "text": "First major project and first technical team" },
+        { "year": "2021", "text": "Partnerships with leading European brands" },
+        { "year": "2022", "text": "Expansion of services throughout Kosovo" },
+        { "year": "2023", "text": "24/7 maintenance and emergency service launched" },
+        { "year": "2024", "text": "Regional expansion and a growing project portfolio" }
       ]
     },
     "team": {
@@ -206,14 +210,6 @@
         "Speed 0.5 m/s standard",
         "Integrated LED lighting",
         "Periodic maintenance"
-      ],
-      "security": [
-        "CCTV cameras inside cabin",
-        "Alarm and intercom systems",
-        "Remote monitoring 24/7",
-        "Automatic locking and access systems",
-        "Overload sensors",
-        "ARD emergency systems"
       ]
     },
     "cta": {
@@ -304,7 +300,7 @@
       },
       {
         "q": "How can I request a quote?",
-        "a": "You can contact us through the online form, phone, or visit our office in Prishtina. We offer free on-site consultation and assessment."
+        "a": "You can contact us through the online form, phone, or visit our office in Fushë Kosovë. We offer free on-site consultation and assessment."
       }
     ]
   },
@@ -339,10 +335,12 @@
     },
     "info": {
       "address": "Address",
-      "addressValue": "Prishtina, Kosovo",
+      "addressValue": "Rr. Hyzri Talla pn, 12000 Fushë Kosovë, Kosovo",
       "phone": "Phone",
-      "phoneValue": "+383 44 123 456",
-      "email": "Email"
+      "phoneValue": "+383 44 207 541",
+      "email": "Email",
+      "website": "Website",
+      "websiteValue": "www.greenup-ks.com"
     }
   },
   "partners": {
