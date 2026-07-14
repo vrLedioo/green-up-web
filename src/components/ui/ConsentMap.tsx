@@ -42,7 +42,10 @@ export default function ConsentMap({
         style={{ border: 0 }}
         allowFullScreen
         loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
+        // Least-privilege sandbox: scripts + its own (cross-)origin storage are
+        // required for the map to render; popups cover "View larger map".
+        sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"
+        referrerPolicy="no-referrer"
       />
     );
   }

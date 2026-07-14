@@ -14,7 +14,19 @@ const securityHeaders = [
   { key: "X-Content-Type-Options", value: "nosniff" },
   // Control referrer information sent with requests
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-  // Disable unused browser features (OWASP A05 / Permissions Policy)
+  // Isolate the browsing context from cross-origin windows (Spectre-class leaks,
+  // window.opener abuse). No OAuth popups on this site, so same-origin is safe.
+  { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
+  // Block other origins from embedding our images/videos/fonts (hotlinking +
+  // cross-site inclusion). Social-media crawlers fetch og:image server-side,
+  // so link previews are unaffected.
+  { key: "Cross-Origin-Resource-Policy", value: "same-origin" },
+  // Legacy Flash/PDF cross-domain policy files — explicitly forbid
+  { key: "X-Permitted-Cross-Domain-Policies", value: "none" },
+  { key: "X-DNS-Prefetch-Control", value: "off" },
+  // Disable unused browser features (OWASP A05 / Permissions Policy).
+  // fullscreen stays enabled for self (project videos) and the consented
+  // Google Maps iframe ("View larger map" / fullscreen control).
   {
     key: "Permissions-Policy",
     value: [
@@ -24,6 +36,15 @@ const securityHeaders = [
       "interest-cohort=()",
       "payment=()",
       "usb=()",
+      "accelerometer=()",
+      "gyroscope=()",
+      "magnetometer=()",
+      "bluetooth=()",
+      "serial=()",
+      "midi=()",
+      "display-capture=()",
+      "xr-spatial-tracking=()",
+      'fullscreen=(self "https://www.google.com")',
     ].join(", "),
   },
   // Force HTTPS for 1 year, include subdomains (only effective on HTTPS)
@@ -79,6 +100,14 @@ const nextConfig: NextConfig = {
       {
         source: "/(.*)",
         headers: securityHeaders,
+      },
+      {
+        // API responses must never be cached or indexed
+        source: "/api/(.*)",
+        headers: [
+          { key: "Cache-Control", value: "no-store" },
+          { key: "X-Robots-Tag", value: "noindex" },
+        ],
       },
     ];
   },

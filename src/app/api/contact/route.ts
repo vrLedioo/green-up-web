@@ -2,8 +2,13 @@
  * POST /api/contact — delivers contact-form submissions via Resend.
  *
  * Security controls (OWASP mapping):
+ *   A01 Access Control  — same-origin check: browser POSTs must carry an Origin
+ *                         header matching the request host (blocks cross-site
+ *                         scripting of the form from other websites)
  *   A03 Injection       — Zod schema rejects unexpected fields / types / lengths;
- *                         user text is HTML-escaped before being embedded in the email
+ *                         control characters are stripped from every free-text field
+ *                         (kills email header injection at the source); user text is
+ *                         HTML-escaped before being embedded in the email
  *   A04 Insecure Design — Honeypot field silently drops bot submissions
  *   A05 Misconfiguration— RESEND_API_KEY / CONTACT_TO are server-only env vars
  *   A07 Auth Failures   — IP-based rate limit: 5 submissions per 15 min per client
@@ -23,17 +28,47 @@
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
 
+// ─── Input sanitization ───────────────────────────────────────────────────────
+
+// Control characters have no place in form input. Stripping them before the
+// values reach the email subject/body removes the header-injection vector even
+// if a downstream layer (Resend, MIME builder) were ever to mishandle them.
+// Implemented with explicit code-point checks (C0 range + DEL) rather than
+// regex escapes so the intent is auditable at a glance.
+const NEWLINE = 10;
+const DEL = 127;
+
+function stripControlChars(s: string, keepNewlines: boolean): string {
+  const normalized = keepNewlines ? s.replace(/\r\n?/g, "\n") : s;
+  let out = "";
+  for (const ch of normalized) {
+    const code = ch.codePointAt(0) ?? 0;
+    const isControl = (code < 32 && !(keepNewlines && code === NEWLINE)) || code === DEL;
+    out += isControl ? " " : ch;
+  }
+  return out.trim();
+}
+
+const stripControl = (s: string) => stripControlChars(s, false);
+const stripControlKeepNewlines = (s: string) => stripControlChars(s, true);
+
 // ─── Input schema ─────────────────────────────────────────────────────────────
 
 const ContactSchema = z.object({
-  name: z.string().min(1, "Name is required").max(100, "Name too long").trim(),
+  name: z
+    .string()
+    .min(1, "Name is required")
+    .max(100, "Name too long")
+    .transform(stripControl)
+    .refine((v) => v.length > 0, "Name is required"),
   email: z.string().email("Invalid email address").max(254, "Email too long").toLowerCase(),
   phone: z
     .string()
     .max(30, "Phone too long")
     .regex(/^[+\d\s\-().]*$/, "Invalid phone format")
     .optional()
-    .default(""),
+    .default("")
+    .transform(stripControl),
   type: z.enum(["quote", "maintenance", "info", "other"] as const, {
     error: "Invalid request type",
   }),
@@ -41,10 +76,14 @@ const ContactSchema = z.object({
     .string()
     .min(10, "Message is too short (10 chars minimum)")
     .max(5000, "Message is too long (5000 chars maximum)")
-    .trim(),
+    .transform(stripControlKeepNewlines)
+    .refine((v) => v.length >= 10, "Message is too short (10 chars minimum)"),
   // Honeypot: must be empty — bots fill every visible-ish field
   honeypot: z.string().max(0, "Bot detected").optional().default(""),
 });
+
+// Requests larger than this cannot be legitimate (5 KB message + JSON overhead).
+const MAX_BODY_BYTES = 32_000;
 
 // ─── Rate limiter (in-memory) ─────────────────────────────────────────────────
 
@@ -70,9 +109,31 @@ function checkRateLimit(ip: string): { allowed: boolean; remaining: number } {
 }
 
 function getClientIp(req: NextRequest): string {
+  // Prefer the platform-set header (Vercel writes x-real-ip itself, so it
+  // cannot be spoofed by the client), fall back to the leftmost XFF entry.
+  const realIp = req.headers.get("x-real-ip");
+  if (realIp) return realIp.trim();
   const forwarded = req.headers.get("x-forwarded-for");
   if (forwarded) return forwarded.split(",")[0].trim();
-  return req.headers.get("x-real-ip") ?? "unknown";
+  return "unknown";
+}
+
+/**
+ * CSRF-style origin check. Browsers always attach an Origin header to
+ * cross-origin (and fetch-initiated) POSTs; if one is present it must match
+ * the host we are being served on. Requests without an Origin header
+ * (curl, server-to-server) are allowed — they are not CSRF.
+ */
+function isOriginAllowed(req: NextRequest): boolean {
+  const origin = req.headers.get("origin");
+  if (!origin) return true;
+  const host = req.headers.get("host");
+  if (!host) return false;
+  try {
+    return new URL(origin).host === host;
+  } catch {
+    return false;
+  }
 }
 
 // ─── Email rendering ──────────────────────────────────────────────────────────
@@ -137,6 +198,20 @@ function renderEmail(data: { name: string; email: string; phone: string; type: s
 export async function POST(req: NextRequest): Promise<NextResponse> {
   const ip = getClientIp(req);
 
+  // 0. Same-origin + content checks before any parsing work
+  if (!isOriginAllowed(req)) {
+    console.warn(`[contact] origin-rejected ip=${ip}`);
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  }
+  const contentType = req.headers.get("content-type") ?? "";
+  if (!contentType.toLowerCase().includes("application/json")) {
+    return NextResponse.json({ error: "Unsupported content type" }, { status: 415 });
+  }
+  const contentLength = Number(req.headers.get("content-length") ?? "0");
+  if (contentLength > MAX_BODY_BYTES) {
+    return NextResponse.json({ error: "Request too large" }, { status: 413 });
+  }
+
   // 1. Rate limit check
   const { allowed, remaining } = checkRateLimit(ip);
   if (!allowed) {
@@ -193,6 +268,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
 
   // 6. Send via Resend from the server (key never reaches the client bundle)
   const { html, text } = renderEmail(formData);
+  const subject = `[Green Up] ${TYPE_LABELS[formData.type] ?? formData.type} — ${formData.name}`.slice(0, 150);
   let resendRes: Response;
   try {
     resendRes = await fetch("https://api.resend.com/emails", {
@@ -205,7 +281,7 @@ export async function POST(req: NextRequest): Promise<NextResponse> {
         from,
         to: [to],
         reply_to: formData.email,
-        subject: `[Green Up] ${TYPE_LABELS[formData.type] ?? formData.type} — ${formData.name}`,
+        subject,
         html,
         text,
       }),
