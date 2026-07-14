@@ -7,6 +7,7 @@ import { locales, type Locale } from "@/lib/i18n";
 import { SITE_URL } from "@/lib/site";
 import PageTransition from "@/components/layout/PageTransition";
 import ElevatorPanel from "@/components/layout/ElevatorPanel";
+import HeaderLogo from "@/components/layout/HeaderLogo";
 import Chatbot from "@/components/layout/Chatbot";
 import EmergencyBanner from "@/components/ui/EmergencyBanner";
 import { Analytics } from "@vercel/analytics/next";
@@ -86,6 +87,7 @@ export default async function LocaleLayout({
             Skip to main content
           </a>
           <EmergencyBanner />
+          <HeaderLogo />
           <ElevatorPanel />
           <Chatbot />
           <div id="main-content">

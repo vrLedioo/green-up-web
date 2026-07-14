@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 const FLOOR_LABELS = ["G", "02", "03", "04", "05", "PH"] as const;
@@ -27,7 +28,8 @@ export default function Elevator3D() {
           await wait(1500);
           if (cancelled) return;
           setDoorsOpen(true);
-          await wait(1600);
+          // Dwell long enough for the brand reveal inside the cabin to land
+          await wait(2400);
           if (cancelled) return;
           setDoorsOpen(false);
           await wait(500);
@@ -163,6 +165,35 @@ export default function Elevator3D() {
                     "repeating-linear-gradient(90deg, rgba(255,255,255,0.05) 0 1px, transparent 1px 12px)",
                 }}
               />
+
+              {/* Brand reveal — the logo lives inside the cabin, unveiled as the doors part */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <motion.div
+                  className="absolute h-14 w-28 rounded-full bg-gold/25 blur-xl"
+                  animate={{ opacity: doorsOpen ? 1 : 0 }}
+                  transition={{ duration: 0.6, delay: doorsOpen ? 0.35 : 0 }}
+                />
+                <motion.div
+                  animate={
+                    doorsOpen
+                      ? { opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }
+                      : { opacity: 0, scale: 0.7, y: 7, filter: "blur(5px)" }
+                  }
+                  transition={
+                    doorsOpen
+                      ? { duration: 0.7, delay: 0.45, ease: [0.22, 1, 0.36, 1] }
+                      : { duration: 0.3, ease: "easeIn" }
+                  }
+                >
+                  <Image
+                    src="/logo-white.png"
+                    alt="Green Up — Lift System"
+                    width={1000}
+                    height={423}
+                    className="h-9 w-auto drop-shadow-[0_2px_10px_rgba(0,0,0,0.6)]"
+                  />
+                </motion.div>
+              </div>
             </div>
 
             {/* Left door */}
