@@ -61,12 +61,60 @@
     "viewDetails": "View Details",
     "filters": {
       "all": "All",
-      "passenger": "Passenger",
-      "cargo": "Cargo",
-      "home": "Home",
-      "escalator": "Escalator",
-      "security": "Security"
-    }
+      "passenger": "Elevators",
+      "accessibility": "Access Platforms",
+      "cargo": "Service Lifts"
+    },
+    "featured": [
+      {
+        "id": "edukimi",
+        "title": "Faculty of Education",
+        "location": "Prishtina",
+        "year": "2025",
+        "type": "passenger",
+        "desc": "Complete passenger elevator installation — from guide rails to a stainless steel cabin."
+      },
+      {
+        "id": "banimi",
+        "title": "Residential Building",
+        "location": "Prishtina",
+        "year": "2025",
+        "type": "passenger",
+        "desc": "Modern passenger elevators for a multi-storey residential building."
+      },
+      {
+        "id": "arkitektura",
+        "title": "Faculty of Architecture",
+        "location": "Prishtina",
+        "year": "2025",
+        "type": "accessibility",
+        "desc": "Vertical platform lift for barrier-free access."
+      },
+      {
+        "id": "trashegimia",
+        "title": "Cultural Heritage House",
+        "location": "Kosovo",
+        "year": "2025",
+        "type": "accessibility",
+        "desc": "Outdoor platform lift, carefully integrated into a historic building."
+      },
+      {
+        "id": "juridiku",
+        "title": "Faculty of Law",
+        "location": "Prishtina",
+        "year": "2025",
+        "type": "accessibility",
+        "desc": "Inclined stair platform for people with limited mobility."
+      },
+      {
+        "id": "dumbwaiter",
+        "title": "Service Lift (Dumbwaiter)",
+        "location": "Kosovo",
+        "year": "2025",
+        "type": "cargo",
+        "desc": "Compact service lift for fast transport of goods between floors."
+      }
+    ]
   },
   "whyUs": {
     "title": "Why Choose Us?",
@@ -88,23 +136,7 @@
   "testimonials": {
     "title": "What Our Clients Say",
     "subtitle": "Opinions from satisfied customers",
-    "items": [
-      {
-        "text": "Green Up did an excellent job installing the elevator in our building. High professionalism and outstanding quality.",
-        "name": "Arben Krasniqi",
-        "company": "Krasniqi Construction LLC"
-      },
-      {
-        "text": "The after-sales service is exceptional. Always ready when we need maintenance.",
-        "name": "Blerta Hoxha",
-        "company": "Hotel Prishtina"
-      },
-      {
-        "text": "They solved our urgent problem over the weekend. True 24/7 service!",
-        "name": "Driton Berisha",
-        "company": "Albi Shopping Center"
-      }
-    ]
+    "items": []
   },
   "cta": {
     "title": "Ready to start your project?",
@@ -116,7 +148,7 @@
     "tagline": "Elevating every floor, every day.",
     "rights": "All rights reserved.",
     "about": "About Green Up",
-    "aboutText": "Green Up is the leading company in Kosovo for sales, installation and maintenance of premium elevators.",
+    "aboutText": "Green Up is a Kosovo-based company for sales, installation and maintenance of premium elevators.",
     "pages": "Pages",
     "services": "Services",
     "contact": "Contact",
@@ -124,7 +156,14 @@
     "phone": "+383 44 207 541",
     "email": "info@greenup-ks.com",
     "website": "www.greenup-ks.com",
-    "builtBy": "Built with care"
+    "builtBy": "Built with care",
+    "privacy": "Privacy Policy"
+  },
+  "mapConsent": {
+    "title": "Google Maps",
+    "text": "To protect your privacy, the map loads only after you consent. When the map loads, data is transmitted to Google LLC under their privacy policy.",
+    "button": "Load map",
+    "hint": "Your choice is saved in this browser."
   },
   "about": {
     "hero": {
@@ -148,16 +187,6 @@
         { "year": "2023", "text": "24/7 maintenance and emergency service launched" },
         { "year": "2024", "text": "Regional expansion and a growing project portfolio" }
       ]
-    },
-    "team": {
-      "title": "Our Team",
-      "subtitle": "Dedicated professionals",
-      "members": {
-        "ceo": { "name": "Agron Berisha", "role": "Chief Executive Officer" },
-        "projectManager": { "name": "Valbona Krasniqi", "role": "Project Manager" },
-        "chiefEngineer": { "name": "Driton Hoxha", "role": "Chief Engineer" },
-        "salesManager": { "name": "Fjolla Gashi", "role": "Sales Manager" }
-      }
     },
     "coverage": {
       "title": "Our Coverage",
@@ -238,7 +267,136 @@
       "client": "Client",
       "duration": "Duration",
       "year": "Year",
-      "location": "Location"
+      "location": "Location",
+      "video": "Video"
+    },
+    "items": {
+      "edukimi": {
+        "title": "Faculty of Education",
+        "desc": "Complete passenger elevator installation",
+        "fullDesc": "At the Faculty of Education in Prishtina, Green Up carried out the complete installation of a passenger elevator — from mounting the guide rails and counterweight in the shaft to the new stainless steel cabin with mirror. The work was performed to European EN 81-20/50 standards and delivered with full technical documentation.",
+        "client": "Public educational institution",
+        "services": [
+          "Guide rail and counterweight mounting",
+          "Stainless steel cabin installation",
+          "Modern control system",
+          "Testing, commissioning and handover"
+        ],
+        "specs": [
+          { "label": "Type", "value": "Passenger elevator" },
+          { "label": "Building", "value": "Public institution" },
+          { "label": "Standard", "value": "EN 81-20/50" },
+          { "label": "Status", "value": "Completed" }
+        ]
+      },
+      "banimi": {
+        "title": "Residential Building",
+        "desc": "Passenger elevators for a multi-storey building",
+        "fullDesc": "Installation of modern passenger elevators in a multi-storey residential building. The project included the complete shaft installation and automatic landing doors, with marble-clad entrances — a combination of safety, comfort and aesthetics.",
+        "client": "Private investor",
+        "services": [
+          "Complete shaft installation",
+          "Automatic landing doors",
+          "Modern control system with display",
+          "Testing and handover"
+        ],
+        "specs": [
+          { "label": "Type", "value": "Passenger elevator" },
+          { "label": "Building", "value": "Residential building" },
+          { "label": "Standard", "value": "EN 81-20/50" },
+          { "label": "Status", "value": "Completed" }
+        ]
+      },
+      "arkitektura": {
+        "title": "Faculty of Architecture",
+        "desc": "Vertical platform for barrier-free access",
+        "fullDesc": "For the Faculty of Architecture in Prishtina, Green Up installed a vertical platform lift with a metal-and-glass structure, providing barrier-free access for people with limited mobility. The solution was carefully integrated into the existing interior.",
+        "client": "Public educational institution",
+        "services": [
+          "Vertical platform installation",
+          "Metal structure with safety glass",
+          "Simple push-button controls",
+          "Testing and staff training"
+        ],
+        "specs": [
+          { "label": "Type", "value": "Vertical platform lift" },
+          { "label": "Capacity", "value": "300 kg" },
+          { "label": "Environment", "value": "Indoor" },
+          { "label": "Status", "value": "Completed" }
+        ]
+      },
+      "juridiku": {
+        "title": "Faculty of Law",
+        "desc": "Inclined stair platform (stairlift)",
+        "fullDesc": "At the Faculty of Law in Prishtina, an inclined wheelchair platform was installed that travels along the existing staircase without structural changes. The platform folds away when not in use and is easily operated by remote control — see the videos of it in operation.",
+        "client": "Public educational institution",
+        "services": [
+          "Inclined platform installation",
+          "Mounting along the existing staircase",
+          "Remote control and on-platform controls",
+          "Testing and staff training"
+        ],
+        "specs": [
+          { "label": "Type", "value": "Inclined platform (stairlift)" },
+          { "label": "Building", "value": "Public institution" },
+          { "label": "Environment", "value": "Indoor" },
+          { "label": "Status", "value": "Completed" }
+        ]
+      },
+      "trashegimia": {
+        "title": "Cultural Heritage House",
+        "desc": "Outdoor platform at a historic building",
+        "fullDesc": "Installation of an outdoor platform lift at a cultural heritage house. The dark metal-and-glass structure was chosen to respect the building's historic architecture while providing equal access for all visitors.",
+        "client": "Cultural heritage site",
+        "services": [
+          "Outdoor platform installation",
+          "Structure adapted to a historic building",
+          "Weather protection",
+          "Testing and handover"
+        ],
+        "specs": [
+          { "label": "Type", "value": "Vertical platform lift" },
+          { "label": "Environment", "value": "Outdoor" },
+          { "label": "Building", "value": "Cultural heritage" },
+          { "label": "Status", "value": "Completed" }
+        ]
+      },
+      "filologjiku": {
+        "title": "Faculty of Philology",
+        "desc": "Passenger elevator — installation phase",
+        "fullDesc": "Installation of a new passenger elevator at the Faculty of Philology in Prishtina. The photos show the installation phase — the cabin with protective covering and the control panel during configuration — part of our careful assembly and commissioning process.",
+        "client": "Public educational institution",
+        "services": [
+          "Cabin and door installation",
+          "Control panel configuration",
+          "Surface protection during works",
+          "Testing and commissioning"
+        ],
+        "specs": [
+          { "label": "Type", "value": "Passenger elevator" },
+          { "label": "Building", "value": "Public institution" },
+          { "label": "Standard", "value": "EN 81-20/50" },
+          { "label": "Status", "value": "Completed" }
+        ]
+      },
+      "dumbwaiter": {
+        "title": "Service Lift (Dumbwaiter)",
+        "desc": "Compact lift for transporting goods",
+        "fullDesc": "Installation of a compact service lift (dumbwaiter) for fast and safe transport of goods between floors. The stainless steel cabin and display control panel make it simple and hygienic to use — ideal for restaurants, hotels and businesses. See the video of it in operation.",
+        "client": "Business client",
+        "services": [
+          "Service lift installation",
+          "Hygienic stainless steel cabin",
+          "Control panel with display",
+          "Testing and handover"
+        ],
+        "specs": [
+          { "label": "Type", "value": "Dumbwaiter / service lift" },
+          { "label": "Use", "value": "Goods transport" },
+          { "label": "Cabin", "value": "Stainless steel" },
+          { "label": "Status", "value": "Completed" }
+        ]
+      }
     }
   },
   "gallery": {
@@ -249,9 +407,9 @@
     "categories": {
       "all": "All",
       "elevators": "Elevators",
+      "platforms": "Platforms",
       "installations": "Installations",
-      "team": "Team",
-      "beforeAfter": "Before & After"
+      "videos": "Videos"
     }
   },
   "faq": {
@@ -276,11 +434,11 @@
       },
       {
         "q": "Do you work outside Kosovo?",
-        "a": "Yes, we have projects in Albania and North Macedonia. Contact us for international projects."
+        "a": "Our main focus is Kosovo, where we offer full coverage. For projects in the region, contact us and we will assess the possibility case by case."
       },
       {
         "q": "What elevator brands do you sell?",
-        "a": "We work with the most renowned European brands such as Thyssenkrupp, KONE, Schindler and Otis, as well as quality brands from Italy and Germany."
+        "a": "We work with certified European and international manufacturers, selected for quality and safety. All products carry CE certification and meet EN 81-20/50 standards."
       },
       {
         "q": "Do you offer emergency service?",
@@ -327,7 +485,9 @@
       "error": "An error occurred. Please try again.",
       "ratelimit": "Too many requests. Please wait 15 minutes and try again.",
       "validationError": "Please check the fields below and try again.",
-      "required": "* Required fields"
+      "required": "* Required fields",
+      "privacyNotice": "By submitting this form, you agree that your data will be processed to respond to your request, in accordance with our",
+      "privacyLink": "Privacy Policy"
     },
     "emergency": {
       "title": "Emergency 24/7",
@@ -348,8 +508,74 @@
       "title": "Our Partners",
       "subtitle": "Collaboration with the best European brands"
     },
-    "text": "Green Up collaborates with the most renowned European elevator manufacturers and distributors. Our partnerships enable us to offer the highest quality products at the most competitive prices.",
+    "text": "Green Up collaborates with certified European elevator manufacturers and distributors. Our partnerships enable us to offer high-quality products at competitive prices.",
     "logoPlaceholder": "Partner Logo"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "updated": "Last updated: 14 July 2026",
+    "intro": "This privacy policy explains how Green Up (\"we\") collects, uses and protects your personal data when you visit our website or contact us. We process data in accordance with Law No. 06/L-082 on Protection of Personal Data of the Republic of Kosovo, which is aligned with the EU General Data Protection Regulation (GDPR).",
+    "sections": [
+      {
+        "h": "Data controller",
+        "body": [
+          "Green Up",
+          "Rr. Hyzri Talla pn, 12000 Fushë Kosovë, Republic of Kosovo",
+          "Email: info@greenup-ks.com · Tel: +383 44 207 541"
+        ]
+      },
+      {
+        "h": "What data we collect",
+        "body": [
+          "Contact form: your name, email address, phone number (optional) and your message. We use this data solely to respond to your request (legal basis: pre-contractual steps or our legitimate interest in answering inquiries).",
+          "Technical data: when you visit the site, our hosting provider (Vercel Inc., USA) automatically processes your IP address and standard server access data necessary for the operation and security of the site.",
+          "Aggregate statistics: we use Vercel Analytics, a cookie-free analytics service that does not identify you personally and does not track your activity across other websites."
+        ]
+      },
+      {
+        "h": "Email delivery",
+        "body": [
+          "Contact form messages are sent via the Resend service (Plus Five Five, Inc., USA) and delivered to our email address. The content of your message is processed only for this purpose."
+        ]
+      },
+      {
+        "h": "Google Maps",
+        "body": [
+          "Our site contains Google Maps (Google LLC, USA). The map does NOT load automatically — it is activated only after you click the \"Load map\" button. Only then are connections made to Google's servers and cookies may be set by Google. Your choice is stored locally in your browser."
+        ]
+      },
+      {
+        "h": "Virtual assistant (chatbot)",
+        "body": [
+          "Our virtual assistant runs entirely in your browser with pre-prepared answers. Conversations are not stored on our servers and are not sent to any third party."
+        ]
+      },
+      {
+        "h": "Cookies and local storage",
+        "body": [
+          "The site uses only technically necessary cookies/local storage: your language preference (NEXT_LOCALE) and your choice about loading maps. We do not use advertising or tracking cookies, which is why we do not display a cookie banner."
+        ]
+      },
+      {
+        "h": "Data retention",
+        "body": [
+          "We keep contact messages only as long as necessary to handle your request and meet our legal obligations, then delete them."
+        ]
+      },
+      {
+        "h": "Your rights",
+        "body": [
+          "You have the right to request access, rectification, erasure, restriction of processing, data portability, and to object to the processing of your personal data. For any request, write to us at info@greenup-ks.com.",
+          "You also have the right to lodge a complaint with the Information and Privacy Agency (AIP) of the Republic of Kosovo."
+        ]
+      },
+      {
+        "h": "Changes to this policy",
+        "body": [
+          "We may update this policy as needed. The current version is always published on this page."
+        ]
+      }
+    ]
   },
   "chatbot": {
     "title": "Green Up Assistant",

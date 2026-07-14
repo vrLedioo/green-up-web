@@ -1,9 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
+import Link from "next/link";
 import Footer from "@/components/layout/Footer";
+import ConsentMap from "@/components/ui/ConsentMap";
 import { MapPin, Phone, Mail, Globe, ArrowUpRight, Loader2 } from "lucide-react";
+import type { Locale } from "@/lib/i18n";
 
 type FormStatus = "idle" | "loading" | "success" | "error" | "ratelimit" | "validation";
 
@@ -13,6 +16,8 @@ type RequestType = (typeof ALLOWED_TYPES)[number] | "";
 export default function ContactPage() {
   const t = useTranslations("contact");
   const emergency = useTranslations("emergency");
+  const locale = useLocale() as Locale;
+  const privacyHref = locale !== "sq" ? `/${locale}/privacy` : "/privacy";
 
   const [formData, setFormData] = useState({
     name: "",
@@ -141,17 +146,11 @@ export default function ContactPage() {
                 ))}
               </div>
 
-              {/* Google Maps embed for Green Up HQ — Fushë Kosovë, Kosovo */}
+              {/* Google Maps loads only after visitor consent (GDPR) */}
               <div className="w-full h-56 rounded-2xl overflow-hidden border border-green-mint/50">
-                <iframe
+                <ConsentMap
                   title="Green Up Location — Fushë Kosovë, Kosovo"
                   src="https://www.google.com/maps?q=Rr.+Hyzri+Talla+pn,+12000+Fush%C3%AB+Kosov%C3%AB,+Kosovo&output=embed"
-                  width="100%"
-                  height="100%"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
                 />
               </div>
             </div>
@@ -274,6 +273,14 @@ export default function ContactPage() {
                 </div>
 
                 <p className="text-ink/40 text-xs">{t("form.required")}</p>
+
+                {/* GDPR Art. 13 information duty */}
+                <p className="text-ink/50 text-xs leading-relaxed">
+                  {t("form.privacyNotice")}{" "}
+                  <Link href={privacyHref} className="text-green-primary underline underline-offset-2 hover:text-green-medium">
+                    {t("form.privacyLink")}
+                  </Link>.
+                </p>
 
                 <div role="status" aria-live="polite">
                   {status === "success" && (

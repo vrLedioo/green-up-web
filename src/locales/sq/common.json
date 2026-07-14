@@ -61,12 +61,60 @@
     "viewDetails": "Shiko Detajet",
     "filters": {
       "all": "Të Gjitha",
-      "passenger": "Pasagjerë",
-      "cargo": "Mallra",
-      "home": "Shtëpiak",
-      "escalator": "Eskalator",
-      "security": "Sigurie"
-    }
+      "passenger": "Ashensorë",
+      "accessibility": "Platforma Aksesi",
+      "cargo": "Ashensorë Shërbimi"
+    },
+    "featured": [
+      {
+        "id": "edukimi",
+        "title": "Fakulteti i Edukimit",
+        "location": "Prishtinë",
+        "year": "2025",
+        "type": "passenger",
+        "desc": "Instalim i plotë i ashensorit të pasagjerëve — nga shina në kabinë inoksi."
+      },
+      {
+        "id": "banimi",
+        "title": "Ndërtesë Banimi",
+        "location": "Prishtinë",
+        "year": "2025",
+        "type": "passenger",
+        "desc": "Ashensorë modernë pasagjerësh për ndërtesë banimi shumëkatëshe."
+      },
+      {
+        "id": "arkitektura",
+        "title": "Fakulteti i Arkitekturës",
+        "location": "Prishtinë",
+        "year": "2025",
+        "type": "accessibility",
+        "desc": "Platformë vertikale ngritëse për qasje pa pengesa."
+      },
+      {
+        "id": "trashegimia",
+        "title": "Shtëpi e Trashëgimisë Kulturore",
+        "location": "Kosovë",
+        "year": "2025",
+        "type": "accessibility",
+        "desc": "Platformë e jashtme ngritëse, e integruar me kujdes në objekt historik."
+      },
+      {
+        "id": "juridiku",
+        "title": "Fakulteti Juridik",
+        "location": "Prishtinë",
+        "year": "2025",
+        "type": "accessibility",
+        "desc": "Platformë e pjerrët shkallësh për persona me lëvizshmëri të kufizuar."
+      },
+      {
+        "id": "dumbwaiter",
+        "title": "Ashensor Shërbimi (Dumbwaiter)",
+        "location": "Kosovë",
+        "year": "2025",
+        "type": "cargo",
+        "desc": "Ashensor kompakt shërbimi për transport të shpejtë mallrash mes kateve."
+      }
+    ]
   },
   "whyUs": {
     "title": "Pse të Na Zgjidhni Ne?",
@@ -88,23 +136,7 @@
   "testimonials": {
     "title": "Çfarë Thonë Klientët Tanë",
     "subtitle": "Opinione nga klientë të kënaqur",
-    "items": [
-      {
-        "text": "Green Up bëri një punë të shkëlqyer në instalimin e ashensorit në ndërtesën tonë. Profesionalizëm i lartë dhe cilësi e jashtëzakonshme.",
-        "name": "Arben Krasniqi",
-        "company": "Krasniqi Ndërtim sh.p.k."
-      },
-      {
-        "text": "Shërbimi pas shitjes është i jashtëzakonshëm. Gjithmonë të gatshëm kur kemi nevojë për mirëmbajtje.",
-        "name": "Blerta Hoxha",
-        "company": "Hotel Prishtina"
-      },
-      {
-        "text": "Zgjidhën problemin tonë urgjent në fund të javës. Shërbim 24/7 i vërtetë!",
-        "name": "Driton Berisha",
-        "company": "Qendra Tregtare Albi"
-      }
-    ]
+    "items": []
   },
   "cta": {
     "title": "Gati të fillojmë projektin tuaj?",
@@ -116,7 +148,7 @@
     "tagline": "Ngrisim çdo kat, çdo ditë.",
     "rights": "Të gjitha të drejtat e rezervuara.",
     "about": "Rreth Green Up",
-    "aboutText": "Green Up është kompania lider në Kosovë për shitje, instalim dhe mirëmbajtje të ashensorëve premium.",
+    "aboutText": "Green Up është kompani kosovare për shitje, instalim dhe mirëmbajtje të ashensorëve premium.",
     "pages": "Faqet",
     "services": "Shërbimet",
     "contact": "Kontakti",
@@ -124,7 +156,14 @@
     "phone": "+383 44 207 541",
     "email": "info@greenup-ks.com",
     "website": "www.greenup-ks.com",
-    "builtBy": "Ndërtuar me kujdes"
+    "builtBy": "Ndërtuar me kujdes",
+    "privacy": "Politika e Privatësisë"
+  },
+  "mapConsent": {
+    "title": "Harta e Google Maps",
+    "text": "Për të mbrojtur privatësinë tuaj, harta ngarkohet vetëm pasi të jepni pëlqimin. Me ngarkimin e hartës, të dhëna i dërgohen Google LLC sipas politikës së tyre të privatësisë.",
+    "button": "Ngarko hartën",
+    "hint": "Zgjedhja juaj ruhet në këtë shfletues."
   },
   "about": {
     "hero": {
@@ -148,16 +187,6 @@
         { "year": "2023", "text": "Shërbimi i mirëmbajtjes dhe urgjencës 24/7" },
         { "year": "2024", "text": "Ekzpansion në rajon dhe portofol i ri projektesh" }
       ]
-    },
-    "team": {
-      "title": "Ekipi Ynë",
-      "subtitle": "Profesionistë të dedikuar",
-      "members": {
-        "ceo": { "name": "Agron Berisha", "role": "Drejtor Ekzekutiv" },
-        "projectManager": { "name": "Valbona Krasniqi", "role": "Menaxhere Projektesh" },
-        "chiefEngineer": { "name": "Driton Hoxha", "role": "Inxhinier Kryesor" },
-        "salesManager": { "name": "Fjolla Gashi", "role": "Menaxhere Shitjesh" }
-      }
     },
     "coverage": {
       "title": "Mbulimi Ynë",
@@ -238,7 +267,136 @@
       "client": "Klienti",
       "duration": "Kohëzgjatja",
       "year": "Viti",
-      "location": "Vendndodhja"
+      "location": "Vendndodhja",
+      "video": "Video"
+    },
+    "items": {
+      "edukimi": {
+        "title": "Fakulteti i Edukimit",
+        "desc": "Instalim i plotë ashensori pasagjerësh",
+        "fullDesc": "Në Fakultetin e Edukimit në Prishtinë, Green Up realizoi instalimin e plotë të një ashensori pasagjerësh — nga montimi i shinave dhe kundërpeshës në pus, deri te kabina e re me inoks dhe pasqyrë. Punimet u kryen sipas standardeve evropiane EN 81-20/50, me dorëzim të dokumentacionit të plotë teknik.",
+        "client": "Institucion publik arsimor",
+        "services": [
+          "Montim i shinave dhe kundërpeshës",
+          "Instalim i kabinës me inoks",
+          "Sistem modern kontrolli",
+          "Testim, kolaudim dhe dorëzim"
+        ],
+        "specs": [
+          { "label": "Lloji", "value": "Ashensor pasagjerësh" },
+          { "label": "Objekti", "value": "Institucion publik" },
+          { "label": "Standardi", "value": "EN 81-20/50" },
+          { "label": "Statusi", "value": "I përfunduar" }
+        ]
+      },
+      "banimi": {
+        "title": "Ndërtesë Banimi",
+        "desc": "Ashensorë pasagjerësh për ndërtesë shumëkatëshe",
+        "fullDesc": "Instalim i ashensorëve modernë të pasagjerëve në një ndërtesë banimi shumëkatëshe. Projekti përfshiu montimin e plotë të pajisjeve në pus dhe dyert automatike të kateve, me hyrje të veshura me mermer — një kombinim i sigurisë, komoditetit dhe estetikës.",
+        "client": "Investitor privat",
+        "services": [
+          "Instalim i plotë në pus",
+          "Dyer automatike katesh",
+          "Sistem modern kontrolli me ekran",
+          "Testim dhe dorëzim"
+        ],
+        "specs": [
+          { "label": "Lloji", "value": "Ashensor pasagjerësh" },
+          { "label": "Objekti", "value": "Ndërtesë banimi" },
+          { "label": "Standardi", "value": "EN 81-20/50" },
+          { "label": "Statusi", "value": "I përfunduar" }
+        ]
+      },
+      "arkitektura": {
+        "title": "Fakulteti i Arkitekturës",
+        "desc": "Platformë vertikale për qasje pa pengesa",
+        "fullDesc": "Për Fakultetin e Arkitekturës në Prishtinë, Green Up instaloi një platformë vertikale ngritëse me strukturë metalike dhe xham, që mundëson qasje pa pengesa për personat me lëvizshmëri të kufizuar. Zgjidhja u integrua me kujdes në ambientin e brendshëm ekzistues.",
+        "client": "Institucion publik arsimor",
+        "services": [
+          "Instalim i platformës vertikale",
+          "Strukturë metalike me xham sigurie",
+          "Komanda të thjeshta me buton",
+          "Testim dhe trajnim i stafit"
+        ],
+        "specs": [
+          { "label": "Lloji", "value": "Platformë vertikale" },
+          { "label": "Kapaciteti", "value": "300 kg" },
+          { "label": "Ambienti", "value": "I brendshëm" },
+          { "label": "Statusi", "value": "I përfunduar" }
+        ]
+      },
+      "juridiku": {
+        "title": "Fakulteti Juridik",
+        "desc": "Platformë e pjerrët shkallësh (stairlift)",
+        "fullDesc": "Në Fakultetin Juridik në Prishtinë u instalua një platformë e pjerrët shkallësh për karroca me rrota, e cila lëviz përgjatë shkallëve ekzistuese pa ndërhyrje strukturore. Platforma paloset kur nuk përdoret dhe komandohet lehtësisht me telekomandë — shihni edhe videot e funksionimit.",
+        "client": "Institucion publik arsimor",
+        "services": [
+          "Instalim i platformës së pjerrët",
+          "Montim përgjatë shkallëve ekzistuese",
+          "Telekomandë dhe komanda në platformë",
+          "Testim dhe trajnim i stafit"
+        ],
+        "specs": [
+          { "label": "Lloji", "value": "Platformë e pjerrët (stairlift)" },
+          { "label": "Objekti", "value": "Institucion publik" },
+          { "label": "Ambienti", "value": "I brendshëm" },
+          { "label": "Statusi", "value": "I përfunduar" }
+        ]
+      },
+      "trashegimia": {
+        "title": "Shtëpi e Trashëgimisë Kulturore",
+        "desc": "Platformë e jashtme në objekt historik",
+        "fullDesc": "Instalim i një platforme ngritëse të jashtme në një shtëpi të trashëgimisë kulturore. Struktura me xham dhe metal të errët u përzgjodh që të respektojë arkitekturën historike të objektit, duke mundësuar njëkohësisht qasje të barabartë për të gjithë vizitorët.",
+        "client": "Objekt i trashëgimisë kulturore",
+        "services": [
+          "Instalim i platformës së jashtme",
+          "Strukturë e përshtatur për objekt historik",
+          "Mbrojtje ndaj kushteve atmosferike",
+          "Testim dhe dorëzim"
+        ],
+        "specs": [
+          { "label": "Lloji", "value": "Platformë vertikale" },
+          { "label": "Ambienti", "value": "I jashtëm" },
+          { "label": "Objekti", "value": "Trashëgimi kulturore" },
+          { "label": "Statusi", "value": "I përfunduar" }
+        ]
+      },
+      "filologjiku": {
+        "title": "Fakulteti Filologjik",
+        "desc": "Ashensor pasagjerësh — faza e instalimit",
+        "fullDesc": "Instalim i një ashensori të ri pasagjerësh në Fakultetin Filologjik në Prishtinë. Fotot tregojnë fazën e instalimit — kabina me veshje mbrojtëse dhe paneli i komandimit gjatë konfigurimit — pjesë e procesit tonë të kujdesshëm të montimit dhe kolaudimit.",
+        "client": "Institucion publik arsimor",
+        "services": [
+          "Instalim i kabinës dhe dyerve",
+          "Konfigurim i panelit të komandimit",
+          "Mbrojtje e sipërfaqeve gjatë punimeve",
+          "Testim dhe kolaudim"
+        ],
+        "specs": [
+          { "label": "Lloji", "value": "Ashensor pasagjerësh" },
+          { "label": "Objekti", "value": "Institucion publik" },
+          { "label": "Standardi", "value": "EN 81-20/50" },
+          { "label": "Statusi", "value": "I përfunduar" }
+        ]
+      },
+      "dumbwaiter": {
+        "title": "Ashensor Shërbimi (Dumbwaiter)",
+        "desc": "Ashensor kompakt për transport mallrash",
+        "fullDesc": "Instalim i një ashensori kompakt shërbimi (dumbwaiter) për transportin e shpejtë dhe të sigurt të mallrave mes kateve. Kabina me inoks dhe paneli i komandimit me ekran e bëjnë përdorimin të thjeshtë dhe higjienik — ideal për restorante, hotele dhe objekte afariste. Shihni videon e funksionimit.",
+        "client": "Klient afarist",
+        "services": [
+          "Instalim i ashensorit të shërbimit",
+          "Kabinë inoksi higjienike",
+          "Panel komandimi me ekran",
+          "Testim dhe dorëzim"
+        ],
+        "specs": [
+          { "label": "Lloji", "value": "Dumbwaiter / shërbimi" },
+          { "label": "Përdorimi", "value": "Transport mallrash" },
+          { "label": "Kabina", "value": "Inoks" },
+          { "label": "Statusi", "value": "I përfunduar" }
+        ]
+      }
     }
   },
   "gallery": {
@@ -249,9 +407,9 @@
     "categories": {
       "all": "Të Gjitha",
       "elevators": "Ashensorë",
+      "platforms": "Platforma",
       "installations": "Instalimet",
-      "team": "Ekipi",
-      "beforeAfter": "Para & Pas"
+      "videos": "Video"
     }
   },
   "faq": {
@@ -276,11 +434,11 @@
       },
       {
         "q": "A punoni jashtë Kosovës?",
-        "a": "Po, kemi projekte edhe në Shqipëri dhe Maqedoninë e Veriut. Na kontaktoni për projekte ndërkombëtare."
+        "a": "Fokusi ynë kryesor është Kosova, ku ofrojmë mbulim të plotë. Për projekte në rajon, na kontaktoni dhe do të shqyrtojmë mundësinë sipas rastit."
       },
       {
         "q": "Çfarë markash ashensorësh shisni?",
-        "a": "Punojmë me markat më të njohura europiane si Thyssenkrupp, KONE, Schindler dhe Otis, si dhe me marka cilësore nga Italia dhe Gjermania."
+        "a": "Punojmë me prodhues të certifikuar evropianë dhe ndërkombëtarë, të përzgjedhur për cilësi dhe siguri. Të gjitha produktet janë me certifikim CE dhe standarde EN 81-20/50."
       },
       {
         "q": "A ofrojmë shërbim emergjence?",
@@ -327,7 +485,9 @@
       "error": "Ndodhi një gabim. Ju lutemi provoni përsëri.",
       "ratelimit": "Shumë kërkesa. Ju lutemi prisni 15 minuta dhe provoni përsëri.",
       "validationError": "Ju lutemi kontrolloni fushat e mëposhtme dhe provoni përsëri.",
-      "required": "* Fushat e detyrueshme"
+      "required": "* Fushat e detyrueshme",
+      "privacyNotice": "Duke dërguar këtë formular, pranoni që të dhënat tuaja të përpunohen për t'iu përgjigjur kërkesës suaj, sipas",
+      "privacyLink": "Politikës së Privatësisë"
     },
     "emergency": {
       "title": "Urgjencë 24/7",
@@ -348,8 +508,74 @@
       "title": "Partnerët Tanë",
       "subtitle": "Bashkëpunim me markat më të mira europiane"
     },
-    "text": "Green Up bashkëpunon me prodhuesit dhe shpërndarësit më të njohur të ashensorëve në Europë. Partneritetet tona na mundësojnë të ofrojmë produktet me cilësinë më të lartë dhe çmimet më konkurruese.",
+    "text": "Green Up bashkëpunon me prodhues dhe shpërndarës të certifikuar të ashensorëve në Europë. Partneritetet tona na mundësojnë të ofrojmë produkte me cilësi të lartë dhe çmime konkurruese.",
     "logoPlaceholder": "Logo e Partnerit"
+  },
+  "privacy": {
+    "title": "Politika e Privatësisë",
+    "updated": "Përditësuar së fundi: 14 korrik 2026",
+    "intro": "Kjo politikë e privatësisë shpjegon se si Green Up (\"ne\") mbledh, përdor dhe mbron të dhënat tuaja personale kur vizitoni faqen tonë të internetit ose na kontaktoni. Ne i përpunojmë të dhënat në përputhje me Ligjin Nr. 06/L-082 për Mbrojtjen e të Dhënave Personale të Republikës së Kosovës, i cili është i harmonizuar me Rregulloren e Përgjithshme të BE-së për Mbrojtjen e të Dhënave (GDPR).",
+    "sections": [
+      {
+        "h": "Kontrolluesi i të dhënave",
+        "body": [
+          "Green Up",
+          "Rr. Hyzri Talla pn, 12000 Fushë Kosovë, Republika e Kosovës",
+          "Email: info@greenup-ks.com · Tel: +383 44 207 541"
+        ]
+      },
+      {
+        "h": "Cilat të dhëna i mbledhim",
+        "body": [
+          "Formulari i kontaktit: emri, adresa e email-it, numri i telefonit (opsional) dhe mesazhi juaj. Këto të dhëna i përdorim vetëm për t'iu përgjigjur kërkesës suaj (baza ligjore: hapat paraprakë për lidhjen e një kontrate ose interesi ynë legjitim për t'iu përgjigjur pyetjeve).",
+          "Të dhëna teknike: kur vizitoni faqen, ofruesi ynë i hostimit (Vercel Inc., SHBA) përpunon automatikisht adresën IP dhe të dhëna standarde të qasjes në server, të nevojshme për funksionimin dhe sigurinë e faqes.",
+          "Statistika të përgjithshme: përdorim Vercel Analytics, një shërbim analitik pa cookie që nuk ju identifikon personalisht dhe nuk ndjek aktivitetin tuaj nëpër faqe të tjera."
+        ]
+      },
+      {
+        "h": "Dërgimi i email-ave",
+        "body": [
+          "Mesazhet e formularit të kontaktit dërgohen përmes shërbimit Resend (Plus Five Five, Inc., SHBA) dhe i dorëzohen adresës sonë të email-it. Përmbajtja e mesazhit tuaj përpunohet vetëm për këtë qëllim."
+        ]
+      },
+      {
+        "h": "Harta e Google Maps",
+        "body": [
+          "Faqja jonë përmban harta të Google Maps (Google LLC, SHBA). Harta NUK ngarkohet automatikisht — ajo aktivizohet vetëm pasi të klikoni butonin \"Ngarko hartën\". Vetëm atëherë vendosen lidhje me serverët e Google dhe mund të vendosen cookie nga Google. Zgjedhja juaj ruhet lokalisht në shfletuesin tuaj."
+        ]
+      },
+      {
+        "h": "Asistenti virtual (chatbot)",
+        "body": [
+          "Asistenti ynë virtual funksionon tërësisht në shfletuesin tuaj me përgjigje të parapërgatitura. Bisedat nuk ruhen në serverët tanë dhe nuk i dërgohen asnjë pale të tretë."
+        ]
+      },
+      {
+        "h": "Cookie dhe ruajtja lokale",
+        "body": [
+          "Faqja përdor vetëm cookie/ruajtje lokale teknikisht të nevojshme: preferencën e gjuhës (NEXT_LOCALE) dhe zgjedhjen tuaj për ngarkimin e hartave. Nuk përdorim cookie reklamimi apo gjurmimi, prandaj nuk shfaqim banner cookie-sh."
+        ]
+      },
+      {
+        "h": "Ruajtja e të dhënave",
+        "body": [
+          "Mesazhet e kontaktit i ruajmë vetëm aq sa është e nevojshme për trajtimin e kërkesës suaj dhe detyrimet tona ligjore, pastaj i fshijmë."
+        ]
+      },
+      {
+        "h": "Të drejtat tuaja",
+        "body": [
+          "Ju keni të drejtë të kërkoni qasje, korrigjim, fshirje, kufizim të përpunimit, bartje të të dhënave dhe të kundërshtoni përpunimin e të dhënave tuaja personale. Për çdo kërkesë na shkruani në info@greenup-ks.com.",
+          "Gjithashtu keni të drejtë të parashtroni ankesë pranë Agjencisë për Informim dhe Privatësi (AIP) të Republikës së Kosovës."
+        ]
+      },
+      {
+        "h": "Ndryshimet e kësaj politike",
+        "body": [
+          "Këtë politikë mund ta përditësojmë sipas nevojës. Versioni aktual publikohet gjithmonë në këtë faqe."
+        ]
+      }
+    ]
   },
   "chatbot": {
     "title": "Asistenti Green Up",

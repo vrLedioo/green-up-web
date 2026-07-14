@@ -6,177 +6,129 @@ import Image from "next/image";
 import Footer from "@/components/layout/Footer";
 import {
   MapPin, Calendar, X, ArrowUpRight, ChevronLeft,
-  ChevronRight, Plus, Check, Wrench, BarChart2,
+  ChevronRight, Plus, Check, Play,
 } from "lucide-react";
 
-type ProjectCategory = "all" | "passenger" | "cargo" | "home" | "escalator" | "security";
-type GalleryCategory = "all" | "elevators" | "installations" | "team" | "beforeAfter";
+type ProjectCategory = "all" | "passenger" | "accessibility" | "cargo";
+type GalleryCategory = "all" | "elevators" | "platforms" | "installations" | "videos";
 type Tab = "projects" | "gallery";
 
-interface Spec  { label: string; value: string }
-interface Project {
+interface Spec { label: string; value: string }
+interface Media {
+  type: "image" | "video";
+  src: string;
+  /** Poster image for videos — also used as thumbnail */
+  poster?: string;
+}
+/** Locale-independent project facts; the written content lives in projectsPage.items.<id> */
+interface ProjectMeta {
+  id: string;
+  category: Exclude<ProjectCategory, "all">;
+  year: string;
+  media: Media[];
+}
+interface ProjectContent {
   title: string;
   location: string;
-  year: string;
-  category: ProjectCategory;
-  gradient: string;
   desc: string;
   fullDesc: string;
   client: string;
-  duration: string;
   services: string[];
   specs: Spec[];
-  photos: string[];
 }
+type Project = ProjectMeta & ProjectContent;
 
-const allProjects: Project[] = [
+const IMG = "/images/projects";
+
+const PROJECTS_META: ProjectMeta[] = [
   {
-    title: "Rezidenca Dardania",
-    location: "Prishtinë", year: "2023", category: "passenger",
-    gradient: "from-green-primary via-green-medium to-green-light",
-    desc: "4 ashensorë pasagjerësh, 12 kate",
-    fullDesc: "Green Up instaloi 4 ashensorë modernë pasagjerësh në kompleksin rezidencial Dardania, njëri nga projektet më ambicioze rezidenciale të vitit 2023 në Prishtinë. Çdo ashensor është i pajisur me sistem kontrolli inteligjent, ndriçim LED dhe sistem sigurie ARD për operim të sigurt edhe gjatë ndërprerjeve të rrymës.",
-    client: "Dardania Properties sh.p.k.", duration: "3 javë",
-    services: ["Instalim i 4 ashensorëve pasagjerësh", "Sistem kontrolli inteligjent", "Ndriçim LED brenda kabinës", "Sisteme sigurie ARD", "Trajnim i personelit teknik"],
-    specs: [{ label: "Ashensorë", value: "4 njësi" }, { label: "Kate", value: "12 kate" }, { label: "Kapaciteti", value: "630 kg / 8 persona" }, { label: "Shpejtësia", value: "1.6 m/s" }, { label: "Standardi", value: "EN 81-20/50" }],
-    photos: ["https://picsum.photos/seed/rd1/1200/675","https://picsum.photos/seed/rd2/1200/675","https://picsum.photos/seed/rd3/1200/675","https://picsum.photos/seed/rd4/1200/675","https://picsum.photos/seed/rd5/1200/675","https://picsum.photos/seed/rd6/1200/675"],
+    id: "edukimi", category: "passenger", year: "2025",
+    media: [
+      { type: "image", src: `${IMG}/edukimi-1.webp` },
+      { type: "image", src: `${IMG}/edukimi-2.webp` },
+      { type: "image", src: `${IMG}/edukimi-3.webp` },
+      { type: "image", src: `${IMG}/edukimi-4.webp` },
+      { type: "image", src: `${IMG}/edukimi-5.webp` },
+      { type: "image", src: `${IMG}/edukimi-6.webp` },
+    ],
   },
   {
-    title: "Hotel Grand",
-    location: "Prizren", year: "2022", category: "passenger",
-    gradient: "from-green-deep via-green-primary to-green-medium",
-    desc: "Ashensor panoramik me xham",
-    fullDesc: "Instalim i një ashensori panoramik me xham të plotë në Hotel Grand të Prizrenit. Projekti kërkoi zgjidhje inxhinierike të veçanta për integrimin e ashensorit në arkitekturën historike të hotelit duke ruajtur estetikën origjinale. Kabinat me xham ofrojnë pamje panoramike të oborrit të brendshëm.",
-    client: "Hotel Grand Prizren", duration: "2 javë",
-    services: ["Instalim ashensori panoramik me xham", "Dizajn i personalizuar i kabinës", "Integrimi arkitektonik", "Ndriçim ambiental LED", "Garanci 5 vjeçare"],
-    specs: [{ label: "Ashensorë", value: "1 njësi panoramike" }, { label: "Kate", value: "6 kate" }, { label: "Kapaciteti", value: "480 kg / 6 persona" }, { label: "Xhami", value: "Triplex 10mm" }, { label: "Standardi", value: "EN 81-20/50" }],
-    photos: ["https://picsum.photos/seed/hg1/1200/675","https://picsum.photos/seed/hg2/1200/675","https://picsum.photos/seed/hg3/1200/675","https://picsum.photos/seed/hg4/1200/675","https://picsum.photos/seed/hg5/1200/675"],
+    id: "banimi", category: "passenger", year: "2025",
+    media: [
+      { type: "image", src: `${IMG}/banimi-3.webp` },
+      { type: "image", src: `${IMG}/banimi-4.webp` },
+      { type: "image", src: `${IMG}/banimi-1.webp` },
+      { type: "image", src: `${IMG}/banimi-2.webp` },
+    ],
   },
   {
-    title: "Qendra Tregtare",
-    location: "Ferizaj", year: "2023", category: "escalator",
-    gradient: "from-ink via-green-primary to-green-medium",
-    desc: "6 eskalatorë + 2 ashensorë mallrash",
-    fullDesc: "Projekt madhësor i instalimit të 6 eskalatorëve komercialë dhe 2 ashensorëve mallrash industrialë për qendrën e re tregtare në Ferizaj. Projekti u krye në 3 faza gjatë orëve jashtë orarit të punës për të minimizuar ndikimin tek operacionet e qendrës.",
-    client: "QT Ferizaj Invest", duration: "8 javë",
-    services: ["Instalim 6 eskalatorësh komercialë", "Instalim 2 ashensorësh mallrash", "Sistem monitorimi të centralizuar", "Ndriçim LED integrues", "Kontrata mirëmbajtjeje 3 vjeçare"],
-    specs: [{ label: "Eskalatorë", value: "6 njësi" }, { label: "Ashensorë mallrash", value: "2 njësi" }, { label: "Kapaciteti eskalator", value: "9000 persona/orë" }, { label: "Kapaciteti mallra", value: "2000 kg" }, { label: "Gjerësia", value: "1000 mm" }],
-    photos: ["https://picsum.photos/seed/qt1/1200/675","https://picsum.photos/seed/qt2/1200/675","https://picsum.photos/seed/qt3/1200/675","https://picsum.photos/seed/qt4/1200/675","https://picsum.photos/seed/qt5/1200/675","https://picsum.photos/seed/qt6/1200/675"],
+    id: "arkitektura", category: "accessibility", year: "2025",
+    media: [
+      { type: "image", src: `${IMG}/arkitektura-1.webp` },
+      { type: "image", src: `${IMG}/arkitektura-2.webp` },
+      { type: "image", src: `${IMG}/arkitektura-3.webp` },
+    ],
   },
   {
-    title: "Vila Moderna",
-    location: "Gjakovë", year: "2024", category: "home",
-    gradient: "from-green-medium via-green-light to-green-mint",
-    desc: "Home lift dru e inox",
-    fullDesc: "Instalim i një home lift luksoz me kombinim druri dhe inoksi për një vilë private në Gjakovë. Dizajni u personalizua plotësisht sipas kërkesave estetike të pronarit duke u harmonizuar me interiorin ekzistues të vilës. Instalimi u krye pa gropë (pitless) duke mos dëmtuar strukturën e ndërtesës.",
-    client: "Privat", duration: "4 ditë",
-    services: ["Instalim home lift pa gropë (pitless)", "Kabinat me dru dhe inoks të personalizuar", "Sistem operimi me energji të ulët", "Integrimi me sistemin e inteligjencës shtëpiake", "Garanci 5 vjeçare"],
-    specs: [{ label: "Kapaciteti", value: "250 kg / 3 persona" }, { label: "Kate", value: "3 kate" }, { label: "Shpejtësia", value: "0.15 m/s" }, { label: "Materiali", value: "Dru + Inoks" }, { label: "Tipi", value: "Pitless / Hidraulik" }],
-    photos: ["https://picsum.photos/seed/vm1/1200/675","https://picsum.photos/seed/vm2/1200/675","https://picsum.photos/seed/vm3/1200/675","https://picsum.photos/seed/vm4/1200/675","https://picsum.photos/seed/vm5/1200/675"],
+    id: "juridiku", category: "accessibility", year: "2025",
+    media: [
+      { type: "image", src: `${IMG}/juridiku-1.webp` },
+      { type: "image", src: `${IMG}/juridiku-2.webp` },
+      { type: "image", src: `${IMG}/juridiku-3.webp` },
+      { type: "video", src: "/videos/juridiku-1.mp4", poster: `${IMG}/juridiku-video1-poster.webp` },
+      { type: "video", src: "/videos/juridiku-2.mp4", poster: `${IMG}/juridiku-video2-poster.webp` },
+    ],
   },
   {
-    title: "QKUK",
-    location: "Prishtinë", year: "2022", category: "passenger",
-    gradient: "from-green-abyss via-green-primary to-green-medium",
-    desc: "Ashensorë mjekësorë",
-    fullDesc: "Green Up realizoi instalimin e 3 ashensorëve mjekësorë në Qendrën Klinike Universitare të Kosovës. Ashensorët janë të dimensionimit special për transport shtretërish dhe pajisje mjekësore, me sistem të veçantë higjienik dhe hapje me prioritet për emergjencat.",
-    client: "QKUK — Ministria e Shëndetësisë", duration: "5 javë",
-    services: ["Instalim 3 ashensorësh mjekësorë", "Sistem prioriteti për emergjenca", "Kabinat me sipërfaqe anti-bakteriale", "Integrimi me sistemin e bllokimit zjarrfiks", "Certifikim i posaçëm mjekësor"],
-    specs: [{ label: "Ashensorë", value: "3 njësi mjekësore" }, { label: "Dimensioni", value: "1400×2100 mm" }, { label: "Kapaciteti", value: "1600 kg / shtrat+staf" }, { label: "Tipi", value: "MRL Trakcion" }, { label: "Certifikimi", value: "EN 81-20/50 / Medical Grade" }],
-    photos: ["https://picsum.photos/seed/qk1/1200/675","https://picsum.photos/seed/qk2/1200/675","https://picsum.photos/seed/qk3/1200/675","https://picsum.photos/seed/qk4/1200/675","https://picsum.photos/seed/qk5/1200/675"],
+    id: "trashegimia", category: "accessibility", year: "2025",
+    media: [
+      { type: "image", src: `${IMG}/trashegimia-1.webp` },
+      { type: "image", src: `${IMG}/trashegimia-2.webp` },
+      { type: "image", src: `${IMG}/trashegimia-3.webp` },
+      { type: "image", src: `${IMG}/trashegimia-4.webp` },
+    ],
   },
   {
-    title: "Ndërtesa Businessit",
-    location: "Mitrovicë", year: "2021", category: "passenger",
-    gradient: "from-green-primary via-ink to-green-medium",
-    desc: "Modernizim 4 ashensorësh",
-    fullDesc: "Modernizim i plotë i 4 ashensorëve ekzistues në ndërtesën e biznesit në Mitrovicë. Projekti përfshiu zëvendësimin e sistemeve të vjetra elektromagnete me kontrollues modernë inverter, duke reduktuar konsumin e energjisë me 40% dhe duke rritur komfortin dhe shpejtësinë e udhëtimit.",
-    client: "Ndërtesa Business Center sh.p.k.", duration: "6 javë",
-    services: ["Modernizim i 4 ashensorëve", "Instalim kontrolluesish inverter", "Sistem i ri portave automatike", "Ndriçim LED dhe kabina të reja", "Kursim 40% energji elektrike"],
-    specs: [{ label: "Ashensorë modernizuar", value: "4 njësi" }, { label: "Kontrollues", value: "VVVF Inverter" }, { label: "Kursim energjie", value: "40%" }, { label: "Kate", value: "8 kate" }, { label: "Shpejtësia e re", value: "1.0 m/s" }],
-    photos: ["https://picsum.photos/seed/nb1/1200/675","https://picsum.photos/seed/nb2/1200/675","https://picsum.photos/seed/nb3/1200/675","https://picsum.photos/seed/nb4/1200/675","https://picsum.photos/seed/nb5/1200/675"],
+    id: "filologjiku", category: "passenger", year: "2024",
+    media: [
+      { type: "image", src: `${IMG}/filologjiku-1.webp` },
+      { type: "image", src: `${IMG}/filologjiku-2.webp` },
+    ],
   },
   {
-    title: "Warehouse Logistics",
-    location: "Prishtinë", year: "2023", category: "cargo",
-    gradient: "from-ink via-green-primary to-green-light",
-    desc: "Ashensor mallrash 2000kg",
-    fullDesc: "Instalim i një ashensori industrial mallrash me kapacitet 2000 kg për një qendër logjistike në Prishtinë. Ashensori është dizajnuar për ngarkesa të rënda industriale me porta me hapje të plotë dhe dysheme të forcoura çeliku. Sistemi i kontrollit lejon operim automatik dhe manual.",
-    client: "Kosovo Logistics Group", duration: "3 javë",
-    services: ["Instalim ashensori industrial 2000kg", "Porta me hapje të plotë dysh", "Dysheme çeliku e forcuara", "Sistem kontrolli automatik+manual", "Certifikim industrial"],
-    specs: [{ label: "Kapaciteti", value: "2000 kg" }, { label: "Hapja e portës", value: "2000×2200 mm" }, { label: "Kate", value: "4 kate" }, { label: "Shpejtësia", value: "0.5 m/s" }, { label: "Tipi", value: "Hidraulik Industrial" }],
-    photos: ["https://picsum.photos/seed/wl1/1200/675","https://picsum.photos/seed/wl2/1200/675","https://picsum.photos/seed/wl3/1200/675","https://picsum.photos/seed/wl4/1200/675","https://picsum.photos/seed/wl5/1200/675"],
-  },
-  {
-    title: "Rezidenca Sfera",
-    location: "Prishtinë", year: "2024", category: "passenger",
-    gradient: "from-green-light via-green-medium to-green-primary",
-    desc: "Instalim 6 ashensorësh",
-    fullDesc: "Instalim i 6 ashensorëve luksoz pasagjerësh për kompleksin rezidencial premium Sfera në Prishtinë. Projekti u realizua në koordinim të ngushtë me arkitektin e projektit për të siguruar integrim të plotë estetik. Kabinët kanë finishe të personalizuara me pasqyra, druri dhe ndriçim ambient.",
-    client: "Sfera Development Group", duration: "4 javë",
-    services: ["Instalim 6 ashensorësh pasagjerësh", "Kabina me finishe premium", "Pasqyra dhe dru i personalizuar", "Ndriçim ambient LED", "Sistem destinacioni me ekran"],
-    specs: [{ label: "Ashensorë", value: "6 njësi" }, { label: "Kate", value: "14 kate" }, { label: "Kapaciteti", value: "800 kg / 10 persona" }, { label: "Shpejtësia", value: "2.0 m/s" }, { label: "Finishi", value: "Premium me pasqyrë" }],
-    photos: ["https://picsum.photos/seed/rs1/1200/675","https://picsum.photos/seed/rs2/1200/675","https://picsum.photos/seed/rs3/1200/675","https://picsum.photos/seed/rs4/1200/675","https://picsum.photos/seed/rs5/1200/675","https://picsum.photos/seed/rs6/1200/675"],
-  },
-  {
-    title: "Shkolla Speciale",
-    location: "Gjilan", year: "2022", category: "security",
-    gradient: "from-green-medium via-green-primary to-green-deep",
-    desc: "Platforma aksesueshmërie",
-    fullDesc: "Green Up instaloi platforma ngritëse vertikale dhe shkallë lëvizëse (stairlift) për të siguruar aksesueshmëri të plotë për nxënësit me aftësi të kufizuara në shkollën speciale në Gjilan. Projekti u financua nga fondet BE dhe plotëson të gjitha standardet e direktivës europiane të aksesueshmërisë.",
-    client: "MASHT — Ministria e Arsimit", duration: "2 javë",
-    services: ["Instalim 2 platformash vertikale", "Instalim stairlift për shkallë", "Certifikim sipas direktivës BE", "Trajnim i stafit shkollor", "Mirëmbajtje vjetore falas (3 vjet)"],
-    specs: [{ label: "Platforma", value: "2 njësi vertikale" }, { label: "Stairlift", value: "1 njësi" }, { label: "Kapaciteti", value: "300 kg" }, { label: "Certifikimi", value: "EN 81-20/50 / BE" }, { label: "Financimi", value: "Fondet BE" }],
-    photos: ["https://picsum.photos/seed/ss1/1200/675","https://picsum.photos/seed/ss2/1200/675","https://picsum.photos/seed/ss3/1200/675","https://picsum.photos/seed/ss4/1200/675","https://picsum.photos/seed/ss5/1200/675"],
-  },
-  {
-    title: "Airport Hotel",
-    location: "Prishtinë", year: "2023", category: "escalator",
-    gradient: "from-green-deep via-ink to-green-primary",
-    desc: "Eskalatorë hoteli",
-    fullDesc: "Instalim i 2 eskalatorëve reprezentativë dhe 2 ashensorëve pasagjerësh premium për hotelin e ri afër Aeroportit të Prishtinës. Eskalatorët janë me iluminim të integruar dhe sistem automatik ndezjeje/fikjeje bazuar në ndjeshmëri infrared, duke kursyer energji kur nuk ka lëvizje.",
-    client: "Airport Hotel Prishtina", duration: "4 javë",
-    services: ["Instalim 2 eskalatorësh reprezentativë", "Instalim 2 ashensorësh premium", "Iluminim integrues eskalator", "Sistem auto ndezje/fikje", "Kontrata mirëmbajtjeje 5 vjeçare"],
-    specs: [{ label: "Eskalatorë", value: "2 njësi" }, { label: "Ashensorë", value: "2 njësi premium" }, { label: "Gjerësia eskalator", value: "800 mm" }, { label: "Shpejtësia", value: "0.5 m/s" }, { label: "Kursim energjie", value: "35% auto" }],
-    photos: ["https://picsum.photos/seed/ah1/1200/675","https://picsum.photos/seed/ah2/1200/675","https://picsum.photos/seed/ah3/1200/675","https://picsum.photos/seed/ah4/1200/675","https://picsum.photos/seed/ah5/1200/675"],
-  },
-  {
-    title: "Vila Brezovica",
-    location: "Brezovicë", year: "2024", category: "home",
-    gradient: "from-green-primary via-green-light to-green-mint",
-    desc: "Residential home lift",
-    fullDesc: "Instalim i një home lift elegant dhe kompakt për një vilë private në resortin e Brezovicës. Ashensori u instalua gjatë fazës së ndërtimit duke lejuar planifikim optimal të hapësirës. Kabina ka finishe luksoze me dru, dritare panoramike dhe sistem ndriçimi ambient.",
-    client: "Privat — Vila Resort", duration: "3 ditë",
-    services: ["Instalim home lift gjatë ndërtimit", "Kabina me dru luksoz dhe dritare", "Sistem ndriçimi ambient", "Integrim me sistemin e smart home", "Garanci 5 vjeçare + mirëmbajtje vjetore"],
-    specs: [{ label: "Kapaciteti", value: "320 kg / 4 persona" }, { label: "Kate", value: "4 kate" }, { label: "Shpejtësia", value: "0.15 m/s" }, { label: "Materiali", value: "Dru Ahu + Xham" }, { label: "Tipi", value: "MRL Trakcion Pitless" }],
-    photos: ["https://picsum.photos/seed/vb1/1200/675","https://picsum.photos/seed/vb2/1200/675","https://picsum.photos/seed/vb3/1200/675","https://picsum.photos/seed/vb4/1200/675","https://picsum.photos/seed/vb5/1200/675"],
-  },
-  {
-    title: "Fabrika Ramiq",
-    location: "Suharekë", year: "2021", category: "cargo",
-    gradient: "from-ink via-green-primary to-green-light",
-    desc: "Ashensor industrial 5000kg",
-    fullDesc: "Instalim i një ashensori industrial shumë-kapacitesh 5000 kg për fabrikën prodhuese Ramiq në Suharekë. Ky është ndër projektet më të mëdha industriale të Green Up, me një platformë ngritëse të dizajnuar posaçërisht për linjen e prodhimit. Sistemi lejon ngarkimin me fork-lift dhe vagonë industrial.",
-    client: "Ramiq Industrial sh.p.k.", duration: "4 javë",
-    services: ["Instalim ashensori 5000 kg", "Platformë për fork-lift", "Porta industriale 3×3m", "Sistem kontrolli PLC", "Certifikim i Inspection Body akredituar"],
-    specs: [{ label: "Kapaciteti", value: "5000 kg" }, { label: "Hapja e portës", value: "3000×3000 mm" }, { label: "Kate", value: "3 kate" }, { label: "Shpejtësia", value: "0.25 m/s" }, { label: "Kontrolluesi", value: "PLC Siemens" }],
-    photos: ["https://picsum.photos/seed/fr1/1200/675","https://picsum.photos/seed/fr2/1200/675","https://picsum.photos/seed/fr3/1200/675","https://picsum.photos/seed/fr4/1200/675","https://picsum.photos/seed/fr5/1200/675","https://picsum.photos/seed/fr6/1200/675"],
+    id: "dumbwaiter", category: "cargo", year: "2025",
+    media: [
+      { type: "video", src: "/videos/dumbwaiter.mp4", poster: `${IMG}/dumbwaiter-poster.webp` },
+    ],
   },
 ];
 
-const galleryItems = [
-  { cat: "elevators" as GalleryCategory,     image: "https://picsum.photos/seed/g1/800/1000",  h: "h-80" },
-  { cat: "installations" as GalleryCategory, image: "https://picsum.photos/seed/g2/800/700",   h: "h-56" },
-  { cat: "team" as GalleryCategory,          image: "https://picsum.photos/seed/g3/800/800",   h: "h-64" },
-  { cat: "elevators" as GalleryCategory,     image: "https://picsum.photos/seed/g4/800/600",   h: "h-48" },
-  { cat: "beforeAfter" as GalleryCategory,   image: "https://picsum.photos/seed/g5/800/1000",  h: "h-80" },
-  { cat: "installations" as GalleryCategory, image: "https://picsum.photos/seed/g6/800/700",   h: "h-56" },
-  { cat: "elevators" as GalleryCategory,     image: "https://picsum.photos/seed/g7/800/800",   h: "h-64" },
-  { cat: "team" as GalleryCategory,          image: "https://picsum.photos/seed/g8/800/600",   h: "h-48" },
-  { cat: "beforeAfter" as GalleryCategory,   image: "https://picsum.photos/seed/g9/800/1000",  h: "h-80" },
-  { cat: "installations" as GalleryCategory, image: "https://picsum.photos/seed/g10/800/700",  h: "h-56" },
-  { cat: "elevators" as GalleryCategory,     image: "https://picsum.photos/seed/g11/800/600",  h: "h-48" },
-  { cat: "team" as GalleryCategory,          image: "https://picsum.photos/seed/g12/800/800",  h: "h-64" },
+const GALLERY_ITEMS: { cat: GalleryCategory; media: Media; h: string }[] = [
+  { cat: "elevators",     media: { type: "image", src: `${IMG}/edukimi-2.webp` },      h: "h-80" },
+  { cat: "installations", media: { type: "image", src: `${IMG}/banimi-1.webp` },       h: "h-96" },
+  { cat: "platforms",     media: { type: "image", src: `${IMG}/arkitektura-1.webp` },  h: "h-72" },
+  { cat: "videos",        media: { type: "video", src: "/videos/dumbwaiter.mp4", poster: `${IMG}/dumbwaiter-poster.webp` }, h: "h-80" },
+  { cat: "elevators",     media: { type: "image", src: `${IMG}/banimi-3.webp` },       h: "h-72" },
+  { cat: "platforms",     media: { type: "image", src: `${IMG}/trashegimia-1.webp` },  h: "h-80" },
+  { cat: "installations", media: { type: "image", src: `${IMG}/edukimi-3.webp` },      h: "h-72" },
+  { cat: "platforms",     media: { type: "image", src: `${IMG}/juridiku-1.webp` },     h: "h-80" },
+  { cat: "elevators",     media: { type: "image", src: `${IMG}/edukimi-1.webp` },      h: "h-72" },
+  { cat: "videos",        media: { type: "video", src: "/videos/juridiku-1.mp4", poster: `${IMG}/juridiku-video1-poster.webp` }, h: "h-80" },
+  { cat: "installations", media: { type: "image", src: `${IMG}/banimi-2.webp` },       h: "h-80" },
+  { cat: "platforms",     media: { type: "image", src: `${IMG}/arkitektura-2.webp` },  h: "h-72" },
+  { cat: "elevators",     media: { type: "image", src: `${IMG}/banimi-4.webp` },       h: "h-72" },
+  { cat: "installations", media: { type: "image", src: `${IMG}/edukimi-4.webp` },      h: "h-72" },
+  { cat: "platforms",     media: { type: "image", src: `${IMG}/trashegimia-2.webp` },  h: "h-80" },
+  { cat: "installations", media: { type: "image", src: `${IMG}/filologjiku-1.webp` },  h: "h-80" },
+  { cat: "platforms",     media: { type: "image", src: `${IMG}/juridiku-2.webp` },     h: "h-72" },
+  { cat: "installations", media: { type: "image", src: `${IMG}/edukimi-5.webp` },      h: "h-72" },
+  { cat: "videos",        media: { type: "video", src: "/videos/juridiku-2.mp4", poster: `${IMG}/juridiku-video2-poster.webp` }, h: "h-80" },
+  { cat: "platforms",     media: { type: "image", src: `${IMG}/trashegimia-3.webp` },  h: "h-72" },
+  { cat: "installations", media: { type: "image", src: `${IMG}/filologjiku-2.webp` },  h: "h-80" },
+  { cat: "platforms",     media: { type: "image", src: `${IMG}/trashegimia-4.webp` },  h: "h-72" },
+  { cat: "installations", media: { type: "image", src: `${IMG}/edukimi-6.webp` },      h: "h-72" },
+  { cat: "platforms",     media: { type: "image", src: `${IMG}/juridiku-3.webp` },     h: "h-80" },
+  { cat: "platforms",     media: { type: "image", src: `${IMG}/arkitektura-3.webp` },  h: "h-72" },
 ];
 
 export default function ProjectsPage() {
@@ -185,52 +137,55 @@ export default function ProjectsPage() {
   const gal     = useTranslations("gallery");
   const modal   = useTranslations("projectsPage.modal");
 
+  // Merge locale-independent meta with translated content
+  const allProjects: Project[] = PROJECTS_META.map((meta) => ({
+    ...meta,
+    ...(page.raw(`items.${meta.id}`) as ProjectContent),
+  }));
+
   const [activeTab, setActiveTab] = useState<Tab>("projects");
 
   // Projects state
   const [activeFilter, setActiveFilter]       = useState<ProjectCategory>("all");
-  const [openProject, setOpenProject]         = useState<Project | null>(null);
   const [openProjectIdx, setOpenProjectIdx]   = useState<number | null>(null);
-  const [activePhoto, setActivePhoto]         = useState(0);
+  const [activeMedia, setActiveMedia]         = useState(0);
 
   // Gallery state
   const [activeGalleryFilter, setActiveGalleryFilter] = useState<GalleryCategory>("all");
   const [lightboxIdx, setLightboxIdx]                 = useState<number | null>(null);
 
-  const projectFilters: ProjectCategory[] = ["all", "passenger", "cargo", "home", "escalator", "security"];
-  const galleryCategories: GalleryCategory[] = ["all", "elevators", "installations", "team", "beforeAfter"];
+  const projectFilters: ProjectCategory[] = ["all", "passenger", "accessibility", "cargo"];
+  const galleryCategories: GalleryCategory[] = ["all", "elevators", "platforms", "installations", "videos"];
+
+  const openProject = openProjectIdx !== null ? allProjects[openProjectIdx] : null;
 
   const filteredProjects  = activeFilter === "all" ? allProjects : allProjects.filter((p) => p.category === activeFilter);
-  const filteredGallery   = activeGalleryFilter === "all" ? galleryItems : galleryItems.filter((i) => i.cat === activeGalleryFilter);
+  const filteredGallery   = activeGalleryFilter === "all" ? GALLERY_ITEMS : GALLERY_ITEMS.filter((i) => i.cat === activeGalleryFilter);
   const galleryTotal      = filteredGallery.length;
 
-  const openModal = (project: Project, idxInAll: number) => {
-    setOpenProject(project);
+  const openModal = (idxInAll: number) => {
     setOpenProjectIdx(idxInAll);
-    setActivePhoto(0);
+    setActiveMedia(0);
   };
 
   const closeModal = () => {
-    setOpenProject(null);
     setOpenProjectIdx(null);
-    setActivePhoto(0);
+    setActiveMedia(0);
   };
 
   const goProjectPrev = () => {
     if (openProjectIdx === null) return;
-    const next = (openProjectIdx - 1 + allProjects.length) % allProjects.length;
-    openModal(allProjects[next], next);
+    openModal((openProjectIdx - 1 + allProjects.length) % allProjects.length);
   };
 
   const goProjectNext = () => {
     if (openProjectIdx === null) return;
-    const next = (openProjectIdx + 1) % allProjects.length;
-    openModal(allProjects[next], next);
+    openModal((openProjectIdx + 1) % allProjects.length);
   };
 
   // Keyboard handler
   const handleKeyDown = useCallback((e: KeyboardEvent) => {
-    if (openProject) {
+    if (openProjectIdx !== null) {
       if (e.key === "Escape")      closeModal();
       if (e.key === "ArrowLeft")   goProjectPrev();
       if (e.key === "ArrowRight")  goProjectNext();
@@ -241,23 +196,25 @@ export default function ProjectsPage() {
       if (e.key === "ArrowLeft")   setLightboxIdx((p) => p !== null ? (p - 1 + galleryTotal) % galleryTotal : 0);
       if (e.key === "ArrowRight")  setLightboxIdx((p) => p !== null ? (p + 1) % galleryTotal : 0);
     }
-  }, [openProject, openProjectIdx, lightboxIdx, galleryTotal]); // eslint-disable-line
+  }, [openProjectIdx, lightboxIdx, galleryTotal]); // eslint-disable-line
 
   useEffect(() => {
-    const anyOpen = openProject !== null || lightboxIdx !== null;
+    const anyOpen = openProjectIdx !== null || lightboxIdx !== null;
     document.body.style.overflow = anyOpen ? "hidden" : "";
     window.addEventListener("keydown", handleKeyDown);
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
       if (!anyOpen) document.body.style.overflow = "";
     };
-  }, [handleKeyDown, openProject, lightboxIdx]);
+  }, [handleKeyDown, openProjectIdx, lightboxIdx]);
 
   const switchTab = (tab: Tab) => {
     closeModal();
     setLightboxIdx(null);
     setActiveTab(tab);
   };
+
+  const lightboxItem = lightboxIdx !== null ? filteredGallery[lightboxIdx] : null;
 
   return (
     <>
@@ -311,17 +268,17 @@ export default function ProjectsPage() {
                   ))}
                 </div>
 
-                {/* TODO: Replace gradient divs with real project photos */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
                   {filteredProjects.map((project) => {
-                    const idxInAll = allProjects.indexOf(project);
+                    const idxInAll = allProjects.findIndex((p) => p.id === project.id);
+                    const cover = project.media[0];
                     return (
-                      <article key={project.title} className="group cursor-pointer"
-                        onClick={() => openModal(project, idxInAll)}
+                      <article key={project.id} className="group cursor-pointer"
+                        onClick={() => openModal(idxInAll)}
                       >
-                        <div className={`relative w-full aspect-[3/4] rounded-2xl bg-gradient-to-br ${project.gradient} overflow-hidden mb-4`}>
+                        <div className="relative w-full aspect-[3/4] rounded-2xl bg-green-deep overflow-hidden mb-4">
                           <Image
-                            src={project.photos[0]}
+                            src={cover.type === "video" ? cover.poster! : cover.src}
                             alt={project.title}
                             fill
                             className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -331,6 +288,11 @@ export default function ProjectsPage() {
                           <span className="absolute top-3 left-3 rounded-full px-2.5 py-1 glass-dark text-white text-[10px] font-semibold uppercase tracking-[0.2em]">
                             {t(`filters.${project.category}`)}
                           </span>
+                          {cover.type === "video" && (
+                            <span className="absolute top-3 right-3 w-8 h-8 rounded-full glass-dark text-white flex items-center justify-center">
+                              <Play size={13} className="translate-x-[1px]" />
+                            </span>
+                          )}
                           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/40">
                             <span className="btn-base btn-gold !py-2 !px-4 text-[11px]">
                               {t("viewDetails")} <ArrowUpRight size={13} />
@@ -370,13 +332,13 @@ export default function ProjectsPage() {
                 </div>
                 <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4">
                   {filteredGallery.map((item, i) => (
-                    <div key={`${item.cat}-${i}`}
+                    <div key={`${item.cat}-${item.media.src}`}
                       className={`${item.h} w-full break-inside-avoid mb-4 rounded-2xl bg-green-deep relative overflow-hidden group cursor-pointer lift`}
                       onClick={() => setLightboxIdx(i)}
                     >
                       <Image
-                        src={item.image}
-                        alt={`Gallery ${i + 1}`}
+                        src={item.media.type === "video" ? item.media.poster! : item.media.src}
+                        alt={`${gal(`categories.${item.cat}`)} ${i + 1}`}
                         fill
                         className="object-cover transition-transform duration-700 group-hover:scale-105"
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
@@ -384,9 +346,14 @@ export default function ProjectsPage() {
                       <div className="absolute inset-0 bg-black/5 group-hover:bg-black/30 transition-colors duration-300" />
                       <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         <div className="w-12 h-12 rounded-full glass-dark flex items-center justify-center text-white">
-                          <Plus size={18} />
+                          {item.media.type === "video" ? <Play size={18} className="translate-x-[1px]" /> : <Plus size={18} />}
                         </div>
                       </div>
+                      {item.media.type === "video" && (
+                        <span className="absolute top-3 right-3 w-8 h-8 rounded-full glass-dark text-white flex items-center justify-center group-hover:opacity-0 transition-opacity duration-300">
+                          <Play size={13} className="translate-x-[1px]" />
+                        </span>
+                      )}
                     </div>
                   ))}
                 </div>
@@ -448,55 +415,81 @@ export default function ProjectsPage() {
             <div className="overflow-y-auto flex-1">
               <div className="flex flex-col lg:flex-row">
 
-                {/* LEFT — Photo section */}
+                {/* LEFT — Media section */}
                 <div className="lg:w-[55%] shrink-0 bg-[#0f2d1f]">
-                  {/* Hero photo */}
+                  {/* Hero media */}
                   <div className="w-full aspect-video bg-green-deep relative overflow-hidden">
-                    <Image
-                      src={openProject.photos[activePhoto]}
-                      alt={`${openProject.title} — foto ${activePhoto + 1}`}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 1024px) 100vw, 55vw"
-                      priority
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-                    <span className="absolute top-4 left-4 rounded-full px-3 py-1 glass-dark text-white text-[10px] font-semibold uppercase tracking-[0.2em]">
-                      {t(`filters.${openProject.category}`)}
+                    {openProject.media[activeMedia].type === "video" ? (
+                      <video
+                        key={openProject.media[activeMedia].src}
+                        src={openProject.media[activeMedia].src}
+                        poster={openProject.media[activeMedia].poster}
+                        controls
+                        playsInline
+                        preload="metadata"
+                        className="absolute inset-0 w-full h-full object-contain"
+                      />
+                    ) : (
+                      <Image
+                        src={openProject.media[activeMedia].src}
+                        alt={`${openProject.title} — ${activeMedia + 1}`}
+                        fill
+                        className="object-contain"
+                        sizes="(max-width: 1024px) 100vw, 55vw"
+                        priority
+                      />
+                    )}
+                    <span className="absolute top-4 left-4 rounded-full px-3 py-1 glass-dark text-white text-[10px] font-semibold uppercase tracking-[0.2em] pointer-events-none">
+                      {openProject.media[activeMedia].type === "video"
+                        ? modal("video")
+                        : t(`filters.${openProject.category}`)}
                     </span>
-                    {/* Photo counter */}
-                    <span className="absolute bottom-3 right-4 font-mono text-[10px] text-white/50 tracking-widest">
-                      {String(activePhoto + 1).padStart(2,"0")} / {String(openProject.photos.length).padStart(2,"0")}
+                    {/* Media counter */}
+                    <span className="absolute bottom-3 right-4 font-mono text-[10px] text-white/50 tracking-widest pointer-events-none">
+                      {String(activeMedia + 1).padStart(2,"0")} / {String(openProject.media.length).padStart(2,"0")}
                     </span>
                     {/* Prev/Next on hero */}
-                    <button
-                      onClick={() => setActivePhoto((p) => (p - 1 + openProject.photos.length) % openProject.photos.length)}
-                      className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full glass-dark text-white flex items-center justify-center hover:bg-white/20 transition-colors cursor-pointer"
-                      aria-label="Previous photo"
-                    >
-                      <ChevronLeft size={16} />
-                    </button>
-                    <button
-                      onClick={() => setActivePhoto((p) => (p + 1) % openProject.photos.length)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full glass-dark text-white flex items-center justify-center hover:bg-white/20 transition-colors cursor-pointer"
-                      aria-label="Next photo"
-                    >
-                      <ChevronRight size={16} />
-                    </button>
+                    {openProject.media.length > 1 && (
+                      <>
+                        <button
+                          onClick={() => setActiveMedia((p) => (p - 1 + openProject.media.length) % openProject.media.length)}
+                          className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full glass-dark text-white flex items-center justify-center hover:bg-white/20 transition-colors cursor-pointer"
+                          aria-label={modal("prev")}
+                        >
+                          <ChevronLeft size={16} />
+                        </button>
+                        <button
+                          onClick={() => setActiveMedia((p) => (p + 1) % openProject.media.length)}
+                          className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full glass-dark text-white flex items-center justify-center hover:bg-white/20 transition-colors cursor-pointer"
+                          aria-label={modal("next")}
+                        >
+                          <ChevronRight size={16} />
+                        </button>
+                      </>
+                    )}
                   </div>
 
                   {/* Thumbnail strip */}
                   <div className="flex gap-2 p-3 overflow-x-auto scrollbar-hide">
-                    {openProject.photos.map((photo, i) => (
-                      <button key={i} onClick={() => setActivePhoto(i)}
+                    {openProject.media.map((m, i) => (
+                      <button key={i} onClick={() => setActiveMedia(i)}
                         className={`shrink-0 w-20 h-14 rounded-lg bg-green-deep cursor-pointer transition-all duration-200 relative overflow-hidden ${
-                          activePhoto === i
+                          activeMedia === i
                             ? "ring-2 ring-gold ring-offset-1 ring-offset-[#0f2d1f] opacity-100"
                             : "opacity-50 hover:opacity-80"
                         }`}
-                        aria-label={`Photo ${i + 1}`}
+                        aria-label={`Media ${i + 1}`}
                       >
-                        <Image src={photo} alt={`Thumbnail ${i + 1}`} fill className="object-cover" sizes="80px" />
+                        <Image
+                          src={m.type === "video" ? m.poster! : m.src}
+                          alt={`Thumbnail ${i + 1}`}
+                          fill className="object-cover" sizes="80px"
+                        />
+                        {m.type === "video" && (
+                          <span className="absolute inset-0 flex items-center justify-center bg-black/30 text-white">
+                            <Play size={14} className="translate-x-[1px]" />
+                          </span>
+                        )}
                       </button>
                     ))}
                   </div>
@@ -517,10 +510,6 @@ export default function ProjectsPage() {
                       <span className="flex items-center gap-1.5">
                         <Calendar size={13} className="text-green-primary" />
                         {openProject.year}
-                      </span>
-                      <span className="flex items-center gap-1.5">
-                        <Wrench size={13} className="text-green-primary" />
-                        {openProject.duration}
                       </span>
                     </div>
                     <p className="text-[11px] text-ink/40 font-mono mt-2 tracking-wide">
@@ -589,25 +578,35 @@ export default function ProjectsPage() {
       )}
 
       {/* Gallery Lightbox */}
-      {lightboxIdx !== null && (
+      {lightboxIdx !== null && lightboxItem && (
         <div className="fixed inset-0 z-[60] bg-black/90 backdrop-blur-md flex items-center justify-center"
           onClick={() => setLightboxIdx(null)}
         >
           <button className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full glass-dark text-white flex items-center justify-center hover:bg-white/15 transition-colors z-10 cursor-pointer"
             onClick={(e) => { e.stopPropagation(); setLightboxIdx((p) => p !== null ? (p - 1 + galleryTotal) % galleryTotal : 0); }}
-            aria-label="Previous image"
+            aria-label="Previous"
           >
             <ChevronLeft size={22} />
           </button>
-          <div className="w-full max-w-3xl aspect-[4/3] rounded-3xl mx-16 shadow-2xl shadow-black/50 relative overflow-hidden bg-green-deep"
+          <div className="w-full max-w-3xl h-[70dvh] rounded-3xl mx-16 shadow-2xl shadow-black/50 relative overflow-hidden bg-black"
             onClick={(e) => e.stopPropagation()}
           >
-            {filteredGallery[lightboxIdx] && (
+            {lightboxItem.media.type === "video" ? (
+              <video
+                key={lightboxItem.media.src}
+                src={lightboxItem.media.src}
+                poster={lightboxItem.media.poster}
+                controls
+                autoPlay
+                playsInline
+                className="absolute inset-0 w-full h-full object-contain"
+              />
+            ) : (
               <Image
-                src={filteredGallery[lightboxIdx].image}
+                src={lightboxItem.media.src}
                 alt={`Gallery ${lightboxIdx + 1}`}
                 fill
-                className="object-cover"
+                className="object-contain"
                 sizes="(max-width: 1280px) 90vw, 896px"
                 priority
               />
@@ -615,7 +614,7 @@ export default function ProjectsPage() {
           </div>
           <button className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full glass-dark text-white flex items-center justify-center hover:bg-white/15 transition-colors z-10 cursor-pointer"
             onClick={(e) => { e.stopPropagation(); setLightboxIdx((p) => p !== null ? (p + 1) % galleryTotal : 0); }}
-            aria-label="Next image"
+            aria-label="Next"
           >
             <ChevronRight size={22} />
           </button>

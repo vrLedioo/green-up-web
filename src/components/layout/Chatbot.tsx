@@ -89,39 +89,29 @@ export default function Chatbot() {
     ]);
   }
 
-  async function respondTo(text: string) {
+  // Intents-only mode: matching runs entirely in the browser — no message ever
+  // leaves the visitor's device (see the privacy policy before changing this).
+  function respondTo(text: string) {
     setIsTyping(true);
-    try {
-      const historyMsg = [...messages, { role: "user", text }];
-      const res = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ messages: historyMsg, locale }),
-      });
-      const data = await res.json();
-
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: `b-${Date.now()}`,
-          role: "bot",
-          text: data.text || t("fallback"),
-        },
-      ]);
-    } catch (e) {
-      console.error(e);
-      setMessages((prev) => [
-        ...prev,
-        {
-          id: `b-${Date.now()}`,
-          role: "bot",
-          text: t("fallback"),
-          followUps: ["services_overview", "quote", "contact_info", "faq_intent"],
-        },
-      ]);
-    } finally {
+    setTimeout(() => {
+      const intent = matchIntent(text, locale);
+      const botMsg: Message = intent
+        ? {
+            id: `b-${Date.now()}`,
+            role: "bot",
+            text: intent.response[locale],
+            actions: intent.actions,
+            followUps: intent.followUps,
+          }
+        : {
+            id: `b-${Date.now()}`,
+            role: "bot",
+            text: t("fallback"),
+            followUps: ["services_overview", "quote", "contact_info", "faq_intent"],
+          };
+      setMessages((prev) => [...prev, botMsg]);
       setIsTyping(false);
-    }
+    }, 400 + Math.random() * 400);
   }
 
   function handleSend(raw: string) {

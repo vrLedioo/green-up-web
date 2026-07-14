@@ -8,21 +8,28 @@ import type { Locale } from "@/lib/i18n";
 
 import Image from "next/image";
 
-const projects = [
-  { title: "Rezidenca Dardania", location: "Prishtinë", year: "2023", type: "passenger", desc: "Instalim i 4 ashensorëve pasagjerë në kompleksin rezidencial 12-katësh.", image: "https://picsum.photos/seed/resid1/400/533", gradient: "from-green-primary via-green-medium to-green-light" },
-  { title: "Hotel Grand",        location: "Prizren",   year: "2022", type: "passenger", desc: "Ashensor panoramik me kabinë xham për hotelin 5 yjesh.",                image: "https://picsum.photos/seed/hotel1/400/533", gradient: "from-green-deep via-green-primary to-green-medium" },
-  { title: "Qendra Tregtare",    location: "Ferizaj",   year: "2023", type: "escalator", desc: "Instalim i 6 eskalatorëve dhe 2 ashensorëve mallrash.",                image: "https://picsum.photos/seed/mall1/400/533", gradient: "from-ink via-green-primary to-green-medium" },
-  { title: "Vila Moderne",       location: "Gjakovë",   year: "2024", type: "home",      desc: "Home lift elegant me veshje dru e çelikut inox.",                       image: "https://picsum.photos/seed/vila1/400/533", gradient: "from-green-medium via-green-light to-green-mint" },
-  { title: "Spitali Publik",     location: "Prishtinë", year: "2022", type: "passenger", desc: "Platforma ngritëse dhe ashensorë mjekësorë sipas standardeve BE.",     image: "https://picsum.photos/seed/hosp1/400/533", gradient: "from-green-abyss via-green-primary to-green-medium" },
-  { title: "Ndërtesa Zyrave",    location: "Mitrovicë", year: "2021", type: "passenger", desc: "Modernizim dhe instalim i ashensorëve të rinj në ndërtesën e zyrave.", image: "https://picsum.photos/seed/office1/400/533", gradient: "from-green-primary via-ink to-green-medium" },
-];
+// Cover photo per project id — the written content comes from projects.featured in the locale files
+const projectImages: Record<string, string> = {
+  edukimi:     "/images/projects/edukimi-2.webp",
+  banimi:      "/images/projects/banimi-1.webp",
+  arkitektura: "/images/projects/arkitektura-1.webp",
+  trashegimia: "/images/projects/trashegimia-1.webp",
+  juridiku:    "/images/projects/juridiku-1.webp",
+  dumbwaiter:  "/images/projects/dumbwaiter-poster.webp",
+};
+
+interface FeaturedProject {
+  id: string;
+  title: string;
+  location: string;
+  year: string;
+  type: string;
+  desc: string;
+}
 
 const typeBadge: Record<string, string> = {
-  passenger:  "bg-white/10 text-green-mint border-green-mint/30",
-  escalator:  "bg-gold/15 text-gold border-gold/40",
-  home:       "bg-green-mint/15 text-green-mint border-green-mint/30",
-  cargo:      "bg-white/10 text-white/80 border-white/20",
-  security:   "bg-white/10 text-white border-white/20",
+  passenger:     "bg-white/10 text-green-mint border-green-mint/30",
+  cargo:         "bg-gold/15 text-gold border-gold/40",
   accessibility: "bg-green-pale/15 text-green-mint border-green-mint/30",
 };
 
@@ -31,6 +38,7 @@ export default function FeaturedProjects() {
   const locale = useLocale() as Locale;
   const scrollRef = useRef<HTMLDivElement>(null);
   const prefix = locale !== "sq" ? `/${locale}` : "";
+  const projects = t.raw("featured") as FeaturedProject[];
 
   const scrollBy = (dir: "left" | "right") => {
     const el = scrollRef.current;
@@ -99,20 +107,21 @@ export default function FeaturedProjects() {
           className="scroll-container flex gap-5 pb-6 -mx-4 px-4 md:-mx-8 md:px-8 lg:-mx-16 lg:px-16 cursor-grab active:cursor-grabbing"
           onMouseDown={handleMouseDown}
         >
-          {projects.map((project, i) => (
+          {projects.map((project) => (
             <article
-              key={i}
+              key={project.id}
               className="shrink-0 w-[280px] md:w-[340px] group snap-start"
             >
               <div
-                className={`relative w-full h-[360px] rounded-2xl bg-gradient-to-br ${project.gradient} overflow-hidden mb-4`}
+                className="relative w-full h-[360px] rounded-2xl bg-green-deep overflow-hidden mb-4"
               >
-                {project.image && (
-                  <Image 
-                    src={project.image} 
-                    alt={project.title} 
-                    fill 
-                    className="object-cover transition-transform duration-700 group-hover:scale-105" 
+                {projectImages[project.id] && (
+                  <Image
+                    src={projectImages[project.id]}
+                    alt={project.title}
+                    fill
+                    sizes="(max-width: 768px) 280px, 340px"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-black/10" />

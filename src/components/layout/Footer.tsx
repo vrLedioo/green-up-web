@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 import { MapPin, Phone, Mail, Globe, ArrowUpRight } from "lucide-react";
+import ConsentMap from "@/components/ui/ConsentMap";
 import type { Locale } from "@/lib/i18n";
 
 function InstagramIcon() {
@@ -193,17 +194,12 @@ export default function Footer() {
               </li>
             </ul>
 
-            {/* Google Maps embed */}
+            {/* Google Maps loads only after visitor consent (GDPR) */}
             <div className="mt-6 w-full h-28 rounded-xl overflow-hidden border border-white/10">
-              <iframe
+              <ConsentMap
+                compact
                 title="Green Up — Fushë Kosovë, Kosovo"
                 src="https://www.google.com/maps?q=Rr.+Hyzri+Talla+pn,+12000+Fush%C3%AB+Kosov%C3%AB,+Kosovo&output=embed"
-                width="100%"
-                height="100%"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
               />
             </div>
           </div>
@@ -212,7 +208,12 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="mt-16 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-3 text-white/40 text-[12px]">
           <p>© {year} Green Up. {t("rights")}</p>
-          <p className="font-mono tracking-wide">{t("builtBy")}</p>
+          <div className="flex items-center gap-5">
+            <Link href={getHref("/privacy")} className="hover:text-white transition-colors cursor-pointer">
+              {t("privacy")}
+            </Link>
+            <p className="font-mono tracking-wide">{t("builtBy")}</p>
+          </div>
         </div>
       </div>
     </footer>

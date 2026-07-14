@@ -15,12 +15,13 @@ const serviceKeys = [
   "escalators",
 ] as const;
 
+// Real project photos, matched to each service
 const serviceImages = [
-  "https://picsum.photos/seed/install1/1000/800",
-  "https://picsum.photos/seed/repair1/1000/800",
-  "https://picsum.photos/seed/homeelev1/1000/800",
-  "https://picsum.photos/seed/access1/1000/800",
-  "https://picsum.photos/seed/escal1/1000/800",
+  "/images/projects/edukimi-2.webp",      // installation — finished Green Up cab
+  "/images/projects/filologjiku-2.webp",  // maintenance — control panel work
+  "/images/projects/banimi-3.webp",       // home lift — residential entrance
+  "/images/projects/arkitektura-1.webp",  // accessibility — vertical platform
+  "/images/projects/juridiku-1.webp",     // escalators/stairs — inclined stair platform
 ];
 
 export default function ServicesPage() {
@@ -60,8 +61,6 @@ export default function ServicesPage() {
                 key={key}
                 className="grid lg:grid-cols-12 gap-10 items-center"
               >
-                {/* Image placeholder */}
-                {/* TODO: Replace gradient div with real service photo */}
                 <div
                   className={`lg:col-span-6 ${i % 2 === 1 ? "lg:order-2" : ""}`}
                 >

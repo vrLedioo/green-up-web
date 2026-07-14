@@ -4,6 +4,7 @@ import { NextIntlClientProvider } from "next-intl";
 import { getMessages, getTranslations } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { locales, type Locale } from "@/lib/i18n";
+import { SITE_URL } from "@/lib/site";
 import PageTransition from "@/components/layout/PageTransition";
 import ElevatorPanel from "@/components/layout/ElevatorPanel";
 import Chatbot from "@/components/layout/Chatbot";
@@ -36,16 +37,23 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { locale } = await params;
   const t = await getTranslations({ locale, namespace: "hero" });
+  const prefix = locale === "sq" ? "" : `/${locale}`;
   return {
+    metadataBase: new URL(SITE_URL),
     title: {
       default: "Green Up — Premium Elevator Solutions",
       template: "%s | Green Up",
     },
     description: t("subheadline"),
     keywords: ["elevator", "ashensor", "Kosovo", "Green Up", "lift installation"],
+    alternates: {
+      canonical: prefix || "/",
+      languages: { sq: "/", en: "/en", de: "/de" },
+    },
     openGraph: {
       siteName: "Green Up",
       locale: locale,
+      images: ["/images/projects/edukimi-2.webp"],
     },
   };
 }

@@ -16,7 +16,7 @@
     "dismiss": "Schließen"
   },
   "hero": {
-    "headline": "Jeden Etage erheben.",
+    "headline": "Jede Etage erheben.",
     "subheadline": "Green Up bietet Premium-Aufzugsinstallation, -verkauf und -wartung in ganz Kosovo.",
     "cta_primary": "Leistungen ansehen",
     "cta_secondary": "Kostenloses Angebot"
@@ -61,12 +61,60 @@
     "viewDetails": "Details ansehen",
     "filters": {
       "all": "Alle",
-      "passenger": "Personen",
-      "cargo": "Waren",
-      "home": "Haus",
-      "escalator": "Fahrtreppe",
-      "security": "Sicherheit"
-    }
+      "passenger": "Aufzüge",
+      "accessibility": "Hebebühnen",
+      "cargo": "Lastenaufzüge"
+    },
+    "featured": [
+      {
+        "id": "edukimi",
+        "title": "Fakultät für Bildungswissenschaften",
+        "location": "Prishtina",
+        "year": "2025",
+        "type": "passenger",
+        "desc": "Komplette Personenaufzug-Installation — von den Führungsschienen bis zur Edelstahlkabine."
+      },
+      {
+        "id": "banimi",
+        "title": "Wohngebäude",
+        "location": "Prishtina",
+        "year": "2025",
+        "type": "passenger",
+        "desc": "Moderne Personenaufzüge für ein mehrstöckiges Wohngebäude."
+      },
+      {
+        "id": "arkitektura",
+        "title": "Fakultät für Architektur",
+        "location": "Prishtina",
+        "year": "2025",
+        "type": "accessibility",
+        "desc": "Vertikale Hebebühne für barrierefreien Zugang."
+      },
+      {
+        "id": "trashegimia",
+        "title": "Kulturerbe-Haus",
+        "location": "Kosovo",
+        "year": "2025",
+        "type": "accessibility",
+        "desc": "Außenhebebühne, sorgfältig in ein historisches Gebäude integriert."
+      },
+      {
+        "id": "juridiku",
+        "title": "Juristische Fakultät",
+        "location": "Prishtina",
+        "year": "2025",
+        "type": "accessibility",
+        "desc": "Schräge Treppenplattform für Menschen mit eingeschränkter Mobilität."
+      },
+      {
+        "id": "dumbwaiter",
+        "title": "Serviceaufzug (Dumbwaiter)",
+        "location": "Kosovo",
+        "year": "2025",
+        "type": "cargo",
+        "desc": "Kompakter Serviceaufzug für schnellen Warentransport zwischen Etagen."
+      }
+    ]
   },
   "whyUs": {
     "title": "Warum Uns Wählen?",
@@ -88,23 +136,7 @@
   "testimonials": {
     "title": "Was Unsere Kunden Sagen",
     "subtitle": "Meinungen zufriedener Kunden",
-    "items": [
-      {
-        "text": "Green Up hat bei der Installation des Aufzugs in unserem Gebäude hervorragende Arbeit geleistet. Hohe Professionalität und außergewöhnliche Qualität.",
-        "name": "Arben Krasniqi",
-        "company": "Krasniqi Bau GmbH"
-      },
-      {
-        "text": "Der After-Sales-Service ist außergewöhnlich. Immer bereit, wenn wir Wartung benötigen.",
-        "name": "Blerta Hoxha",
-        "company": "Hotel Prishtina"
-      },
-      {
-        "text": "Sie haben unser dringendes Problem am Wochenende gelöst. Echter 24/7-Service!",
-        "name": "Driton Berisha",
-        "company": "Albi Einkaufszentrum"
-      }
-    ]
+    "items": []
   },
   "cta": {
     "title": "Bereit, Ihr Projekt zu starten?",
@@ -113,10 +145,10 @@
     "quote": "Kostenloses Angebot"
   },
   "footer": {
-    "tagline": "Jeden Etage, jeden Tag.",
+    "tagline": "Jede Etage, jeden Tag.",
     "rights": "Alle Rechte vorbehalten.",
     "about": "Über Green Up",
-    "aboutText": "Green Up ist das führende Unternehmen in Kosovo für den Verkauf, die Installation und Wartung von Premium-Aufzügen.",
+    "aboutText": "Green Up ist ein kosovarisches Unternehmen für Verkauf, Installation und Wartung von Premium-Aufzügen.",
     "pages": "Seiten",
     "services": "Leistungen",
     "contact": "Kontakt",
@@ -124,7 +156,14 @@
     "phone": "+383 44 207 541",
     "email": "info@greenup-ks.com",
     "website": "www.greenup-ks.com",
-    "builtBy": "Gebaut mit Sorgfalt"
+    "builtBy": "Gebaut mit Sorgfalt",
+    "privacy": "Datenschutzerklärung"
+  },
+  "mapConsent": {
+    "title": "Google Maps",
+    "text": "Zum Schutz Ihrer Privatsphäre wird die Karte erst nach Ihrer Einwilligung geladen. Beim Laden der Karte werden Daten an Google LLC gemäß deren Datenschutzerklärung übermittelt.",
+    "button": "Karte laden",
+    "hint": "Ihre Wahl wird in diesem Browser gespeichert."
   },
   "about": {
     "hero": {
@@ -148,16 +187,6 @@
         { "year": "2023", "text": "24/7-Wartungs- und Notdienst eingeführt" },
         { "year": "2024", "text": "Regionale Expansion und wachsendes Projektportfolio" }
       ]
-    },
-    "team": {
-      "title": "Unser Team",
-      "subtitle": "Engagierte Fachleute",
-      "members": {
-        "ceo": { "name": "Agron Berisha", "role": "Geschäftsführer" },
-        "projectManager": { "name": "Valbona Krasniqi", "role": "Projektmanagerin" },
-        "chiefEngineer": { "name": "Driton Hoxha", "role": "Chefingenieur" },
-        "salesManager": { "name": "Fjolla Gashi", "role": "Vertriebsleiterin" }
-      }
     },
     "coverage": {
       "title": "Unsere Abdeckung",
@@ -238,7 +267,136 @@
       "client": "Kunde",
       "duration": "Dauer",
       "year": "Jahr",
-      "location": "Standort"
+      "location": "Standort",
+      "video": "Video"
+    },
+    "items": {
+      "edukimi": {
+        "title": "Fakultät für Bildungswissenschaften",
+        "desc": "Komplette Personenaufzug-Installation",
+        "fullDesc": "An der Fakultät für Bildungswissenschaften in Prishtina führte Green Up die komplette Installation eines Personenaufzugs durch — von der Montage der Führungsschienen und des Gegengewichts im Schacht bis zur neuen Edelstahlkabine mit Spiegel. Die Arbeiten wurden nach europäischen EN 81-20/50-Normen ausgeführt und mit vollständiger technischer Dokumentation übergeben.",
+        "client": "Öffentliche Bildungseinrichtung",
+        "services": [
+          "Montage von Führungsschienen und Gegengewicht",
+          "Installation der Edelstahlkabine",
+          "Modernes Steuerungssystem",
+          "Prüfung, Abnahme und Übergabe"
+        ],
+        "specs": [
+          { "label": "Typ", "value": "Personenaufzug" },
+          { "label": "Gebäude", "value": "Öffentliche Einrichtung" },
+          { "label": "Norm", "value": "EN 81-20/50" },
+          { "label": "Status", "value": "Abgeschlossen" }
+        ]
+      },
+      "banimi": {
+        "title": "Wohngebäude",
+        "desc": "Personenaufzüge für ein mehrstöckiges Gebäude",
+        "fullDesc": "Installation moderner Personenaufzüge in einem mehrstöckigen Wohngebäude. Das Projekt umfasste die komplette Schachtinstallation und automatische Etagentüren mit marmorverkleideten Eingängen — eine Kombination aus Sicherheit, Komfort und Ästhetik.",
+        "client": "Privater Investor",
+        "services": [
+          "Komplette Schachtinstallation",
+          "Automatische Etagentüren",
+          "Modernes Steuerungssystem mit Display",
+          "Prüfung und Übergabe"
+        ],
+        "specs": [
+          { "label": "Typ", "value": "Personenaufzug" },
+          { "label": "Gebäude", "value": "Wohngebäude" },
+          { "label": "Norm", "value": "EN 81-20/50" },
+          { "label": "Status", "value": "Abgeschlossen" }
+        ]
+      },
+      "arkitektura": {
+        "title": "Fakultät für Architektur",
+        "desc": "Vertikale Hebebühne für barrierefreien Zugang",
+        "fullDesc": "Für die Fakultät für Architektur in Prishtina installierte Green Up eine vertikale Hebebühne mit Metall-Glas-Konstruktion, die barrierefreien Zugang für Menschen mit eingeschränkter Mobilität ermöglicht. Die Lösung wurde sorgfältig in den bestehenden Innenraum integriert.",
+        "client": "Öffentliche Bildungseinrichtung",
+        "services": [
+          "Installation der vertikalen Hebebühne",
+          "Metallkonstruktion mit Sicherheitsglas",
+          "Einfache Tastenbedienung",
+          "Prüfung und Personalschulung"
+        ],
+        "specs": [
+          { "label": "Typ", "value": "Vertikale Hebebühne" },
+          { "label": "Tragfähigkeit", "value": "300 kg" },
+          { "label": "Umgebung", "value": "Innenbereich" },
+          { "label": "Status", "value": "Abgeschlossen" }
+        ]
+      },
+      "juridiku": {
+        "title": "Juristische Fakultät",
+        "desc": "Schräge Treppenplattform (Treppenlift)",
+        "fullDesc": "An der Juristischen Fakultät in Prishtina wurde eine schräge Rollstuhlplattform installiert, die entlang der bestehenden Treppe fährt — ohne bauliche Veränderungen. Die Plattform klappt bei Nichtgebrauch zusammen und lässt sich einfach per Fernbedienung steuern — sehen Sie sich die Videos im Betrieb an.",
+        "client": "Öffentliche Bildungseinrichtung",
+        "services": [
+          "Installation der schrägen Plattform",
+          "Montage entlang der bestehenden Treppe",
+          "Fernbedienung und Plattformsteuerung",
+          "Prüfung und Personalschulung"
+        ],
+        "specs": [
+          { "label": "Typ", "value": "Schrägaufzug (Treppenlift)" },
+          { "label": "Gebäude", "value": "Öffentliche Einrichtung" },
+          { "label": "Umgebung", "value": "Innenbereich" },
+          { "label": "Status", "value": "Abgeschlossen" }
+        ]
+      },
+      "trashegimia": {
+        "title": "Kulturerbe-Haus",
+        "desc": "Außenplattform an einem historischen Gebäude",
+        "fullDesc": "Installation einer Außenhebebühne an einem Kulturerbe-Haus. Die dunkle Metall-Glas-Konstruktion wurde gewählt, um die historische Architektur des Gebäudes zu respektieren und gleichzeitig allen Besuchern gleichberechtigten Zugang zu ermöglichen.",
+        "client": "Kulturerbe-Objekt",
+        "services": [
+          "Installation der Außenplattform",
+          "An historisches Gebäude angepasste Konstruktion",
+          "Witterungsschutz",
+          "Prüfung und Übergabe"
+        ],
+        "specs": [
+          { "label": "Typ", "value": "Vertikale Hebebühne" },
+          { "label": "Umgebung", "value": "Außenbereich" },
+          { "label": "Gebäude", "value": "Kulturerbe" },
+          { "label": "Status", "value": "Abgeschlossen" }
+        ]
+      },
+      "filologjiku": {
+        "title": "Philologische Fakultät",
+        "desc": "Personenaufzug — Installationsphase",
+        "fullDesc": "Installation eines neuen Personenaufzugs an der Philologischen Fakultät in Prishtina. Die Fotos zeigen die Installationsphase — die Kabine mit Schutzfolie und das Bedienpanel während der Konfiguration — Teil unseres sorgfältigen Montage- und Abnahmeprozesses.",
+        "client": "Öffentliche Bildungseinrichtung",
+        "services": [
+          "Kabinen- und Türinstallation",
+          "Konfiguration des Bedienpanels",
+          "Oberflächenschutz während der Arbeiten",
+          "Prüfung und Abnahme"
+        ],
+        "specs": [
+          { "label": "Typ", "value": "Personenaufzug" },
+          { "label": "Gebäude", "value": "Öffentliche Einrichtung" },
+          { "label": "Norm", "value": "EN 81-20/50" },
+          { "label": "Status", "value": "Abgeschlossen" }
+        ]
+      },
+      "dumbwaiter": {
+        "title": "Serviceaufzug (Dumbwaiter)",
+        "desc": "Kompakter Aufzug für Warentransport",
+        "fullDesc": "Installation eines kompakten Serviceaufzugs (Dumbwaiter) für den schnellen und sicheren Warentransport zwischen Etagen. Die Edelstahlkabine und das Bedienpanel mit Display machen die Nutzung einfach und hygienisch — ideal für Restaurants, Hotels und Geschäftsgebäude. Sehen Sie sich das Video im Betrieb an.",
+        "client": "Geschäftskunde",
+        "services": [
+          "Installation des Serviceaufzugs",
+          "Hygienische Edelstahlkabine",
+          "Bedienpanel mit Display",
+          "Prüfung und Übergabe"
+        ],
+        "specs": [
+          { "label": "Typ", "value": "Dumbwaiter / Serviceaufzug" },
+          { "label": "Nutzung", "value": "Warentransport" },
+          { "label": "Kabine", "value": "Edelstahl" },
+          { "label": "Status", "value": "Abgeschlossen" }
+        ]
+      }
     }
   },
   "gallery": {
@@ -249,9 +407,9 @@
     "categories": {
       "all": "Alle",
       "elevators": "Aufzüge",
+      "platforms": "Hebebühnen",
       "installations": "Installationen",
-      "team": "Team",
-      "beforeAfter": "Vorher & Nachher"
+      "videos": "Videos"
     }
   },
   "faq": {
@@ -276,11 +434,11 @@
       },
       {
         "q": "Arbeiten Sie außerhalb von Kosovo?",
-        "a": "Ja, wir haben Projekte in Albanien und Nordmazedonien. Kontaktieren Sie uns für internationale Projekte."
+        "a": "Unser Hauptfokus liegt auf Kosovo, wo wir eine vollständige Abdeckung bieten. Für Projekte in der Region kontaktieren Sie uns — wir prüfen die Möglichkeit im Einzelfall."
       },
       {
         "q": "Welche Aufzugsmarken verkaufen Sie?",
-        "a": "Wir arbeiten mit den renommiertesten europäischen Marken wie Thyssenkrupp, KONE, Schindler und Otis sowie Qualitätsmarken aus Italien und Deutschland."
+        "a": "Wir arbeiten mit zertifizierten europäischen und internationalen Herstellern, ausgewählt nach Qualität und Sicherheit. Alle Produkte sind CE-zertifiziert und erfüllen die Normen EN 81-20/50."
       },
       {
         "q": "Bieten Sie Notdienst an?",
@@ -327,7 +485,9 @@
       "error": "Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut.",
       "ratelimit": "Zu viele Anfragen. Bitte warten Sie 15 Minuten und versuchen Sie es erneut.",
       "validationError": "Bitte überprüfen Sie die folgenden Felder und versuchen Sie es erneut.",
-      "required": "* Pflichtfelder"
+      "required": "* Pflichtfelder",
+      "privacyNotice": "Mit dem Absenden dieses Formulars stimmen Sie zu, dass Ihre Daten zur Bearbeitung Ihrer Anfrage verarbeitet werden, gemäß unserer",
+      "privacyLink": "Datenschutzerklärung"
     },
     "emergency": {
       "title": "Notfall 24/7",
@@ -348,8 +508,74 @@
       "title": "Unsere Partner",
       "subtitle": "Zusammenarbeit mit den besten europäischen Marken"
     },
-    "text": "Green Up arbeitet mit den renommiertesten europäischen Aufzugsherstellern und -händlern zusammen. Unsere Partnerschaften ermöglichen es uns, die qualitativ hochwertigsten Produkte zu den wettbewerbsfähigsten Preisen anzubieten.",
+    "text": "Green Up arbeitet mit zertifizierten europäischen Aufzugsherstellern und -händlern zusammen. Unsere Partnerschaften ermöglichen es uns, hochwertige Produkte zu wettbewerbsfähigen Preisen anzubieten.",
     "logoPlaceholder": "Partnerlogo"
+  },
+  "privacy": {
+    "title": "Datenschutzerklärung",
+    "updated": "Zuletzt aktualisiert: 14. Juli 2026",
+    "intro": "Diese Datenschutzerklärung erläutert, wie Green Up (\"wir\") Ihre personenbezogenen Daten erhebt, verwendet und schützt, wenn Sie unsere Website besuchen oder uns kontaktieren. Wir verarbeiten Daten gemäß dem Gesetz Nr. 06/L-082 zum Schutz personenbezogener Daten der Republik Kosovo, das an die EU-Datenschutz-Grundverordnung (DSGVO) angeglichen ist.",
+    "sections": [
+      {
+        "h": "Verantwortlicher",
+        "body": [
+          "Green Up",
+          "Rr. Hyzri Talla pn, 12000 Fushë Kosovë, Republik Kosovo",
+          "E-Mail: info@greenup-ks.com · Tel: +383 44 207 541"
+        ]
+      },
+      {
+        "h": "Welche Daten wir erheben",
+        "body": [
+          "Kontaktformular: Ihr Name, Ihre E-Mail-Adresse, Telefonnummer (optional) und Ihre Nachricht. Diese Daten verwenden wir ausschließlich zur Beantwortung Ihrer Anfrage (Rechtsgrundlage: vorvertragliche Maßnahmen bzw. unser berechtigtes Interesse an der Beantwortung von Anfragen).",
+          "Technische Daten: Beim Besuch der Website verarbeitet unser Hosting-Anbieter (Vercel Inc., USA) automatisch Ihre IP-Adresse und Standard-Serverzugriffsdaten, die für Betrieb und Sicherheit der Website erforderlich sind.",
+          "Aggregierte Statistiken: Wir verwenden Vercel Analytics, einen cookielosen Analysedienst, der Sie nicht persönlich identifiziert und Ihre Aktivität nicht über andere Websites hinweg verfolgt."
+        ]
+      },
+      {
+        "h": "E-Mail-Versand",
+        "body": [
+          "Nachrichten aus dem Kontaktformular werden über den Dienst Resend (Plus Five Five, Inc., USA) versendet und an unsere E-Mail-Adresse zugestellt. Der Inhalt Ihrer Nachricht wird nur zu diesem Zweck verarbeitet."
+        ]
+      },
+      {
+        "h": "Google Maps",
+        "body": [
+          "Unsere Website enthält Google Maps (Google LLC, USA). Die Karte wird NICHT automatisch geladen — sie wird erst aktiviert, nachdem Sie auf die Schaltfläche \"Karte laden\" klicken. Erst dann werden Verbindungen zu Google-Servern hergestellt und ggf. Cookies von Google gesetzt. Ihre Wahl wird lokal in Ihrem Browser gespeichert."
+        ]
+      },
+      {
+        "h": "Virtueller Assistent (Chatbot)",
+        "body": [
+          "Unser virtueller Assistent läuft vollständig in Ihrem Browser mit vorbereiteten Antworten. Unterhaltungen werden nicht auf unseren Servern gespeichert und nicht an Dritte übermittelt."
+        ]
+      },
+      {
+        "h": "Cookies und lokale Speicherung",
+        "body": [
+          "Die Website verwendet nur technisch notwendige Cookies/lokale Speicherung: Ihre Spracheinstellung (NEXT_LOCALE) und Ihre Wahl zum Laden der Karten. Wir verwenden keine Werbe- oder Tracking-Cookies — daher zeigen wir keinen Cookie-Banner an."
+        ]
+      },
+      {
+        "h": "Speicherdauer",
+        "body": [
+          "Kontaktnachrichten bewahren wir nur so lange auf, wie es zur Bearbeitung Ihrer Anfrage und zur Erfüllung unserer gesetzlichen Pflichten erforderlich ist, danach löschen wir sie."
+        ]
+      },
+      {
+        "h": "Ihre Rechte",
+        "body": [
+          "Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit sowie Widerspruch gegen die Verarbeitung Ihrer personenbezogenen Daten. Für Anfragen schreiben Sie uns an info@greenup-ks.com.",
+          "Sie haben außerdem das Recht, eine Beschwerde bei der Agentur für Information und Datenschutz (AIP) der Republik Kosovo einzureichen."
+        ]
+      },
+      {
+        "h": "Änderungen dieser Erklärung",
+        "body": [
+          "Wir können diese Erklärung bei Bedarf aktualisieren. Die aktuelle Version wird stets auf dieser Seite veröffentlicht."
+        ]
+      }
+    ]
   },
   "chatbot": {
     "title": "Green Up Assistent",
