@@ -146,6 +146,48 @@ function FloorButton({
   );
 }
 
+function LangButton({
+  loc,
+  active,
+  onClick,
+  compact = false,
+}: {
+  loc: string;
+  active: boolean;
+  onClick: () => void;
+  compact?: boolean;
+}) {
+  return (
+    <button
+      onClick={onClick}
+      aria-pressed={active}
+      className="cursor-pointer transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold/60 rounded-full"
+      style={{
+        fontFamily: "'JetBrains Mono', monospace",
+        fontSize: compact ? 9 : 11,
+        fontWeight: 700,
+        letterSpacing: "0.16em",
+        color: active ? "#1a1200" : "#8fae88",
+        textShadow: active ? "none" : "0 1px 2px rgba(0,0,0,0.5)",
+        background: active ? BTN_ACTIVE : BTN_INACTIVE,
+        border: active
+          ? "1px solid rgba(255,200,80,0.38)"
+          : "1px solid rgba(255,255,255,0.08)",
+        boxShadow: active
+          ? "0 0 12px rgba(201,168,76,0.4), 0 2px 4px rgba(0,0,0,0.35), inset 0 1px 0 rgba(255,255,255,0.2)"
+          : "0 2px 5px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.06)",
+        borderRadius: 999,
+        padding: compact ? "4px 0" : "7px 14px",
+        width: compact ? 46 : undefined,
+        textAlign: "center",
+        lineHeight: 1,
+      }}
+    >
+      {loc.toUpperCase()}
+    </button>
+  );
+}
+
 export default function ElevatorPanel() {
   const t = useTranslations("nav");
   const locale = useLocale() as Locale;
@@ -347,31 +389,17 @@ export default function ElevatorPanel() {
               display: "flex",
               flexDirection: "column",
               alignItems: "center",
-              gap: 3,
+              gap: 4,
             }}
           >
             {locales.map((loc) => (
-              <button
+              <LangButton
                 key={loc}
+                loc={loc}
+                active={loc === locale}
                 onClick={() => switchLocale(loc)}
-                className="cursor-pointer transition-all duration-200"
-                style={{
-                  fontFamily: "'JetBrains Mono', monospace",
-                  fontSize: 8,
-                  fontWeight: 700,
-                  letterSpacing: "0.18em",
-                  color: loc === locale ? "#c9a84c" : "#3a4e35",
-                  textShadow:
-                    loc === locale
-                      ? "0 0 6px rgba(201,168,76,0.5)"
-                      : "none",
-                  background: "transparent",
-                  border: "none",
-                  padding: "2px 3px",
-                }}
-              >
-                {loc.toUpperCase()}
-              </button>
+                compact
+              />
             ))}
           </div>
 
@@ -564,29 +592,14 @@ export default function ElevatorPanel() {
 
             {/* Language + CTA */}
             <div className="flex items-center justify-between mt-4">
-              <div style={{ display: "flex", gap: 6 }}>
+              <div style={{ display: "flex", gap: 7 }}>
                 {locales.map((loc) => (
-                  <button
+                  <LangButton
                     key={loc}
+                    loc={loc}
+                    active={loc === locale}
                     onClick={() => switchLocale(loc)}
-                    className="cursor-pointer"
-                    style={{
-                      fontFamily: "'JetBrains Mono', monospace",
-                      fontSize: 11,
-                      fontWeight: 700,
-                      letterSpacing: "0.18em",
-                      color: loc === locale ? "#c9a84c" : "#3a4e35",
-                      textShadow:
-                        loc === locale
-                          ? "0 0 6px rgba(201,168,76,0.5)"
-                          : "none",
-                      background: "transparent",
-                      border: "none",
-                      padding: "4px 8px",
-                    }}
-                  >
-                    {loc.toUpperCase()}
-                  </button>
+                  />
                 ))}
               </div>
 
