@@ -1,8 +1,9 @@
 # 🤝 Green Up — Website Handoff Plan
 
-> Written 2026-07-14. The site is live and fully functional at
-> https://greenup-seven.vercel.app. This plan covers what happens the day the
-> client buys **greenup-ks.com** and how the project is handed over.
+> Written 2026-07-14. **UPDATE 2026-07-15: Phases 1–3 are DONE.** The site is
+> live at **https://greenup-ks.com** with working email in both directions.
+> Only Phase 4 (choosing the handoff model) remains — the client accepted the
+> 79 €/yr managed offer (Option A), so this plan is effectively complete.
 >
 > Companion doc: `DOMAIN-SETUP.md` (step-by-step commands and DNS records).
 
@@ -105,7 +106,19 @@ marketing starts.
 
 - [x] Site live, 3 languages, real media, privacy/GDPR pass, hardened API
 - [x] Contact form working end-to-end (sandbox inbox)
-- [ ] Phase 1: buy greenup-ks.com (human)
-- [ ] Phase 2: domain + Resend wiring (Claude, automated)
-- [ ] Phase 3: info@ forwarding (5-min signup + Claude)
-- [ ] Phase 4: pick handoff model A or B with the client
+- [x] Phase 1: buy greenup-ks.com (client bought it on **Porkbun**, 2026-07-14)
+- [x] Phase 2: domain + Resend wiring (done 2026-07-15 — see notes below)
+- [x] Phase 3: info@ forwarding (ImprovMX active; info@/sales@ → client Gmail)
+- [x] Phase 4: handoff model = **Option A (managed, 79 €/yr)** — client accepted
+
+## As-built notes (2026-07-15)
+
+| Piece | State |
+|---|---|
+| Domain | greenup-ks.com on client's **Porkbun**; nameservers → ns1/ns2.vercel-dns.com (switched via Porkbun API) |
+| Site | https://greenup-ks.com (apex) + www → apex 308 redirect; SSL auto |
+| DNS | Managed in Vercel (`vercel dns ls greenup-ks.com`): ImprovMX MX ×2 + SPF on apex, Resend DKIM/SPF/MX on `send` subdomain |
+| Outbound email | **Dedicated Green Up Resend account** (old key belongs to Hyperyzer). Domain verified; form sends as `Green Up <info@greenup-ks.com>` → `CONTACT_TO=bujarmorina@gmail.com` |
+| Inbound email | ImprovMX free: `info@`/`sales@` → bujarmorina@gmail.com, catch-all `*` → ilir.vranja@gmail.com |
+| SEO | `NEXT_PUBLIC_SITE_URL=https://greenup-ks.com` — sitemap/canonical/hreflang all on the new domain |
+| Credentials | Porkbun + ImprovMX API keys in local gitignored `.env.porkbun.local`; Resend key in `.env.local` + Vercel env |
