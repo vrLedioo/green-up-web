@@ -49,8 +49,8 @@
         "description": "Lifting platforms and special elevators for people with disabilities."
       },
       "escalators": {
-        "title": "Escalators",
-        "description": "Installation and maintenance of escalators for shopping centers, hotels and public buildings."
+        "title": "Stairlift",
+        "description": "Installation and maintenance of stairlifts for private homes and public buildings."
       }
     }
   },
@@ -233,12 +233,13 @@
         "Fast installation service"
       ],
       "escalators": [
-        "Commercial escalators",
-        "Moving walkways",
-        "Width 600–1000mm",
-        "Speed 0.5 m/s standard",
-        "Integrated LED lighting",
-        "Periodic maintenance"
+        "Compact and aesthetic design",
+        "Stable drive with rack on lower tube",
+        "Upper guide tube remains clean and serves as a handrail",
+        "Surface coating possible in any RAL color",
+        "Luxury version: Track and platform covers in stainless steel",
+        "Diagnostic display for status indication",
+        "Easy and quick to assemble"
       ]
     },
     "cta": {

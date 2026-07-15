@@ -49,8 +49,8 @@
         "description": "Platforma ngritëse dhe ashensorë të posaçëm për persona me aftësi të kufizuara."
       },
       "escalators": {
-        "title": "Shkallë Lëvizëse (Eskalatorë)",
-        "description": "Instalim dhe mirëmbajtje e eskalatorëve për qendra tregtare, hotele dhe ndërtesa publike."
+        "title": "Stairlift (Lift i Shkallëve)",
+        "description": "Instalim dhe mirëmbajtje e liftave të shkallëve për shtëpi private dhe ndërtesa publike."
       }
     }
   },
@@ -233,12 +233,13 @@
         "Shërbim i shpejtë instalimi"
       ],
       "escalators": [
-        "Eskalatorë komercialë",
-        "Korridor lëvizës (moving walkways)",
-        "Gjerësi 600–1000mm",
-        "Shpejtësi 0.5 m/s standard",
-        "Dritat LED integrate",
-        "Mirëmbajtje periodike"
+        "Dizajn kompakt dhe estetik",
+        "Lëvizje e qëndrueshme me kremalierë në tubin e poshtëm",
+        "Tubi i sipërm udhëzues mbetet i pastër dhe shërben si parmak",
+        "Veshje e sipërfaqes e mundshme në çdo ngjyrë RAL",
+        "Versioni luksoz: mbulesa shine dhe platforme në inoks",
+        "Ekran diagnostik për tregimin e statusit",
+        "Montim i lehtë dhe i shpejtë"
       ]
     },
     "cta": {

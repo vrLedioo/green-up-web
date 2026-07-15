@@ -49,8 +49,8 @@
         "description": "Hebeplatformen und Spezialaufzüge für Menschen mit Behinderungen."
       },
       "escalators": {
-        "title": "Fahrtreppen",
-        "description": "Installation und Wartung von Fahrtreppen für Einkaufszentren, Hotels und öffentliche Gebäude."
+        "title": "Treppenlift (Stairlift)",
+        "description": "Installation und Wartung von Treppenliften für Privathäuser und öffentliche Gebäude."
       }
     }
   },
@@ -233,12 +233,13 @@
         "Schneller Installationsservice"
       ],
       "escalators": [
-        "Kommerzielle Fahrtreppen",
-        "Fahrsteige (Moving Walkways)",
-        "Breite 600–1000mm",
-        "Geschwindigkeit 0,5 m/s Standard",
-        "Integrierte LED-Beleuchtung",
-        "Regelmäßige Wartung"
+        "Kompaktes und ästhetisches Design",
+        "Stabiler Antrieb mit Zahnstange am unteren Rohr",
+        "Oberes Führungsrohr bleibt sauber und dient als Handlauf",
+        "Oberflächenbeschichtung in jeder RAL-Farbe möglich",
+        "Luxusversion: Schienen- und Plattformabdeckungen aus Edelstahl",
+        "Diagnosedisplay zur Statusanzeige",
+        "Einfache und schnelle Montage"
       ]
     },
     "cta": {
